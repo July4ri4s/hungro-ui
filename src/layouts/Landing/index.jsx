@@ -1,12 +1,12 @@
-import Menu from "../../components/menu"
+import Menu from "../../components/menu";
+import Hero from "./components/Hero";
 
-const Landing =() =>{
-    return (
-        <div>
-             <Menu/>
-            <h1>Hola</h1>
-            <button className="bg-blue-500 text-white">click aca</button>
-        </div>
-    )
-}
+const Landing = () => {
+  return (
+    <>
+      <Menu />
+      <Hero />
+    </>
+  );
+};
 export default Landing;
