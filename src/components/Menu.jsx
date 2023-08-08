@@ -12,7 +12,7 @@ const Menu = () => {
   };
 
   return (
-    <nav className="bg-white fixed w-full top-0 left-0 border-b border-neutral-100">
+    <nav className="bg-white fixed w-full top-0 left-0 border-b border-neutral-100 z-50">
       <div className="flex flex-wrap items-center justify-between max-w-screen-xl  mx-auto p-4">
         {/*aca va la imagen*/}
         <a
