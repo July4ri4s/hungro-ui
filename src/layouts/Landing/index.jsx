@@ -10,7 +10,9 @@ const Landing = () => {
     <>
       <Menu />
       <Hero />
-      <Card imageUrl={imageUrl} />
+      <div className="absolute md:top-[21rem] w-full">
+        <Card imageUrl={imageUrl} />
+      </div>{" "}
     </>
   );
 };

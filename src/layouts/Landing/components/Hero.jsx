@@ -1,5 +1,3 @@
-import Card from "../../../components/Card";
-
 const Hero = () => {
   const imageUrl =
     "https://images.pexels.com/photos/4874451/pexels-photo-4874451.jpeg";
