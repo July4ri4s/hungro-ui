@@ -5,7 +5,7 @@ import Landing from "./layouts/landing";
 import Nosotros from "./layouts/nosotros";
 import Donacion from "./layouts/donacion";
 import Perfil from "./layouts/Perfil";
-import Login from "./layouts/Autenticacion";
+import SignIn from "./layouts/Autenticacion/SignIn";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/donacion" element={<Donacion />} />
           <Route path="/perfil" element={<Perfil />} />
-          <Route path="/iniciosesion" element={<Login />} />
+          <Route path="/iniciosesion" element={<SignIn />} />
         </Routes>
       </Router>
     </>
