@@ -91,7 +91,23 @@ const Menu = () => {
                 href="/cuenta"
                 className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 md:dark:text-gray-500"
               >
-                Cuenta
+                Donar
+              </a>
+            </li>
+            <li>
+              <a
+                href="/cuenta"
+                className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 md:dark:text-gray-500"
+              >
+                Contacto
+              </a>
+            </li>
+            <li>
+              <a
+                href="/cuenta"
+                className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 md:dark:text-gray-500"
+              >
+                Iniciar Sesión
               </a>
             </li>
           </ul>
