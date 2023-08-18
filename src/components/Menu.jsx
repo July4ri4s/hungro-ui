@@ -74,7 +74,7 @@ const Menu = () => {
                 href="/"
                 className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 md:dark:text-gray-500"
               >
-                Incio
+                Inicio
               </a>
             </li>
             <li>
