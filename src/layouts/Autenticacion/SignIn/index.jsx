@@ -4,9 +4,9 @@ import Foto from "./components/foto";
 
 const SignIn = () => {
   return (
-    <div class="flex items-center justify-center min-h-screen">
+    <div className="flex items-center justify-center min-h-screen">
       <Menu />
-      <div class="flex items-center justify-center w-full">
+      <div className="flex items-center justify-center w-full">
         <Form />
         <Foto />
       </div>
