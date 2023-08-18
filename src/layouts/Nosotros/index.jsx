@@ -1,3 +1,4 @@
+import Footer from "../../components/Footer";
 import Menu from "../../components/menu";
 import AboutHero from "./components/AboutHero";
 
@@ -6,6 +7,7 @@ const Nosotros = () => {
     <div>
       <Menu />
       <AboutHero />
+      <Footer />
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import imagen from "../assets/react.svg";
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -75,7 +74,7 @@ const Menu = () => {
                 href="/"
                 className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 md:dark:text-gray-500"
               >
-                Incio
+                Inicio
               </a>
             </li>
             <li>
@@ -88,10 +87,26 @@ const Menu = () => {
             </li>
             <li>
               <a
-                href="/cuenta"
+                href="/donar"
                 className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 md:dark:text-gray-500"
               >
-                Cuenta
+                Donar
+              </a>
+            </li>
+            <li>
+              <a
+                href="/contacto"
+                className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 md:dark:text-gray-500"
+              >
+                Contacto
+              </a>
+            </li>
+            <li>
+              <a
+                href="/inicio-sesion"
+                className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 md:dark:text-gray-500"
+              >
+                Iniciar Sesión
               </a>
             </li>
           </ul>
