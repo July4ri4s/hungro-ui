@@ -1,10 +1,11 @@
 import Menu from "../../components/menu";
+import AboutHero from "./components/AboutHero";
 
 const Nosotros = () => {
   return (
     <div>
       <Menu />
-      <h1>Nosotros</h1>
+      <AboutHero />
     </div>
   );
 };

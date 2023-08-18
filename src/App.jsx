@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Landing from "./layouts/landing";
+import Landing from "./layouts/landing";Nosotros
 import Nosotros from "./layouts/nosotros";
 import Donacion from "./layouts/donacion";
 import Perfil from "./layouts/Perfil";
