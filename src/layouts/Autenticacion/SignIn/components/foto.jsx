@@ -1,21 +1,16 @@
 import React from "react";
-import donacion from "../../../../../../img/donacion.jpg"
+// import donacion from "../../../../../../img/donacion.jpg";
 
 const Foto = () => {
-    return (
-      
-        <div className="flex min-h-full flex-col  px-1 py-2 mr-800  lg:px-8 mt-20"  > 
+  return (
+    <div className="relative flex px-52 py-64  rounded-md  bg-slate-500 ml-9">
+      <img
+        src="https://images.pexels.com/photos/12420469/pexels-photo-12420469.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        alt="Donacion"
+        className="absolute inset-0  rounded-md object-cover w-full h-full hidden md:block"
+      />
+    </div>
+  );
+};
 
-        <div className="invisible sm:mx-right sm:w-full sm:max-w-sm flex md:visible ">
-            <img src={donacion} alt="Donacion" className="mx-auto h-200 w-400 w-auto"  />
-            {/*<div style={{ backgroundImage: `url(${donacion})` }}>*/}
-            
-        </div>
-            
-          </div>
-      
-    );
-  };
-  
-  export default Foto;
-  
+export default Foto;
