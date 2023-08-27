@@ -5,9 +5,11 @@ import corona from "../../../assets/corona2.png";
 
 const Fundation = () => {
   return (
-    <div className="flex flex-col text-black items-center md:justify-between bg-[#63c11c] p-28 m-20 rounded-xl md:h-[40rem]">
-      <div className="text-center mb-4 text-4xl font-extrabold tracking-tight">
-        <h1>Nuestros Valores</h1>
+    <div className="flex flex-col w-[90%]  pb-6  m-auto mt-24 text-black items-center md:justify-between bg-[#406036db] p-18 md:p-28 md:m-20 rounded-xl md:h-[40rem]">
+      <div className="text-center mb-4 text-4xl  tracking-tight mt-6">
+        <h2 className="max-w-2xl mx-auto text-4xl font-semibold leading-tight text-center font-display text-slate-900 sm:text-5xl sm:leading-tight">
+          Nuestros Valores
+        </h2>
       </div>
 
       <div className="flex flex-col md:flex-row justify-around text-center  w-full mt-10 ">
@@ -16,8 +18,7 @@ const Fundation = () => {
 
           <h2 className="my-4 font-semibold text-2xl">Altruismo:</h2>
           <p className=" md:w-44 ">
-            Tendencia a procurar el bien de las personas de manera
-            desinteresada, incluso en contra del interés propio.
+            Tendencia a procurar el bien de las personas de manera interesada.
           </p>
         </div>
 

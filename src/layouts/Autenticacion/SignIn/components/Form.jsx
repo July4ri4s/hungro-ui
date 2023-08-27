@@ -2,18 +2,17 @@ import React from "react";
 
 const Form = () => {
   return (
-    <div className="w-[30%] w- flex flex-col items-center">
+    <div className="md:w-[30%] w-[100%] flex flex-col items-center">
       {/*  justify-center */}
 
-      <div className="sm:mx-right sm:w-full sm:max-w-sm">
-        {/* <img className="mx-auto h-10 w-auto" src="" alt="Hungro" /> */}
+      <div className="w-[80%]">
         <h2 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-[#406036]">
           Iniciar sesión
         </h2>
       </div>
 
-      <div className="mt-10 sm:mx-right sm:w-full sm:max-w-sm ">
-        <form className="space-y-6" action="#" method="POST">
+      <div className="mt-10 w-[80%] md:w-full ">
+        <form className="space-y-6 w-full" action="#" method="POST">
           <div>
             <div className="flex items-center justify-between ">
               <label
@@ -44,14 +43,6 @@ const Form = () => {
               >
                 Contraseña
               </label>
-              <div className="text-sm">
-                <a
-                  href="#"
-                  className="font-semibold text-[#406036] hover:ring-green-500 "
-                >
-                  ¿Olvidaste la contraseña?
-                </a>
-              </div>
             </div>
             <div className="mt-2">
               <input
@@ -61,6 +52,14 @@ const Form = () => {
                 placeholder="•••••••••"
                 required
               />
+            </div>
+            <div className="text-sm mt-2">
+              <a
+                href="#"
+                className="font-semibold text-[#406036] hover:ring-green-500 "
+              >
+                ¿Olvidaste la contraseña?
+              </a>
             </div>
           </div>
 

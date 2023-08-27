@@ -1,5 +1,8 @@
 import mision from "../../../assets/Mision.png";
 import vision from "../../../assets/Vision.png";
+import july from "../../../assets/july.jpeg";
+import bran from "../../../assets/bran.jpeg";
+import ange from "../../../assets/ange.jpeg";
 const AboutHero = () => {
   return (
     <section className="bg-white mt-24 ">
@@ -32,8 +35,7 @@ const AboutHero = () => {
           </div>
         </div>
       </section>
-
-      <section className="flex  items-center md:justify-between bg-[#406036] p-28 mx-20 my-20 rounded-xl md:h-[40rem] ">
+      <section className="flex flex-col w-[90%]  pb-6  m-auto mt-24 text-black items-center md:justify-between bg-[#406036db] p-18 md:p-28 md:m-20 rounded-xl md:h-[40rem]">
         <div className="flex flex-col justify-center  items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6 ">
           <div className="mt-4 mb-9 md:mt-0 flex flex-col justify-center  items-center md:justify-start md:items-start">
             <h2 className=" mb-8 text-4xl  text-start font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
@@ -71,7 +73,7 @@ const AboutHero = () => {
             <div className="space-y-4 text-center">
               <img
                 className="w-64 h-64 mx-auto object-cover rounded-xl md:w-40 md:h-40 lg:w-64 lg:h-64"
-                src="https://tailus.io/sources/blocks/classic/preview/images/woman1.jpg"
+                src={july}
                 alt="woman"
                 loading="lazy"
                 width="640"
@@ -82,24 +84,11 @@ const AboutHero = () => {
                 <span className="block text-sm text-gray-500">Estudiante</span>
               </div>
             </div>
-            <div className="space-y-4 text-center">
-              <img
-                className="w-64 h-64 mx-auto object-cover rounded-xl md:w-48 md:h-64 lg:w-64 lg:h-80"
-                src="https://tailus.io/sources/blocks/classic/preview/images/man.jpg"
-                alt="man"
-                loading="lazy"
-                width="1000"
-                height="667"
-              />
-              <div>
-                <h4 className="text-2xl">Brandon Valverde Quirós</h4>
-                <span className="block text-sm text-gray-500">Estudiante</span>
-              </div>
-            </div>
+
             <div className="space-y-4 text-center">
               <img
                 className="w-64 h-64 mx-auto object-cover rounded-xl md:w-40 md:h-40 lg:w-64 lg:h-64"
-                src="https://tailus.io/sources/blocks/classic/preview/images/woman.jpg"
+                src={ange}
                 alt="woman"
                 loading="lazy"
                 width="1000"
@@ -107,6 +96,20 @@ const AboutHero = () => {
               />
               <div>
                 <h4 className="text-2xl">Angélica Marín Vargas</h4>
+                <span className="block text-sm text-gray-500">Estudiante</span>
+              </div>
+            </div>
+            <div className="space-y-4 text-center">
+              <img
+                className="w-64 h-64 mx-auto object-cover rounded-xl md:w-40 md:h-40 lg:w-64 lg:h-64"
+                src={bran}
+                alt="woman"
+                loading="lazy"
+                width="1000"
+                height="667"
+              />
+              <div>
+                <h4 className="text-2xl">Brandon Valverde Quirós</h4>
                 <span className="block text-sm text-gray-500">Estudiante</span>
               </div>
             </div>

@@ -2,8 +2,8 @@ import Card from "../../components/Card";
 import Footer from "../../components/Footer";
 import SliderCard from "../../components/SliderCard";
 import Menu from "../../components/menu";
-import Fundation from "./components/Fundation";
 import Hero from "./components/Hero";
+import Values from "./components/Values";
 
 const Landing = () => {
   const imageUrl =
@@ -14,7 +14,7 @@ const Landing = () => {
       <Menu />
       <Hero />
       <Card imageUrl={imageUrl} />
-      <Fundation />
+      <Values />
       <SliderCard />
       <Footer />
     </div>
