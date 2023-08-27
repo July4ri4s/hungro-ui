@@ -74,7 +74,7 @@ const Menu = () => {
                 href="/"
                 className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 md:dark:text-gray-500"
               >
-                Incio
+                Inicio
               </a>
             </li>
             <li>
@@ -87,7 +87,7 @@ const Menu = () => {
             </li>
             <li>
               <a
-                href="/cuenta"
+                href="/donar"
                 className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 md:dark:text-gray-500"
               >
                 Donar
@@ -95,7 +95,7 @@ const Menu = () => {
             </li>
             <li>
               <a
-                href="/cuenta"
+                href="/contacto"
                 className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 md:dark:text-gray-500"
               >
                 Contacto
@@ -103,7 +103,7 @@ const Menu = () => {
             </li>
             <li>
               <a
-                href="/cuenta"
+                href="/inicio-sesion"
                 className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 md:dark:text-gray-500"
               >
                 Iniciar Sesión

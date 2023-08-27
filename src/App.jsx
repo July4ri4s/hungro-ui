@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Landing from "./layouts/landing";
+Nosotros;
 import Nosotros from "./layouts/nosotros";
 import Donacion from "./layouts/donacion";
 import Perfil from "./layouts/Perfil";
@@ -17,8 +18,8 @@ function App() {
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/donacion" element={<Donacion />} />
           <Route path="/perfil" element={<Perfil />} />
-          <Route path="/iniciosesion" element={<SignIn />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/inicio-sesion" element={<SignIn />} />
         </Routes>
       </Router>
     </>
