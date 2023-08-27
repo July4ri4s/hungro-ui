@@ -6,6 +6,7 @@ import Nosotros from "./layouts/nosotros";
 import Donacion from "./layouts/donacion";
 import Perfil from "./layouts/Perfil";
 import SignIn from "./layouts/Autenticacion/SignIn";
+import Contacto from "./layouts/Contacto";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/donacion" element={<Donacion />} />
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/iniciosesion" element={<SignIn />} />
+          <Route path="/contacto" element={<Contacto />} />
         </Routes>
       </Router>
     </>

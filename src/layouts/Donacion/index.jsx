@@ -1,10 +1,13 @@
+import Footer from "../../components/Footer";
 import Menu from "../../components/menu";
+import Donation from "./donation";
 
 const Donacion = () => {
   return (
     <div>
       <Menu />
-      <h1>Donacion</h1>
+      <Donation />
+      <Footer />
     </div>
   );
 };

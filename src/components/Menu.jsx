@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import imagen from "../assets/react.svg";
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);

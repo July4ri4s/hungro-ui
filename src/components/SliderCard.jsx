@@ -35,7 +35,6 @@ const data = [
   },
 ];
 
-
 const SliderCard = () => {
   return (
     <section className="py-16 overflow-hidden bg-white sm:pt-24 lg:pt-28">
