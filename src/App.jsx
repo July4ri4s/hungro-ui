@@ -8,6 +8,7 @@ import Donacion from "./layouts/donacion";
 import Perfil from "./layouts/Perfil";
 import SignIn from "./layouts/Autenticacion/SignIn";
 import Contacto from "./layouts/Contacto";
+import Carrito from "./layouts/carrito";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/inicio-sesion" element={<SignIn />} />
+          <Route path="/carrito" element={<Carrito />} />
         </Routes>
       </Router>
     </>

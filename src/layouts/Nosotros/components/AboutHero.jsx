@@ -1,4 +1,4 @@
-import mision from "../../../assets/Mision.png";
+import mision from "../../../assets/cohetito.png";
 import vision from "../../../assets/Vision.png";
 import july from "../../../assets/july.jpeg";
 import bran from "../../../assets/bran.jpeg";

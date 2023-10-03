@@ -37,7 +37,7 @@ const data = [
 
 const SliderCard = () => {
   return (
-    <section className="py-16 overflow-hidden bg-white sm:pt-24 lg:pt-28">
+    <section className="py-16  bg-white sm:pt-24 lg:pt-28">
       {/* Container */}
       <div className="max-w-screen-xl px-5 mx-auto sm:px-6 lg:px-8">
         <h2 className="max-w-2xl mx-auto text-4xl font-semibold leading-tight text-center font-display text-slate-900 sm:text-5xl sm:leading-tight">

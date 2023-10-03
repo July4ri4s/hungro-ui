@@ -29,6 +29,7 @@ const Menu = () => {
         <div className="flex md:order-2">
           <button
             type="button"
+            href="/"
             className="bg-[#406036]	hover:bg-[#587E4C] rounded-lg text-sm mr-3 md:mr-0 font-medium px-4 py-2 text-center text-white hove"
           >
             Registrarse
@@ -87,7 +88,7 @@ const Menu = () => {
             </li>
             <li>
               <a
-                href="/donar"
+                href="/donacion"
                 className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 md:dark:text-gray-500"
               >
                 Donar
