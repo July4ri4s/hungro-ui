@@ -9,6 +9,9 @@ import Perfil from "./layouts/Perfil";
 import SignIn from "./layouts/Autenticacion/SignIn";
 import Contacto from "./layouts/Contacto";
 import Carrito from "./layouts/carrito";
+import Dashboard from "./layouts/Dashboard/Dashboard";
+import Products from "./layouts/Dashboard/layouts/products/Products";
+import Users from "./layouts/Dashboard/layouts/users/Users";
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/inicio-sesion" element={<SignIn />} />
           <Route path="/carrito" element={<Carrito />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/users" element={<Users />} />
         </Routes>
       </Router>
     </>
