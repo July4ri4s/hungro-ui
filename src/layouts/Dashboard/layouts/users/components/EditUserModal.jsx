@@ -1,21 +1,19 @@
 import React from "react";
 
-const EditUserModal = () => {
+const EditUserModal = ({ close }) => {
   return (
     <>
-      <div className="relative left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full">
+      <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto  ">
         <div className="relative w-full h-full max-w-2xl px-4 md:h-auto">
           {/* <!-- Modal content --> */}
-          <div className="relative bg-white rounded-lg shadow dark:bg-gray-800">
+          <div className="relative bg-white rounded-lg shadow-2xl">
             {/* <!-- Modal header --> */}
-            <div className="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-700">
-              <h3 className="text-xl font-semibold dark:text-white">
-                Edit user
-              </h3>
+            <div className="flex items-start justify-between p-5 border-b rounded-t">
+              <h3 className="text-xl font-semibold">Editar usuario</h3>
               <button
                 type="button"
-                className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-700 dark:hover:text-white"
-                data-modal-toggle="edit-user-modal"
+                className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+                onClick={close}
               >
                 <svg
                   className="w-5 h-5"
@@ -38,7 +36,7 @@ const EditUserModal = () => {
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       htmlFor="first-name"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900"
                     >
                       First Name
                     </label>
@@ -47,7 +45,7 @@ const EditUserModal = () => {
                       name="first-name"
                       value="Bonnie"
                       id="first-name"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                       placeholder="Bonnie"
                       onChange={() => ""}
                       required
@@ -56,7 +54,7 @@ const EditUserModal = () => {
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       htmlFor="last-name"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900"
                     >
                       Last Name
                     </label>
@@ -65,7 +63,7 @@ const EditUserModal = () => {
                       name="last-name"
                       value="Green"
                       id="last-name"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                       placeholder="Green"
                       onChange={() => ""}
                       required
@@ -74,16 +72,16 @@ const EditUserModal = () => {
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       htmlFor="email"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900"
                     >
                       Email
                     </label>
                     <input
                       type="email"
                       name="email"
-                      value="bonnie@flowbite.com"
+                      value="bonnie@Hungro.com"
                       id="email"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                       placeholder="example@company.com"
                       onChange={() => ""}
                       required
@@ -92,7 +90,7 @@ const EditUserModal = () => {
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       htmlFor="position"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900"
                     >
                       Position
                     </label>
@@ -101,7 +99,7 @@ const EditUserModal = () => {
                       name="position"
                       value="React Developer"
                       id="position"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                       placeholder="e.g. React developer"
                       onChange={() => ""}
                       required
@@ -110,7 +108,7 @@ const EditUserModal = () => {
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       htmlFor="current-password"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900"
                     >
                       Current Password
                     </label>
@@ -119,7 +117,7 @@ const EditUserModal = () => {
                       name="current-password"
                       value="••••••••"
                       id="current-password"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                       placeholder="••••••••"
                       onChange={() => ""}
                       required
@@ -128,7 +126,7 @@ const EditUserModal = () => {
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       htmlFor="new-password"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900"
                     >
                       New Password
                     </label>
@@ -137,7 +135,7 @@ const EditUserModal = () => {
                       name="new-password"
                       value="••••••••"
                       id="new-password"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                       placeholder="••••••••"
                       onChange={() => ""}
                       required
@@ -146,14 +144,14 @@ const EditUserModal = () => {
                   <div className="col-span-6">
                     <label
                       htmlFor="biography"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900"
                     >
                       Biography
                     </label>
                     <textarea
                       id="biography"
                       rows="4"
-                      className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
                       placeholder="👨‍💻Full-stack web developer. Open-source contributor."
                       value="Hola"
                       onChange={() => ""}

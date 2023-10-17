@@ -3,11 +3,8 @@ import React, { useState } from "react";
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log("cerrado", isOpen);
-
   const openMenu = () => {
     setIsOpen(!isOpen);
-    console.log("abierto", isOpen);
   };
 
   return (
@@ -20,26 +17,26 @@ const Menu = () => {
         flex items-center "
         >
           {/*  <img src={imagen} className="h-8 mr-4" alt="" /> */}
-          <span className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-2xl lg:text-3xl dark:text-[#406036]">
+          <span className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-2xl lg:text-3xl ">
             Hungro
           </span>
         </a>
 
         {/*aca va el boton*/}
         <div className="flex md:order-2">
-          <button
+          <a
             type="button"
-            href="/"
+            href="/registrarse"
             className="bg-[#406036]	hover:bg-[#587E4C] rounded-lg text-sm mr-3 md:mr-0 font-medium px-4 py-2 text-center text-white hove"
           >
             Registrarse
-          </button>
+          </a>
 
           {/*boton del menu en celulares y tablets*/}
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-[#406036] focus:outline-none focus:ring-2 focus:ring-white dark:text-gray-400 dark:hover:bg-[#406036] dark:focus:ring-[#406036]"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-[#406036] focus:outline-none focus:ring-2 focus:ring-white   "
             aria-controls="navbar-sticky"
             aria-expanded="false"
             onClick={openMenu}
@@ -73,7 +70,7 @@ const Menu = () => {
             <li>
               <a
                 href="/"
-                className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 md:dark:text-gray-500"
+                className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 "
               >
                 Inicio
               </a>
@@ -81,7 +78,7 @@ const Menu = () => {
             <li>
               <a
                 href="/nosotros"
-                className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 md:dark:text-gray-500"
+                className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 "
               >
                 Nosotros
               </a>
@@ -89,7 +86,7 @@ const Menu = () => {
             <li>
               <a
                 href="/donacion"
-                className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 md:dark:text-gray-500"
+                className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 "
               >
                 Donar
               </a>
@@ -97,7 +94,7 @@ const Menu = () => {
             <li>
               <a
                 href="/contacto"
-                className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 md:dark:text-gray-500"
+                className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 "
               >
                 Contacto
               </a>
@@ -105,7 +102,7 @@ const Menu = () => {
             <li>
               <a
                 href="/inicio-sesion"
-                className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 md:dark:text-gray-500"
+                className="block py-2 pl-3 pr-4 text-white bg-[#86A97A] rounded md:bg-transparent md:text-gray-500 md:p-0 "
               >
                 Iniciar Sesión
               </a>

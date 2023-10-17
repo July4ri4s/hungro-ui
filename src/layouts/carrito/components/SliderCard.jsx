@@ -114,7 +114,7 @@ const SliderCard = () => {
 
       <div className="max-w-screen-xl px-5 mx-auto sm:px-6 lg:px-8 top-20">
         <button
-          className="inline-flex justify-center m-2 items-center py-2 px-5 text-base font-medium text-center text-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:hover:bg-[#587E4C] bg-[#406036]"
+          className="inline-flex justify-center m-2 items-center py-2 px-5 text-base font-medium text-center text-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100   bg-[#406036]"
           onClick={() => {
             setItem(data);
             setSelected("todos");
@@ -125,7 +125,7 @@ const SliderCard = () => {
         {menuItems.map((Val, id) => {
           return (
             <button
-              className="inline-flex justify-center m-2 items-center py-2 px-5 text-base font-medium text-center text-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:hover:bg-[#587E4C] bg-[#406036]"
+              className="inline-flex justify-center m-2 items-center py-2 px-5 text-base font-medium text-center text-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100   bg-[#406036]"
               key={id}
               onClick={() => filterItem(Val)}
             >
@@ -161,7 +161,7 @@ const SliderCard = () => {
 
               <a
                 href="#"
-                className="flex m-2  justify-center items-center py-2 px-8 text-base font-medium text-center text-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:hover:bg-[#587E4C] bg-[#406036]"
+                className="flex m-2  justify-center items-center py-2 px-8 text-base font-medium text-center text-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100   bg-[#406036]"
               >
                 Agregar a la canasta
               </a>

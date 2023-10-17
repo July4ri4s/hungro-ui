@@ -91,12 +91,12 @@
       }
     </style>
     <linearGradient id="linear-gradient" x1="632.16" y1="126.03" x2="699.07" y2="195.21" gradientTransform="translate(-44.95 326.19) rotate(-14.79)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#f26b72"/>
-      <stop offset="1" stop-color="#e23737"/>
+      <stop offset="0" stopColor="#f26b72"/>
+      <stop offset="1" stopColor="#e23737"/>
     </linearGradient>
     <linearGradient id="linear-gradient-2" x1="78.35" y1="242.93" x2="114.22" y2="280.03" gradientTransform="translate(-58.34 442.29) rotate(-24.92)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#eba7aa"/>
-      <stop offset="1" stop-color="#db7070"/>
+      <stop offset="0" stopColor="#eba7aa"/>
+      <stop offset="1" stopColor="#db7070"/>
     </linearGradient>
     <linearGradient id="linear-gradient-3" x1="83.31" y1="309.23" x2="142.7" y2="370.64" gradientTransform="translate(93.83 -33) rotate(-11.96)" xlink:href="#linear-gradient-2"/>
     <linearGradient id="linear-gradient-4" x1="1388.2" y1="570.51" x2="1424.07" y2="607.6" gradientTransform="translate(140.81 -652.45) rotate(8.62)" xlink:href="#linear-gradient-2"/>

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import NavBar from "../../components/NavBar";
 import SideBar from "../../components/SideBar";
+import NavBar from "../../components/NavBar";
 import Header from "./components/Header";
-import UsersTable from "./components/UsersTable";
-import Pagination from "./components/Pagination";
-import EditUserModal from "./components/EditUserModal";
+import AddProducModal from "./components/AddProducModal";
+import DonationsTable from "./components/DonationsTable";
 
-const Users = () => {
+const DonorDonations = () => {
   const [showModal, setShowModal] = useState(false);
+  console.log(showModal);
 
   return (
     <>
@@ -19,22 +19,21 @@ const Users = () => {
         <SideBar />
         <div
           id="main-content"
-          className="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64"
+          className="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 "
         >
           <main>
             <div className="px-4 pt-6">
-              <Header />
-              <UsersTable setShowModal={setShowModal} />
+              <Header setShowModal={setShowModal} />
+
+              <DonationsTable />
 
               {showModal ? (
-                <EditUserModal
+                <AddProducModal
                   close={() => {
                     setShowModal(false);
                   }}
                 />
               ) : null}
-
-              <Pagination />
             </div>
           </main>
 
@@ -45,4 +44,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default DonorDonations;

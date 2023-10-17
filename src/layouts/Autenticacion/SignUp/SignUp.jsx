@@ -1,8 +1,8 @@
-import Menu from "../../../components/menu";
+import React from "react";
+import Menu from "../../../components/Menu";
 import Form from "./components/Form";
-import Foto from "./components/foto";
-
-const SignIn = () => {
+import Foto from "./components/Foto";
+const SignUp = () => {
   return (
     <div className="flex items-center justify-center min-h-screen">
       <Menu />
@@ -13,4 +13,5 @@ const SignIn = () => {
     </div>
   );
 };
-export default SignIn;
+
+export default SignUp;

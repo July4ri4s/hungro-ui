@@ -3,7 +3,7 @@ import React from "react";
 const NavBar = () => {
   return (
     <>
-      <nav className="fixed z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+      <nav className="fixed z-30 w-full bg-white border-b border-gray-200  ">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start">
@@ -11,7 +11,7 @@ const NavBar = () => {
                 id="toggleSidebarMobile"
                 aria-expanded="true"
                 aria-controls="sidebar"
-                className="p-2 text-gray-600 rounded cursor-pointer lg:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                className="p-2 text-gray-600 rounded cursor-pointer lg:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100  focus:ring-2 focus:ring-gray-100    "
               >
                 <svg
                   id="toggleSidebarMobileHamburger"
@@ -40,14 +40,14 @@ const NavBar = () => {
                   ></path>
                 </svg>
               </button>
-              <a href="" className="flex ml-2 md:mr-24">
-                <img
+              <a href="/" className="flex ml-2 md:mr-24">
+                {/* <img
                   src="/images/logo.svg"
                   className="h-8 mr-3"
-                  alt="FlowBite Logo"
-                />
-                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
-                  Flowbite
+                  alt="Hungro Logo"
+                /> */}
+                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap ">
+                  Hungro
                 </span>
               </a>
               <form
@@ -56,12 +56,12 @@ const NavBar = () => {
                 className="hidden lg:block lg:pl-3.5"
               >
                 <label htmlFor="topbar-search" className="sr-only">
-                  Search
+                  Buscar
                 </label>
                 <div className="relative mt-1 lg:w-96">
                   <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                     <svg
-                      className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                      className="w-5 h-5 text-gray-500 "
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
@@ -77,34 +77,33 @@ const NavBar = () => {
                     type="text"
                     name="email"
                     id="topbar-search"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                    placeholder="Search"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5     "
+                    placeholder="Buscar"
                   />
                 </div>
               </form>
             </div>
             <div className="flex items-center">
-              <div className="hidden mr-3 -mb-1 sm:block">
+              {/* <div className="hidden mr-3 -mb-1 sm:block">
                 <a
                   className="github-button"
-                  href="https://github.com/themesberg/flowbite-admin-dashboard"
-                  data-color-scheme="no-preference: dark; light: light; dark: light;"
+                  href="https://github.com/themesberg/Hungro-admin-dashboard"
                   data-icon="octicon-star"
                   data-size="large"
                   data-show-count="true"
-                  aria-label="Star themesberg/flowbite-admin-dashboard on GitHub"
+                  aria-label="Star themesberg/Hungro-admin-dashboard on GitHub"
                 >
                   Star
                 </a>
-              </div>
-              {/* <!-- Search mobile --> */}
+              </div> */}
+              {/* <!-- Buscar mobile --> */}
               <button
                 id="toggleSidebarMobileSearch"
                 type="button"
-                className="p-2 text-gray-500 rounded-lg lg:hidden hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                className="p-2 text-gray-500 rounded-lg lg:hidden hover:text-gray-900 hover:bg-gray-100   "
               >
-                <span className="sr-only">Search</span>
-                {/* <!-- Search icon --> */}
+                <span className="sr-only">Buscar</span>
+                {/* <!-- Buscar icon --> */}
                 <svg
                   className="w-6 h-6"
                   fill="currentColor"
@@ -122,7 +121,7 @@ const NavBar = () => {
               <button
                 type="button"
                 data-dropdown-toggle="notification-dropdown"
-                className="p-2 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700"
+                className="p-2 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100   "
               >
                 <span className="sr-only">View notifications</span>
                 {/* <!-- Bell icon --> */}
@@ -137,16 +136,16 @@ const NavBar = () => {
               </button>
               {/* <!-- Dropdown menu --> */}
               <div
-                className="z-20 z-50 hidden max-w-sm my-4 overflow-hidden text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:divide-gray-600 dark:bg-gray-700"
+                className="z-20 z-50 hidden max-w-sm my-4 overflow-hidden text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg  "
                 id="notification-dropdown"
               >
-                <div className="block px-4 py-2 text-base font-medium text-center text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <div className="block px-4 py-2 text-base font-medium text-center text-gray-700 bg-gray-50  ">
                   Notifications
                 </div>
                 <div>
                   <a
                     href="#"
-                    className="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600"
+                    className="flex px-4 py-3 border-b hover:bg-gray-100  "
                   >
                     <div className="flex-shrink-0">
                       <img
@@ -154,7 +153,7 @@ const NavBar = () => {
                         src="/images/users/bonnie-green.png"
                         alt="Jese image"
                       />
-                      <div className="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 border border-white rounded-full bg-primary-700 dark:border-gray-700">
+                      <div className="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 border border-white rounded-full bg-primary-700 ">
                         <svg
                           className="w-3 h-3 text-white"
                           fill="currentColor"
@@ -167,21 +166,21 @@ const NavBar = () => {
                       </div>
                     </div>
                     <div className="w-full pl-3">
-                      <div className="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
+                      <div className="text-gray-500 font-normal text-sm mb-1.5 ">
                         New message from{" "}
-                        <span className="font-semibold text-gray-900 dark:text-white">
+                        <span className="font-semibold text-gray-900 ">
                           Bonnie Green
                         </span>
                         : "Hey, what's up? All set for the presentation?"
                       </div>
-                      <div className="text-xs font-medium text-primary-700 dark:text-primary-400">
+                      <div className="text-xs font-medium text-primary-700 ">
                         a few moments ago
                       </div>
                     </div>
                   </a>
                   <a
                     href="#"
-                    className="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600"
+                    className="flex px-4 py-3 border-b hover:bg-gray-100  "
                   >
                     <div className="flex-shrink-0">
                       <img
@@ -189,7 +188,7 @@ const NavBar = () => {
                         src="/images/users/jese-leos.png"
                         alt="Jese image"
                       />
-                      <div className="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-gray-900 border border-white rounded-full dark:border-gray-700">
+                      <div className="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-gray-900 border border-white rounded-full ">
                         <svg
                           className="w-3 h-3 text-white"
                           fill="currentColor"
@@ -201,24 +200,24 @@ const NavBar = () => {
                       </div>
                     </div>
                     <div className="w-full pl-3">
-                      <div className="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
-                        <span className="font-semibold text-gray-900 dark:text-white">
+                      <div className="text-gray-500 font-normal text-sm mb-1.5 ">
+                        <span className="font-semibold text-gray-900 ">
                           Jese leos
                         </span>{" "}
                         and{" "}
-                        <span className="font-medium text-gray-900 dark:text-white">
+                        <span className="font-medium text-gray-900 ">
                           5 others
                         </span>{" "}
                         started following you.
                       </div>
-                      <div className="text-xs font-medium text-primary-700 dark:text-primary-400">
+                      <div className="text-xs font-medium text-primary-700 ">
                         10 minutes ago
                       </div>
                     </div>
                   </a>
                   <a
                     href="#"
-                    className="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600"
+                    className="flex px-4 py-3 border-b hover:bg-gray-100  "
                   >
                     <div className="flex-shrink-0">
                       <img
@@ -226,7 +225,7 @@ const NavBar = () => {
                         src="/images/users/joseph-mcfall.png"
                         alt="Joseph image"
                       />
-                      <div className="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-red-600 border border-white rounded-full dark:border-gray-700">
+                      <div className="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-red-600 border border-white rounded-full ">
                         <svg
                           className="w-3 h-3 text-white"
                           fill="currentColor"
@@ -242,24 +241,24 @@ const NavBar = () => {
                       </div>
                     </div>
                     <div className="w-full pl-3">
-                      <div className="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
-                        <span className="font-semibold text-gray-900 dark:text-white">
+                      <div className="text-gray-500 font-normal text-sm mb-1.5 ">
+                        <span className="font-semibold text-gray-900 ">
                           Joseph Mcfall
                         </span>{" "}
                         and{" "}
-                        <span className="font-medium text-gray-900 dark:text-white">
+                        <span className="font-medium text-gray-900 ">
                           141 others
                         </span>{" "}
                         love your story. See it and view more stories.
                       </div>
-                      <div className="text-xs font-medium text-primary-700 dark:text-primary-400">
+                      <div className="text-xs font-medium text-primary-700 ">
                         44 minutes ago
                       </div>
                     </div>
                   </a>
                   <a
                     href="#"
-                    className="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600"
+                    className="flex px-4 py-3 border-b hover:bg-gray-100  "
                   >
                     <div className="flex-shrink-0">
                       <img
@@ -267,7 +266,7 @@ const NavBar = () => {
                         src="/images/users/leslie-livingston.png"
                         alt="Leslie image"
                       />
-                      <div className="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-green-400 border border-white rounded-full dark:border-gray-700">
+                      <div className="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-green-400 border border-white rounded-full ">
                         <svg
                           className="w-3 h-3 text-white"
                           fill="currentColor"
@@ -283,32 +282,29 @@ const NavBar = () => {
                       </div>
                     </div>
                     <div className="w-full pl-3">
-                      <div className="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
-                        <span className="font-semibold text-gray-900 dark:text-white">
+                      <div className="text-gray-500 font-normal text-sm mb-1.5 ">
+                        <span className="font-semibold text-gray-900 ">
                           Leslie Livingston
                         </span>{" "}
                         mentioned you in a comment:{" "}
-                        <span className="font-medium text-primary-700 dark:text-primary-500">
+                        <span className="font-medium text-primary-700 ">
                           @bonnie.green
                         </span>{" "}
                         what do you say?
                       </div>
-                      <div className="text-xs font-medium text-primary-700 dark:text-primary-400">
+                      <div className="text-xs font-medium text-primary-700 ">
                         1 hour ago
                       </div>
                     </div>
                   </a>
-                  <a
-                    href="#"
-                    className="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
+                  <a href="#" className="flex px-4 py-3 hover:bg-gray-100 ">
                     <div className="flex-shrink-0">
                       <img
                         className="rounded-full w-11 h-11"
                         src="/images/users/robert-brown.png"
                         alt="Robert image"
                       />
-                      <div className="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-purple-500 border border-white rounded-full dark:border-gray-700">
+                      <div className="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-purple-500 border border-white rounded-full ">
                         <svg
                           className="w-3 h-3 text-white"
                           fill="currentColor"
@@ -320,14 +316,14 @@ const NavBar = () => {
                       </div>
                     </div>
                     <div className="w-full pl-3">
-                      <div className="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
-                        <span className="font-semibold text-gray-900 dark:text-white">
+                      <div className="text-gray-500 font-normal text-sm mb-1.5 ">
+                        <span className="font-semibold text-gray-900 ">
                           Robert Brown
                         </span>{" "}
                         posted a new video: Glassmorphism - learn how to
                         implement the new design trend.
                       </div>
-                      <div className="text-xs font-medium text-primary-700 dark:text-primary-400">
+                      <div className="text-xs font-medium text-primary-700 ">
                         3 hours ago
                       </div>
                     </div>
@@ -335,7 +331,7 @@ const NavBar = () => {
                 </div>
                 <a
                   href="#"
-                  className="block py-2 text-base font-normal text-center text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-700 dark:text-white dark:hover:underline"
+                  className="block py-2 text-base font-normal text-center text-gray-900 bg-gray-50 hover:bg-gray-100   "
                 >
                   <div className="inline-flex items-center ">
                     <svg
@@ -359,7 +355,7 @@ const NavBar = () => {
               <button
                 type="button"
                 data-dropdown-toggle="apps-dropdown"
-                className="hidden p-2 text-gray-500 rounded-lg sm:flex hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700"
+                className="hidden p-2 text-gray-500 rounded-lg sm:flex hover:text-gray-900 hover:bg-gray-100   "
               >
                 <span className="sr-only">View notifications</span>
                 {/* <!-- Icon --> */}
@@ -374,19 +370,19 @@ const NavBar = () => {
               </button>
               {/* <!-- Dropdown menu --> */}
               <div
-                className="z-20 z-50 hidden max-w-sm my-4 overflow-hidden text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:bg-gray-700 dark:divide-gray-600"
+                className="z-20 z-50 hidden max-w-sm my-4 overflow-hidden text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg  "
                 id="apps-dropdown"
               >
-                <div className="block px-4 py-2 text-base font-medium text-center text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <div className="block px-4 py-2 text-base font-medium text-center text-gray-700 bg-gray-50  ">
                   Apps
                 </div>
                 <div className="grid grid-cols-3 gap-4 p-4">
                   <a
                     href="#"
-                    className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
+                    className="block p-4 text-center rounded-lg hover:bg-gray-100 "
                   >
                     <svg
-                      className="mx-auto mb-1 text-gray-500 w-7 h-7 dark:text-gray-400"
+                      className="mx-auto mb-1 text-gray-500 w-7 h-7 "
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
@@ -397,32 +393,32 @@ const NavBar = () => {
                         clipRule="evenodd"
                       ></path>
                     </svg>
-                    <div className="text-sm font-medium text-gray-900 dark:text-white">
+                    <div className="text-sm font-medium text-gray-900 ">
                       Sales
                     </div>
                   </a>
                   <a
                     href="#"
-                    className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
+                    className="block p-4 text-center rounded-lg hover:bg-gray-100 "
                   >
                     <svg
-                      className="mx-auto mb-1 text-gray-500 w-7 h-7 dark:text-gray-400"
+                      className="mx-auto mb-1 text-gray-500 w-7 h-7 "
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
                     </svg>
-                    <div className="text-sm font-medium text-gray-900 dark:text-white">
+                    <div className="text-sm font-medium text-gray-900 ">
                       Users
                     </div>
                   </a>
                   <a
                     href="#"
-                    className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
+                    className="block p-4 text-center rounded-lg hover:bg-gray-100 "
                   >
                     <svg
-                      className="mx-auto mb-1 text-gray-500 w-7 h-7 dark:text-gray-400"
+                      className="mx-auto mb-1 text-gray-500 w-7 h-7 "
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
@@ -433,16 +429,16 @@ const NavBar = () => {
                         clipRule="evenodd"
                       ></path>
                     </svg>
-                    <div className="text-sm font-medium text-gray-900 dark:text-white">
+                    <div className="text-sm font-medium text-gray-900 ">
                       Inbox
                     </div>
                   </a>
                   <a
                     href="#"
-                    className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
+                    className="block p-4 text-center rounded-lg hover:bg-gray-100 "
                   >
                     <svg
-                      className="mx-auto mb-1 text-gray-500 w-7 h-7 dark:text-gray-400"
+                      className="mx-auto mb-1 text-gray-500 w-7 h-7 "
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
@@ -453,16 +449,16 @@ const NavBar = () => {
                         clipRule="evenodd"
                       ></path>
                     </svg>
-                    <div className="text-sm font-medium text-gray-900 dark:text-white">
+                    <div className="text-sm font-medium text-gray-900 ">
                       Profile
                     </div>
                   </a>
                   <a
                     href="#"
-                    className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
+                    className="block p-4 text-center rounded-lg hover:bg-gray-100 "
                   >
                     <svg
-                      className="mx-auto mb-1 text-gray-500 w-7 h-7 dark:text-gray-400"
+                      className="mx-auto mb-1 text-gray-500 w-7 h-7 "
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
@@ -473,16 +469,16 @@ const NavBar = () => {
                         clipRule="evenodd"
                       ></path>
                     </svg>
-                    <div className="text-sm font-medium text-gray-900 dark:text-white">
+                    <div className="text-sm font-medium text-gray-900 ">
                       Settings
                     </div>
                   </a>
                   <a
                     href="#"
-                    className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
+                    className="block p-4 text-center rounded-lg hover:bg-gray-100 "
                   >
                     <svg
-                      className="mx-auto mb-1 text-gray-500 w-7 h-7 dark:text-gray-400"
+                      className="mx-auto mb-1 text-gray-500 w-7 h-7 "
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
@@ -494,16 +490,16 @@ const NavBar = () => {
                         clipRule="evenodd"
                       ></path>
                     </svg>
-                    <div className="text-sm font-medium text-gray-900 dark:text-white">
+                    <div className="text-sm font-medium text-gray-900 ">
                       Products
                     </div>
                   </a>
                   <a
                     href="#"
-                    className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
+                    className="block p-4 text-center rounded-lg hover:bg-gray-100 "
                   >
                     <svg
-                      className="mx-auto mb-1 text-gray-500 w-7 h-7 dark:text-gray-400"
+                      className="mx-auto mb-1 text-gray-500 w-7 h-7 "
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
@@ -515,16 +511,16 @@ const NavBar = () => {
                         clipRule="evenodd"
                       ></path>
                     </svg>
-                    <div className="text-sm font-medium text-gray-900 dark:text-white">
+                    <div className="text-sm font-medium text-gray-900 ">
                       Pricing
                     </div>
                   </a>
                   <a
                     href="#"
-                    className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
+                    className="block p-4 text-center rounded-lg hover:bg-gray-100 "
                   >
                     <svg
-                      className="mx-auto mb-1 text-gray-500 w-7 h-7 dark:text-gray-400"
+                      className="mx-auto mb-1 text-gray-500 w-7 h-7 "
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
@@ -535,16 +531,16 @@ const NavBar = () => {
                         clipRule="evenodd"
                       ></path>
                     </svg>
-                    <div className="text-sm font-medium text-gray-900 dark:text-white">
+                    <div className="text-sm font-medium text-gray-900 ">
                       Billing
                     </div>
                   </a>
                   <a
                     href="#"
-                    className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
+                    className="block p-4 text-center rounded-lg hover:bg-gray-100 "
                   >
                     <svg
-                      className="mx-auto mb-1 text-gray-500 w-7 h-7 dark:text-gray-400"
+                      className="mx-auto mb-1 text-gray-500 w-7 h-7 "
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -557,7 +553,7 @@ const NavBar = () => {
                         d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
                       ></path>
                     </svg>
-                    <div className="text-sm font-medium text-gray-900 dark:text-white">
+                    <div className="text-sm font-medium text-gray-900 ">
                       Logout
                     </div>
                   </a>
@@ -567,7 +563,7 @@ const NavBar = () => {
                 id="theme-toggle"
                 data-tooltip-target="tooltip-toggle"
                 type="button"
-                className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+                className="text-gray-500  hover:bg-gray-100  focus:outline-none focus:ring-4 focus:ring-gray-200  rounded-lg text-sm p-2.5"
               >
                 <svg
                   id="theme-toggle-dark-icon"
@@ -602,10 +598,10 @@ const NavBar = () => {
               </div>
               {/* <!-- Profile --> */}
               <div className="flex items-center ml-3">
-                <div>
+                {/* <div>
                   <button
                     type="button"
-                    className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                    className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 "
                     id="user-menu-button-2"
                     aria-expanded="false"
                     data-dropdown-toggle="dropdown-2"
@@ -613,35 +609,32 @@ const NavBar = () => {
                     <span className="sr-only">Open user menu</span>
                     <img
                       className="w-8 h-8 rounded-full"
-                      src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                      src="https://Hungro.com/docs/images/people/profile-picture-5.jpg"
                       alt="user photo"
                     />
                   </button>
-                </div>
+                </div> */}
                 {/* <!-- Dropdown menu --> */}
                 <div
-                  className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+                  className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow  "
                   id="dropdown-2"
                 >
                   <div className="px-4 py-3" role="none">
-                    <p
-                      className="text-sm text-gray-900 dark:text-white"
-                      role="none"
-                    >
+                    <p className="text-sm text-gray-900 " role="none">
                       Neil Sims
                     </p>
                     <p
-                      className="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
+                      className="text-sm font-medium text-gray-900 truncate "
                       role="none"
                     >
-                      neil.sims@flowbite.com
+                      neil.sims@Hungro.com
                     </p>
                   </div>
                   <ul className="py-1" role="none">
                     <li>
                       <a
                         href="#"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100   "
                         role="menuitem"
                       >
                         Dashboard
@@ -650,7 +643,7 @@ const NavBar = () => {
                     <li>
                       <a
                         href="#"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100   "
                         role="menuitem"
                       >
                         Settings
@@ -659,7 +652,7 @@ const NavBar = () => {
                     <li>
                       <a
                         href="#"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100   "
                         role="menuitem"
                       >
                         Earnings
@@ -668,7 +661,7 @@ const NavBar = () => {
                     <li>
                       <a
                         href="#"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100   "
                         role="menuitem"
                       >
                         Sign out
