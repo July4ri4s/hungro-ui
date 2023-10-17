@@ -6,7 +6,13 @@ import { GET_ME } from "../../graphql/queries";
 import DonorProducts from "./layouts/users/components/DonorProducts";
 
 const Dashboard = () => {
-  const { data, loading, error } = useQuery(GET_ME);
+  const { data, loading, error } = useQuery(GET_ME, {
+    context: {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    },
+  });
 
   if (loading) return "Cargando...";
   if (error) return `Error: ${error.message}`;
@@ -15,7 +21,6 @@ const Dashboard = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   const user = data.getMe.donor || data.getMe.organization;
-  console.log(user);
 
   return (
     <>
@@ -516,7 +521,7 @@ const Dashboard = () => {
                               <div className="flex-shrink-0">
                                 <img
                                   className="w-8 h-8 rounded-full"
-                                  src="/images/users/bonnie-green.png"
+                                  src=""
                                   alt="Neil image"
                                 />
                               </div>
@@ -1685,7 +1690,7 @@ const Dashboard = () => {
                               <div className="flex-shrink-0">
                                 <img
                                   className="w-8 h-8 rounded-full"
-                                  src="/images/users/bonnie-green.png"
+                                  src=""
                                   alt="Neil image"
                                 />
                               </div>

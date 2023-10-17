@@ -85,7 +85,7 @@ const Header = () => {
                   name="email"
                   id="users-search"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
-                  placeholder="Buscar for users"
+                  placeholder="Buscar"
                 />
               </div>
             </form>
@@ -192,7 +192,7 @@ const Header = () => {
                   clipRule="evenodd"
                 ></path>
               </svg>
-              Export
+              Exportar
             </a>
           </div>
         </div>

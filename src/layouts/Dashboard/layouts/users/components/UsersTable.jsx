@@ -6,14 +6,10 @@ import { GET_DONORS } from "../../../../../graphql/queries";
 const UsersTable = ({ setShowModal }) => {
   const { data, loading, error } = useQuery(GET_DONORS);
 
-  console.log(data);
-
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
   const user = data?.getDonors[0].email;
-
-  console.log(user);
 
   return (
     <>
@@ -53,8 +49,11 @@ const UsersTable = ({ setShowModal }) => {
                 </thead>
 
                 {data?.getDonors &&
-                  data?.getDonors?.map((user) => (
-                    <tbody className="bg-white divide-y divide-gray-200">
+                  data?.getDonors?.map((user, key) => (
+                    <tbody
+                      className="bg-white divide-y divide-gray-200"
+                      key={key}
+                    >
                       <tr className="hover:bg-gray-100">
                         <td className="w-4 p-4">
                           <div className="flex items-center">
@@ -114,7 +113,7 @@ const UsersTable = ({ setShowModal }) => {
                                 clipRule="evenodd"
                               ></path>
                             </svg>
-                            Edit user
+                            Editar usuario
                           </button>
 
                           <button
@@ -134,7 +133,7 @@ const UsersTable = ({ setShowModal }) => {
                                 clipRule="evenodd"
                               ></path>
                             </svg>
-                            Delete user
+                            Eliminar usuario
                           </button>
                         </td>
                       </tr>

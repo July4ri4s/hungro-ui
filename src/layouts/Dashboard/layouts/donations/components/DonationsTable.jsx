@@ -5,8 +5,6 @@ import { useQuery } from "@apollo/client";
 const DonationsTable = () => {
   const { data, loading, error } = useQuery(GET_DONATIONS);
 
-  console.log(data);
-
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error.message}</p>;
 

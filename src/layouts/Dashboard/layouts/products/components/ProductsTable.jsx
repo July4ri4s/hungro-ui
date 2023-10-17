@@ -2,10 +2,8 @@ import { useQuery } from "@apollo/client";
 import React from "react";
 import { GET_PRODUCTS } from "../../../../../graphql/queries";
 
-const ProductsTable = () => {
+const ProductsTable = ({ refetch }) => {
   const { data, loading, error } = useQuery(GET_PRODUCTS);
-
-  console.log(data);
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error.message}</p>;

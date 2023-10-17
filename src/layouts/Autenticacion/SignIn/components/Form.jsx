@@ -49,8 +49,6 @@ const Form = () => {
     try {
       const { data } = await login({ variables: { email, password } });
 
-      console.log("Token recibido y guardado:", data.login.token);
-
       localStorage.setItem("token", data.login.token);
       setIsAuthenticated(true);
 

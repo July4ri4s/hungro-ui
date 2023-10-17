@@ -29,3 +29,15 @@ export const CREATE_ORGANIZATION_MUTATION = gql`
     }
   }
 `;
+
+export const CREATE_PRODUCT_MUTATION = gql`
+  mutation CreateProduct($input: ProductInput!) {
+    createProduct(input: $input) {
+      name
+      category
+      expirationDate
+      quantityDonated
+      quantityNeeded
+    }
+  }
+`;

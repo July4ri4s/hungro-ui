@@ -16,13 +16,13 @@ const OrganizationRoutes = () => {
             id="dashboard"
             data-name="Flat Line"
             xmlns="http://www.w3.org/2000/svg"
-            class="icon flat-line"
+            className="icon flat-line"
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
               id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
               <path
@@ -57,16 +57,16 @@ const OrganizationRoutes = () => {
             version="1.1"
             id="Layer_1"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 503.467 503.467"
-            xml:space="preserve"
+            xmlSpace="preserve"
             fill="#000000"
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
               id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
               {" "}
@@ -106,11 +106,11 @@ const OrganizationRoutes = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="#000000"
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
               id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
               {" "}
@@ -126,9 +126,9 @@ const OrganizationRoutes = () => {
                   d="M8,13.7A7,7,0,0,0,4,20a1,1,0,0,0,1,1H19a1,1,0,0,0,1-1,7,7,0,0,0-4-6.33"
                   fill="none"
                   stroke="#000000"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                 ></path>{" "}
                 <circle
                   id="primary-2"
@@ -139,9 +139,9 @@ const OrganizationRoutes = () => {
                   transform="translate(6 3)"
                   fill="none"
                   stroke="#000000"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                 ></circle>{" "}
               </g>{" "}
             </g>
@@ -158,16 +158,16 @@ const OrganizationRoutes = () => {
             width="34px"
             height="34px"
             viewBox="0 0 1024 1024"
-            class="icon"
+            className="icon"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
             fill="#000000"
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
               id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
               <path
@@ -224,16 +224,16 @@ const OrganizationRoutes = () => {
             width="34px"
             height="34px"
             viewBox="0 0 1024 1024"
-            class="icon"
+            className="icon"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
             fill="#000000"
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
               id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
               <path
@@ -271,14 +271,14 @@ const OrganizationRoutes = () => {
             height="34px"
             viewBox="0 -3.99 100 100"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
             fill="#000000"
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
               id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
               <path
@@ -304,10 +304,10 @@ const OrganizationRoutes = () => {
                 ></path>
               </defs>
               <clipPath id="b">
-                <use xlink:href="#a" overflow="visible"></use>
+                <use xlinkHref="#a" overflow="visible"></use>
               </clipPath>
               <path
-                clip-path="url(#b)"
+                clipPath="url(#b)"
                 fill="#A3840B"
                 d="M14 50.027c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3zm0 20c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3zm8-20c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3zm0 20c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3zm8-20c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3zm0 20c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3zm8-20c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3zm0 20c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3zm8-20c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3zm0 20c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3zm8-20c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3zm0 20c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3zm8-20c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3zm0 20c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3zm8-20c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3zm0 20c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3zm8-20c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3zm0 20c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3zm8-20c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3zm0 20c-1.657 0-2 1.344-2 3v9c0 1.657.343 3 2 3s2-1.343 2-3v-9c0-1.657-.343-3-2-3z"
               ></path>

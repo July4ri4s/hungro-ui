@@ -18,7 +18,6 @@ import Products from "./layouts/Dashboard/layouts/products/Products";
 import Users from "./layouts/Dashboard/layouts/users/Users";
 import SignUp from "./layouts/Autenticacion/SignUp/SignUp";
 import Donations from "./layouts/Dashboard/layouts/donations/Donations";
-import DonorDashboard from "./layouts/Dashboard/DonorDashboard";
 import DonorDonations from "./layouts/Dashboard/layouts/donorDonations/DonorDonations";
 import { useQuery } from "@apollo/client";
 import { GET_ME } from "./graphql/queries";

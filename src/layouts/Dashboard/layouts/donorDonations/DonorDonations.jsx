@@ -7,7 +7,6 @@ import DonationsTable from "./components/DonationsTable";
 
 const DonorDonations = () => {
   const [showModal, setShowModal] = useState(false);
-  console.log(showModal);
 
   return (
     <>

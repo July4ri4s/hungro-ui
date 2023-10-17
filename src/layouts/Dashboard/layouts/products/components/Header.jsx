@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
 const Header = ({ setShowModal }) => {
-  const [userType, setUserType] = useState("dmkmk");
-
   return (
     <div className="p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5  ">
       <div className="w-full mb-1">

@@ -4,10 +4,12 @@ import NavBar from "../../components/NavBar";
 import Header from "./components/Header";
 import ProductsTable from "./components/ProductsTable";
 import AddProducModal from "./components/AddProducModal";
+import { GET_PRODUCTS } from "../../../../graphql/queries";
+import { useQuery } from "@apollo/client";
 
 const Products = () => {
   const [showModal, setShowModal] = useState(false);
-  console.log(showModal);
+  const { refetch } = useQuery(GET_PRODUCTS);
 
   return (
     <>
@@ -25,13 +27,14 @@ const Products = () => {
             <div className="px-4 pt-6">
               <Header setShowModal={setShowModal} />
 
-              <ProductsTable />
+              <ProductsTable refetch={refetch} />
 
               {showModal ? (
                 <AddProducModal
                   close={() => {
                     setShowModal(false);
                   }}
+                  refetch={refetch}
                 />
               ) : null}
             </div>
