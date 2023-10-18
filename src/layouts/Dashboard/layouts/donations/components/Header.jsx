@@ -43,7 +43,7 @@ const Header = ({ setShowModal }) => {
                     href="#"
                     className="ml-1 text-gray-700 hover:text-primary-600 md:ml-2  "
                   >
-                    E-commerce
+                    Donaciones
                   </a>
                 </div>
               </li>

@@ -41,3 +41,11 @@ export const CREATE_PRODUCT_MUTATION = gql`
     }
   }
 `;
+
+export const CREATE_DONATION_MUTATION = gql`
+  mutation CreateDonation($input: DonationInput!) {
+    createDonation(input: $input) {
+      donationDate
+    }
+  }
+`;

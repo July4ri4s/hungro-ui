@@ -36,6 +36,7 @@ export const GET_ME = gql`
 export const GET_PRODUCTS = gql`
   query GetProducts {
     getProducts {
+      id
       name
       category
       expirationDate
@@ -55,6 +56,7 @@ export const GET_DONATIONS = gql`
         name
         category
       }
+      donationDate
       id
     }
   }

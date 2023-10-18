@@ -27,11 +27,7 @@ const Footer = () => {
                 Nosotros
               </a>
             </li>
-            <li>
-              <a href="#" className="mr-4 hover:underline md:mr-6 ">
-                Donar
-              </a>
-            </li>
+
             <li>
               <a href="#" className="mr-4 hover:underline md:mr-6">
                 Contacto

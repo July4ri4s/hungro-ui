@@ -28,8 +28,14 @@ const AddProducModal = ({ close, refetch }) => {
       quantityDonated: parseInt(quantityDonated),
       quantityNeeded: parseInt(quantityNeeded),
     };
-    await createProduct({ variables: { input } });
+
+    try {
+      await createProduct({ variables: { input } });
+    } catch (error) {
+      console.error("Error al crear el producto:", error.message);
+    }
   };
+
   return (
     <>
       <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto  ">
