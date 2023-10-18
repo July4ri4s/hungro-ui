@@ -86,7 +86,7 @@ const DonationsTable = () => {
                         {donation?.product?.name}
                       </td>
                       <td className="p-4 text-base font-medium text-gray-900 whitespace-nowrap ">
-                        11-03-2027
+                        {donation?.donationDate}
                       </td>
                       <td className="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs ">
                         {donation?.donor?.name}

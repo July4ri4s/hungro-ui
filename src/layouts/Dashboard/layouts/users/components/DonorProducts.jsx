@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { GET_PRODUCTS } from "../../../../../graphql/queries";
 import { useQuery } from "@apollo/client";
+import CreateDonationModal from "./CreateDonationModal";
 
 const DonorProducts = () => {
+  const [modalProduct, setModalProduct] = useState(null);
+
   const { data, loading, error } = useQuery(GET_PRODUCTS);
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error.message}</p>;
+
+  const openModal = (product) => {
+    setModalProduct(product);
+  };
+
+  const closeModal = () => {
+    setModalProduct(null);
+  };
 
   return (
     <div className="p-4 bg-white border border-gray-200 rounded-lg shadow-sm  sm:p-6 mt-5">
@@ -92,16 +103,29 @@ const DonorProducts = () => {
                     <span className="text-3xl font-bold text-gray-900 ">
                       {product.name}
                     </span>
-                    <a
-                      href="#"
-                      className="text-white bg-[#406036] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+                    <button
+                      id="createProductButton"
+                      className="text-white bg-[#587E4C] hover:bg-[#587E4C]00 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5   focus:outline-none "
+                      type="button"
+                      data-drawer-target="drawer-create-product-default"
+                      data-drawer-show="drawer-create-product-default"
+                      aria-controls="drawer-create-product-default"
+                      data-drawer-placement="right"
+                      onClick={() => openModal(product)}
                     >
-                      Donar
-                    </a>
+                      Donar producto
+                    </button>
                   </div>
                 </div>
               </div>
             ))}
+
+          {modalProduct && (
+            <CreateDonationModal
+              product={modalProduct}
+              closeModal={closeModal}
+            />
+          )}
         </div>
       </div>
     </div>
