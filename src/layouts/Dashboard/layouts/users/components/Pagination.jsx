@@ -64,7 +64,7 @@ const Pagination = () => {
         </a>
         <a
           href="#"
-          className="inline-flex items-center justify-center flex-1 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-[#587E4C] "
+          className="inline-flex items-center justify-center flex-1 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-[#376543] "
         >
           Next
           <svg

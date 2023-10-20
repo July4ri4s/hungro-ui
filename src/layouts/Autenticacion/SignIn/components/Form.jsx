@@ -65,7 +65,7 @@ const Form = () => {
   return (
     <div className="md:w-[30%] w-[100%] flex flex-col items-center">
       <div className="w-[80%]">
-        <h2 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl ">
+        <h2 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-[#195527] md:text-5xl lg:text-6xl ">
           Iniciar sesión
         </h2>
       </div>
@@ -77,7 +77,7 @@ const Form = () => {
             <div className="flex items-center justify-between ">
               <label
                 htmlFor="email"
-                className="font-semibold text-[#406036] hover:ring-green-500 "
+                className="font-semibold text-[#195527] hover:ring-green-500 "
               >
                 Correo electrónico
               </label>
@@ -121,9 +121,18 @@ const Form = () => {
             <div className="text-sm mt-2">
               <a
                 href="#"
-                className="font-semibold text-[#406036] hover:ring-green-500 "
+                className="font-semibold text-[#195527] hover:ring-green-500 "
               >
                 ¿Olvidaste la contraseña?
+              </a>
+              <br />
+              <br />
+              <a
+                href="/registrarse"
+                className="font-semibold hover:ring-green-500 "
+              >
+                ¿No tienes una cuenta?
+                <span className="text-[#195527] ml-2"> Regístrate </span>
               </a>
             </div>
           </div>
@@ -132,7 +141,7 @@ const Form = () => {
             <button
               type="submit"
               disabled={loading}
-              className="flex w-full justify-center rounded-md bg-[#406036] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#4d7242] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
+              className="flex w-full justify-center rounded-md bg-[#195527] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#1b7a2e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
             >
               Iniciar Sesión
             </button>

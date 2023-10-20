@@ -91,7 +91,7 @@ const Form = () => {
           <div>
             <label
               htmlFor="userType"
-              className="font-semibold text-[#406036] hover:ring-green-500 "
+              className="font-semibold text-[#195527] hover:ring-green-500 "
             >
               Tipo de Usuario
             </label>
@@ -110,7 +110,7 @@ const Form = () => {
             <div className="flex items-center justify-between ">
               <label
                 htmlFor="email"
-                className="font-semibold text-[#406036] hover:ring-green-500 "
+                className="font-semibold text-[#195527] hover:ring-green-500 "
               >
                 Nombre
               </label>
@@ -132,7 +132,7 @@ const Form = () => {
             <div className="flex items-center justify-between ">
               <label
                 htmlFor="email"
-                className="font-semibold text-[#406036] hover:ring-green-500 "
+                className="font-semibold text-[#195527] hover:ring-green-500 "
               >
                 Correo electrónico
               </label>
@@ -176,7 +176,7 @@ const Form = () => {
             <div className="text-sm mt-2">
               <a
                 href="#"
-                className="font-semibold text-[#406036] hover:ring-green-500 "
+                className="font-semibold text-[#195527] hover:ring-green-500 "
               >
                 ¿Olvidaste la contraseña?
               </a>
@@ -213,7 +213,7 @@ const Form = () => {
           <div>
             <label
               htmlFor="address"
-              className="font-semibold text-[#406036] hover:ring-green-500 "
+              className="font-semibold text-[#195527] hover:ring-green-500 "
             >
               Dirección
             </label>
@@ -233,7 +233,7 @@ const Form = () => {
             <button
               type="submit"
               // disabled={loading}
-              className="flex w-full justify-center rounded-md bg-[#406036] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#4d7242] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
+              className="flex w-full justify-center rounded-md bg-[#195527] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#376543] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
             >
               Registrarme
             </button>

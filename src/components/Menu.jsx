@@ -17,7 +17,7 @@ const Menu = () => {
         flex items-center "
         >
           {/*  <img src={imagen} className="h-8 mr-4" alt="" /> */}
-          <span className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-2xl lg:text-3xl ">
+          <span className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-[#195527] md:text-2xl lg:text-3xl ">
             Hungro
           </span>
         </a>
@@ -27,7 +27,7 @@ const Menu = () => {
           <a
             type="button"
             href="/registrarse"
-            className="bg-[#406036]	hover:bg-[#587E4C] rounded-lg text-sm mr-3 md:mr-0 font-medium px-4 py-2 text-center text-white hove"
+            className="bg-[#195527]	hover:bg-[#376543] rounded-lg text-sm mr-3 md:mr-0 font-medium px-4 py-2 text-center text-white hove"
           >
             Registrarse
           </a>
@@ -36,7 +36,7 @@ const Menu = () => {
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-[#406036] focus:outline-none focus:ring-2 focus:ring-white   "
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-[#195527] focus:outline-none focus:ring-2 focus:ring-white   "
             aria-controls="navbar-sticky"
             aria-expanded="false"
             onClick={openMenu}

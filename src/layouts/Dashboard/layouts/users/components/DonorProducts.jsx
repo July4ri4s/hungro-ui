@@ -35,14 +35,7 @@ const DonorProducts = () => {
         <div className="mt-10 flex flex-wrap -mx-1 lg:-mx-4 ">
           {data?.getProducts &&
             data?.getProducts?.map((product) => (
-              <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow  m-auto my-5">
-                <a href="#">
-                  <img
-                    className="p-8 rounded-t-lg"
-                    src=""
-                    alt="product image"
-                  />
-                </a>
+              <div className=" w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow  m-auto my-5">
                 <div className="px-5 pb-5">
                   <a href="#">
                     <h5 className="text-xl font-semibold tracking-tight text-gray-900 ">
@@ -105,7 +98,7 @@ const DonorProducts = () => {
                     </span>
                     <button
                       id="createProductButton"
-                      className="text-white bg-[#587E4C] hover:bg-[#587E4C]00 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5   focus:outline-none "
+                      className="text-white bg-[#376543] hover:bg-[#376543]00 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5   focus:outline-none "
                       type="button"
                       data-drawer-target="drawer-create-product-default"
                       data-drawer-show="drawer-create-product-default"

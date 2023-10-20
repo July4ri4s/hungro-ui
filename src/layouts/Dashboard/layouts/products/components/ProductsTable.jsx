@@ -99,7 +99,7 @@ const ProductsTable = ({ refetch }) => {
                           data-drawer-show="drawer-update-product-default"
                           aria-controls="drawer-update-product-default"
                           data-drawer-placement="right"
-                          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-[#587E4C] focus:ring-4 focus:ring-primary-300   "
+                          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-[#376543] focus:ring-4 focus:ring-primary-300   "
                         >
                           <svg
                             className="w-4 h-4 mr-2"

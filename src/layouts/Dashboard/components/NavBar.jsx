@@ -46,7 +46,7 @@ const NavBar = () => {
                   className="h-8 mr-3"
                   alt="Hungro Logo"
                 /> */}
-                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap ">
+                <span className="font-sans mb-4 text-4xl font-extrabold tracking-tight leading-none text-[#195527] md:text-2xl lg:text-3xl ">
                   Hungro
                 </span>
               </a>

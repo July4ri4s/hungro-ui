@@ -78,7 +78,6 @@ button:focus-visible {
 ::-webkit-scrollbar {
   width: 5px;
   height: 10px;
-  
 }
 
 /* Track */
@@ -94,5 +93,5 @@ button:focus-visible {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #406036;
+  background: #195527;
 }

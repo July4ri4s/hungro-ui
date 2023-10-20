@@ -5,7 +5,7 @@ import corona from "../../../assets/corona2.png";
 
 const Values = () => {
   return (
-    <div className="flex flex-col w-[90%]  pb-6  m-auto mt-24 text-white items-center md:justify-between bg-[#406036db] p-18 md:p-28 md:m-20 rounded-xl md:h-[40rem]">
+    <div className="flex flex-col w-[90%]  pb-6  m-auto mt-24 text-white items-center md:justify-between bg-[#195527db] p-18 md:p-28 md:m-20 rounded-xl md:h-[40rem]">
       <div className="text-center mb-4 text-4xl  tracking-tight mt-6">
         <h2 className="max-w-2xl mx-auto text-4xl font-semibold leading-tight text-center font-display text-white sm:text-5xl sm:leading-tight">
           Nuestros Valores

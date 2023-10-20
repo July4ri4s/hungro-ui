@@ -7,7 +7,7 @@ const AboutHero = () => {
   return (
     <section className="bg-white mt-24 ">
       <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 ">
-        <h1 className="mb-4 text-5xl font-extrabold tracking-tight leading-none text-[#406036] md:text-6xl lg:text-7xl ">
+        <h1 className="mb-4 text-5xl font-extrabold tracking-tight leading-none text-[#195527] md:text-6xl lg:text-7xl ">
           Acerca de nosotros
         </h1>
         <p className="mb-8 text-2xl font-normal text-gray-500 lg:text-x1 sm:px-16 xl:px-48 ">
@@ -24,7 +24,7 @@ const AboutHero = () => {
           </div>
 
           <div className="mt-20 md:mt-0 flex flex-col items-center justify-center md:items-start ">
-            <h2 className=" mb-8 text-4xl font-extrabold tracking-tight leading-none text-[#406036] md:text-5xl lg:text-6xl ">
+            <h2 className=" mb-8 text-4xl font-extrabold tracking-tight leading-none text-[#195527] md:text-5xl lg:text-6xl ">
               Nuestra misión
             </h2>
             <p className="mb-8 w-[90%] text-center md:text-justify  text-2xl font-normal text-gray-500md:text-xl ">
@@ -35,7 +35,7 @@ const AboutHero = () => {
           </div>
         </div>
       </section>
-      <section className="flex flex-col w-[90%]  pb-6  m-auto mt-24 text-[#406036] items-center md:justify-between bg-[#406036db] p-18 md:p-28 md:m-20 rounded-xl md:h-[40rem]">
+      <section className="flex flex-col w-[90%]  pb-6  m-auto mt-24 text-[#195527] items-center md:justify-between bg-[#195527db] p-18 md:p-28 md:m-20 rounded-xl md:h-[40rem]">
         <div className="flex flex-col justify-center  items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6 ">
           <div className="mt-4 mb-9 md:mt-0 flex flex-col justify-center  items-center md:justify-start md:items-start">
             <h2 className=" mb-8 text-4xl  text-start font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl ">
@@ -59,7 +59,7 @@ const AboutHero = () => {
       <div className="py-20 bg-white-50">
         <div className="container mx-auto px-6 md:px-12 xl:px-32">
           <div className="mb-16 text-center">
-            <h2 className=" mb-8 text-4xl font-extrabold tracking-tight leading-none text-[#406036] md:text-5xl lg:text-6xl ">
+            <h2 className=" mb-8 text-4xl font-extrabold tracking-tight leading-none text-[#195527] md:text-5xl lg:text-6xl ">
               ¿Quiénes somos?
             </h2>
             <p className="mmmb-8 text-2xl font-normal text-gray-500 lg:w-8/12 lg:mx-auto ">

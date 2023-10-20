@@ -18,7 +18,7 @@ const Hero = () => {
             <div>
               <a
                 href="#"
-                className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-[#406036]  focus:ring-4 focus:ring-primary-300 "
+                className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-[#195527]  focus:ring-4 focus:ring-primary-300 "
               >
                 Crear carrito
                 <svg

@@ -97,7 +97,7 @@ const UsersTable = ({ setShowModal }) => {
                           <button
                             type="button"
                             data-modal-toggle="edit-user-modal"
-                            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-[#587E4C] hover:bg-primary-800 focus:ring-4 focus:ring-primary-300"
+                            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-[#376543] hover:bg-primary-800 focus:ring-4 focus:ring-primary-300"
                             onClick={() => setShowModal(true)}
                           >
                             <svg
