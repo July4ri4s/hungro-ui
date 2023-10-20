@@ -21,6 +21,8 @@ import Donations from "./layouts/Dashboard/layouts/donations/Donations";
 import DonorDonations from "./layouts/Dashboard/layouts/donorDonations/DonorDonations";
 import { useQuery } from "@apollo/client";
 import { GET_ME } from "./graphql/queries";
+import Campaigns from "./layouts/Dashboard/layouts/campaigns/Campaigns";
+import Baskets from "./layouts/Dashboard/layouts/baskets/Baskets";
 
 function App() {
   const { data, loading, error } = useQuery(GET_ME);
@@ -62,6 +64,8 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/users" element={<Users />} />
             <Route path="/donations" element={<Donations />} />
+            <Route path="/campaigns" element={<Campaigns />} />
+            <Route path="/baskets" element={<Baskets />} />
           </>
         )}
       </Routes>

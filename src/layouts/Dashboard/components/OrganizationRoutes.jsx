@@ -217,7 +217,7 @@ const OrganizationRoutes = () => {
       </li>
       <li>
         <a
-          href="/dashboard"
+          href="/campaigns"
           className="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group "
         >
           <svg
