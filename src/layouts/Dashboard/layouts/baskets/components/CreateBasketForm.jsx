@@ -2,24 +2,18 @@ import { useMutation } from "@apollo/client";
 import gql from "graphql-tag";
 import ProductsSelect from "./GetMyProducts";
 import { useState } from "react";
-
-const CREATE_BASKET = gql`
-  mutation CreateBasket($input: BasketInput!) {
-    createBasket(input: $input) {
-      recipient
-      id
-      deliveryDate
-    }
-  }
-`;
+import { CREATE_BASKET } from "../../../../../graphql/mutations";
 
 const CreateBasketForm = () => {
+  //Llamar a la mutación de create basket
   const [createBasket, { loading, error }] = useMutation(CREATE_BASKET);
 
+  //Crear los estados para cada input
   const [deliveryDate, setDeliveryDate] = useState("");
   const [productIds, setProductIds] = useState("");
   const [recipient, setRecipient] = useState("");
 
+  //Crear la función para hacer submit del formulario
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -28,9 +22,6 @@ const CreateBasketForm = () => {
       deliveryDate,
       recipient,
     };
-
-    console.log("Form Data:", input);
-    console.log("productIds", productIds);
 
     try {
       await createBasket({ variables: { input } });

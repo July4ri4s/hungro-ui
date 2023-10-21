@@ -5,14 +5,26 @@ import { CREATE_DONATION_MUTATION } from "../../../../../graphql/mutations";
 // Componente Modal
 const CreateDonationModal = ({ product, closeModal }) => {
   const [donationDate, setDonationDate] = useState("");
+  const [deliveryMethod, setDeliveryMethod] = useState("");
+
+  const [organizationCampus, setOrganizationCampus] = useState("");
+  const [quantity, setQuantity] = useState(1);
+
+  const [address, setAddress] = useState("");
 
   const [createDonation] = useMutation(CREATE_DONATION_MUTATION);
+
+  const orgCampus = product?.organization?.campus;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const input = {
       productId: product.id,
+      organizationCampus,
       donationDate,
+      quantity: parseInt(quantity),
+      deliveryMethod,
+      address,
     };
 
     try {
@@ -75,6 +87,104 @@ const CreateDonationModal = ({ product, closeModal }) => {
                     required
                   />
                 </div>
+                <div className="col-span-6 sm:col-span-3">
+                  <label
+                    htmlFor="name"
+                    className="block mb-2 text-sm font-medium text-gray-900"
+                  >
+                    Cantidad
+                  </label>
+                  <input
+                    type="number"
+                    name="quantity"
+                    value={quantity}
+                    id="quantity"
+                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                    placeholder="10"
+                    onChange={(e) => setQuantity(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="col-span-6 sm:col-span-3">
+                  <label
+                    htmlFor="name"
+                    className="block mb-2 text-sm font-medium text-gray-900"
+                  >
+                    Metódo de entrega{" "}
+                  </label>
+                  {/* <input
+                    type="text"
+                    name="deliveryMethod"
+                    value={deliveryMethod}
+                    id="deliveryMethod"
+                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                    placeholder="Personal o a domicilio"
+                    onChange={(e) => setDeliveryMethod(e.target.value)}
+                    required
+                  /> */}
+                  <select
+                    value={deliveryMethod}
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                    onChange={(e) => setDeliveryMethod(e.target.value)}
+                  >
+                    <option key="" value="">
+                      Seleccione una opción
+                    </option>
+                    <option key="Personal" value="Personal">
+                      Personal
+                    </option>
+                    <option key="A domicilio" value="A domicilio">
+                      A domicilio
+                    </option>
+                  </select>
+                </div>
+
+                {deliveryMethod === "Personal" ? (
+                  <div className="col-span-6 sm:col-span-3">
+                    <label
+                      htmlFor="name"
+                      className="block mb-2 text-sm font-medium text-gray-900"
+                    >
+                      Seleccione una sede:
+                    </label>
+                    <select
+                      value={organizationCampus}
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                      onChange={(e) => setOrganizationCampus(e.target.value)}
+                    >
+                      {orgCampus.map((option) => (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                ) : (
+                  <></>
+                )}
+
+                {deliveryMethod === "A domicilio" ? (
+                  <div className="col-span-6 sm:col-span-3">
+                    <label
+                      htmlFor="name"
+                      className="block mb-2 text-sm font-medium text-gray-900"
+                    >
+                      Dirección de entrega{" "}
+                    </label>
+                    <input
+                      type="text"
+                      name="address"
+                      value={address}
+                      id="address"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                      placeholder="100 N y 175 E"
+                      onChange={(e) => setAddress(e.target.value)}
+                      required
+                    />
+                  </div>
+                ) : (
+                  <></>
+                )}
               </div>
               <button
                 id="createProductButton"

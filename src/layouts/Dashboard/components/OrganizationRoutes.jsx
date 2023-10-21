@@ -272,7 +272,7 @@ const OrganizationRoutes = () => {
             viewBox="0 -3 32 32"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
             xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
             fill="#d9d9d9"
             stroke="#d9d9d9"

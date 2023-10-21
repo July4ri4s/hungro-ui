@@ -11,6 +11,8 @@ const DonorProducts = () => {
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
+  console.log(data);
+
   const openModal = (product) => {
     setModalProduct(product);
   };

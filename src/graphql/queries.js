@@ -42,6 +42,9 @@ export const GET_PRODUCTS = gql`
       expirationDate
       quantityDonated
       quantityNeeded
+      organization {
+        campus
+      }
     }
   }
 `;
@@ -51,13 +54,21 @@ export const GET_DONATIONS = gql`
     getDonations {
       donor {
         name
+        id
       }
       product {
         name
         category
       }
+      organization {
+        id
+      }
       donationDate
+      deliveryMethod
+      address
+      organizationCampus
       id
+      quantity
     }
   }
 `;

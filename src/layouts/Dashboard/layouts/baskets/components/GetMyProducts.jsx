@@ -16,15 +16,26 @@ const GET_MY_PRODUCTS = gql`
 `;
 
 const ProductsSelect = ({ onProductSelect }) => {
+  // Traer los productos de la base de datos
   const { data, loading, error } = useQuery(GET_MY_PRODUCTS);
+
+  //Traer el usuario que está autenticado
   const { data: meData, loading: meLoading, error: meError } = useQuery(GET_ME);
+
+  // Estado para guardar los productos seleccionados
   const [selectedProducts, setSelectedProducts] = useState([]);
+
+  // Abrir el dropdown del select
   const [isOpen, setIsOpen] = useState(false);
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
+  // De la organización loggeada, su Id
   const myOrgId = meData.getMe.organization.id;
+
+  // Filtramos los productos que pertenecen únicamenta a la organización loggeda
+
   const myProducts = data?.getProducts.filter(
     (product) => product?.organization?.id === myOrgId
   );

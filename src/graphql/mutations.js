@@ -46,6 +46,20 @@ export const CREATE_DONATION_MUTATION = gql`
   mutation CreateDonation($input: DonationInput!) {
     createDonation(input: $input) {
       donationDate
+      deliveryMethod
+      address
+      organizationCampus
+      quantity
+    }
+  }
+`;
+
+export const CREATE_BASKET = gql`
+  mutation CreateBasket($input: BasketInput!) {
+    createBasket(input: $input) {
+      recipient
+      id
+      deliveryDate
     }
   }
 `;

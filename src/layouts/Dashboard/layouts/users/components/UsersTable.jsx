@@ -9,8 +9,6 @@ const UsersTable = ({ setShowModal }) => {
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  const user = data?.getDonors[0].email;
-
   return (
     <>
       <div className="flex flex-col">
