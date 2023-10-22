@@ -26,6 +26,7 @@ export const CREATE_ORGANIZATION_MUTATION = gql`
       password
       email
       address
+      campus
     }
   }
 `;
@@ -63,3 +64,14 @@ export const CREATE_BASKET = gql`
     }
   }
 `;
+
+export const CREATE_CAMPAIGN =gql`
+
+mutation CreateCampaign($input: CampaignInput!) {
+  createCampaign(input: $input) {
+    description
+    name
+    id
+  }
+}
+`

@@ -13,6 +13,7 @@ const Form = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState();
+  const [campus, setCampus] = useState([]);
 
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState(null);
@@ -59,7 +60,7 @@ const Form = () => {
     e.preventDefault();
 
     try {
-      const input = { name, email, password, address };
+      const input = { name, email, password, address, campus };
 
       if (formType === "donor") {
         await createDonor({ variables: { input } });
@@ -173,14 +174,6 @@ const Form = () => {
                 required
               />
             </div>
-            <div className="text-sm mt-2">
-              <a
-                href="#"
-                className="font-semibold text-[#195527] hover:ring-green-500 "
-              >
-                ¿Olvidaste la contraseña?
-              </a>
-            </div>
           </div>
 
           <div>
@@ -228,6 +221,32 @@ const Form = () => {
               onChange={(e) => setAddress(e.target.value)}
             />
           </div>
+          {formType === "organization" ? (
+            <div>
+              <div className="flex items-center justify-between ">
+                <label
+                  htmlFor="campus"
+                  className="font-semibold text-[#195527] hover:ring-green-500 "
+                >
+                  Sedes
+                </label>
+              </div>
+              <div className="mt-2">
+                <input
+                  id="campus"
+                  value={campus}
+                  name="campus"
+                  type="text"
+                  placeholder="Ingrese una sede"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  required
+                  onChange={(e) => setCampus(e.target.value)}
+                />
+              </div>
+            </div>
+          ) : (
+            <></>
+          )}
 
           <div>
             <button

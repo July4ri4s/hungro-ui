@@ -10,8 +10,8 @@ const CreateBasketForm = () => {
 
   //Crear los estados para cada input
   const [deliveryDate, setDeliveryDate] = useState("");
-  const [productIds, setProductIds] = useState("");
   const [recipient, setRecipient] = useState("");
+  const [productIds, setProductIds] = useState("");
 
   //Crear la función para hacer submit del formulario
   const handleFormSubmit = async (event) => {
