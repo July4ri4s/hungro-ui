@@ -1,9 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 import SideBar from "../../components/SideBar";
 import NavBar from "../../components/NavBar";
+
+import AddProducModal from "../products/components/AddProducModal";
+
+import AddCampaignModal from "./components/AddCampaignModal";
 import Header from "./components/Header";
+import CampaignsTable from "./components/CampaignsTable";
+
 
 const Campaigns = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  // const { refetch } = useQuery(GET_PRODUCTS);
   return (
     <>
       {/* Aquí va el component NavBar */}
@@ -18,8 +27,18 @@ const Campaigns = () => {
         >
           <main>
             <div className="px-4 pt-6">
-              <Header />
-              {/* <UsersTable setShowModal={setShowModal} /> */}
+              <Header setShowModal={setShowModal}/>
+              {/* <CampaignsTable refetch={refetch} /> */}
+
+              {showModal ? (
+                <AddCampaignModal
+                  close={() => {
+                    setShowModal(false);
+                  }}
+                  // refetch={refetch}
+                  
+                />
+              ) : null}
 
               {/* {showModal ? (
               <EditUserModal
