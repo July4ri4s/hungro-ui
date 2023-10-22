@@ -1,6 +1,7 @@
 import React from "react";
 import { GET_DONATIONS } from "../../../../../graphql/queries";
 import { useQuery } from "@apollo/client";
+import { formatDateString } from "../../../../../utils/FormatDate";
 
 const DonationsTable = () => {
   const { data, loading, error } = useQuery(GET_DONATIONS);
@@ -86,7 +87,7 @@ const DonationsTable = () => {
                         {donation?.product?.name}
                       </td>
                       <td className="p-4 text-base font-medium text-gray-900 whitespace-nowrap ">
-                        {donation?.donationDate}
+                        {formatDateString(donation?.donationDate)}
                       </td>
                       <td className="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs ">
                         {donation?.donor?.name}

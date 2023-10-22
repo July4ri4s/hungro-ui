@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import { useQuery } from "@apollo/client";
 import { GET_DONATIONS, GET_ME } from "../../graphql/queries";
 import DonorProducts from "./layouts/users/components/DonorProducts";
+import { formatDateString } from "../../utils/FormatDate";
 
 const Dashboard = () => {
   const { data, loading, error } = useQuery(GET_ME, {
@@ -1037,7 +1038,7 @@ const Dashboard = () => {
                                       {donation?.donor?.name}
                                     </td>
                                     <td className="p-4 text-sm font-normal text-gray-500 whitespace-nowrap ">
-                                      {donation?.donationDate}
+                                      {formatDateString(donation?.donationDate)}
                                     </td>
                                     <td className="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap ">
                                       {donation?.product?.name}
@@ -2165,7 +2166,7 @@ const Dashboard = () => {
                                       {donation?.product?.name}
                                     </td>
                                     <td className="p-4 text-sm font-normal text-gray-500 whitespace-nowrap ">
-                                      {donation?.donationDate}
+                                      {formatDateString(donation?.donationDate)}
                                     </td>
                                     <td className="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap ">
                                       {donation?.quantity}
