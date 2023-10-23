@@ -4,8 +4,6 @@ import { GET_PRODUCTS } from "../graphql/queries";
 
 const data = [
   {
-    image:
-      "https://images.pexels.com/photos/2286776/pexels-photo-2286776.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     title: "Papa",
 
     description: "La meta es llegar a 1000 papas",
@@ -13,24 +11,18 @@ const data = [
     goal: "1000",
   },
   {
-    image:
-      "https://images.pexels.com/photos/4110256/pexels-photo-4110256.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     title: "Arroz",
     description: "La meta es llegar a 1000 bolsas de arroz",
     amount: "200",
     goal: "1000",
   },
   {
-    image:
-      "https://images.pexels.com/photos/6316671/pexels-photo-6316671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     title: "Frijoles",
     description: "La meta es llegar a 850 bolsas de frijoles",
     amount: "20",
     goal: "850",
   },
   {
-    image:
-      "https://static.guiainfantil.com/media/16341/c/recetas-faciles-con-atun-de-lata-md.jpg",
     title: "Atún",
     description: "La meta es llegar a 500 latas de atún",
     amount: "2",
@@ -41,8 +33,6 @@ const data = [
 const SliderCard = () => {
   const { data: pData, loading, error } = useQuery(GET_PRODUCTS);
   console.log(pData);
-  const image =
-    "https://images.pexels.com/photos/2286776/pexels-photo-2286776.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
   return (
     <section className="py-16  bg-white sm:pt-24 lg:pt-28">
       {/* Container */}
@@ -72,13 +62,6 @@ const SliderCard = () => {
               key={index}
               className="max-w-xs h-fit w-full bg-white border border-gray-200 rounded-lg shadow  mx-2 flex-shrink-0"
             >
-              <div className="relative rounded-t-lg overflow-hidden h-60 m-4 ">
-                <img
-                  className="absolute inset-0 w-full h-full object-cover rounded-lg"
-                  src={image}
-                  alt=""
-                />
-              </div>
               <div className="p-5">
                 <a href="#">
                   <h5 className="mb-2 text-2xl font-bold font-serif tracking-tight text-gray-900 ">

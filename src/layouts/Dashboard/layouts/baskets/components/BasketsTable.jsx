@@ -1,11 +1,11 @@
 import React from "react";
 import {
   GET_BASKETS,
-  GET_CAMPAIGNS,
   GET_ME,
 } from "../../../../../graphql/queries";
 import { useQuery } from "@apollo/client";
 import { formatDateString } from "../../../../../utils/FormatDate";
+
 const BasketsTable = ({ refetch }) => {
   const { data: meData, loading: meLoading, error: meError } = useQuery(GET_ME);
 

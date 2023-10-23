@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+
 
 const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
       <nav className="fixed z-30 w-full bg-white border-b border-gray-200  ">

@@ -272,7 +272,7 @@ const Form = () => {
             <button
               type="submit"
               // disabled={loading}
-              className="flex w-full justify-center rounded-md bg-[#195527] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#376543] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
+              className="flex w-full justify-center rounded-md bg-[#195527] hover:bg-[#1b7a2e] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
             >
               Registrarme
             </button>
