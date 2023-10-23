@@ -16,17 +16,17 @@ const GET_MY_PRODUCTS = gql`
 `;
 
 const ProductsSelect = ({ onProductSelect }) => {
-  // Traer los productos de la base de datos
-  const { data, loading, error } = useQuery(GET_MY_PRODUCTS);
-
-  //Traer el usuario que está autenticado
-  const { data: meData, loading: meLoading, error: meError } = useQuery(GET_ME);
-
   // Estado para guardar los productos seleccionados
   const [selectedProducts, setSelectedProducts] = useState([]);
 
   // Abrir el dropdown del select
   const [isOpen, setIsOpen] = useState(false);
+
+  // Traer los productos de la base de datos
+  const { data, loading, error } = useQuery(GET_MY_PRODUCTS);
+
+  //Traer el usuario que está autenticado
+  const { data: meData, loading: meLoading, error: meError } = useQuery(GET_ME);
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -42,12 +42,13 @@ const ProductsSelect = ({ onProductSelect }) => {
 
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
-    if (event.target.checked) {
-      setSelectedProducts((prev) => [...prev, value]);
-    } else {
-      setSelectedProducts((prev) => prev.filter((id) => id !== value));
-    }
-    onProductSelect(selectedProducts);
+    setSelectedProducts((prev) => {
+      const updatedProducts = event.target.checked
+        ? [...prev, value]
+        : prev.filter((id) => id !== value);
+      onProductSelect(updatedProducts);
+      return updatedProducts;
+    });
   };
 
   return (

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import SideBar from "./components/SideBar";
 import NavBar from "./components/NavBar";
 import { useQuery } from "@apollo/client";
-import { GET_DONATIONS, GET_ME } from "../../graphql/queries";
+import { GET_CAMPAIGNS, GET_DONATIONS, GET_ME } from "../../graphql/queries";
 import DonorProducts from "./layouts/users/components/DonorProducts";
 import { formatDateString } from "../../utils/FormatDate";
 
@@ -20,6 +20,14 @@ const Dashboard = () => {
     loading: donationsLoading,
     error: donationsError,
   } = useQuery(GET_DONATIONS);
+
+  const {
+    data: campaignsData,
+    loading: campaignsLoading,
+    error: campaignsError,
+  } = useQuery(GET_CAMPAIGNS);
+
+  const campaigns = campaignsData?.getCampaigns;
 
   if (loading) return "Cargando...";
   if (error) return `Error: ${error.message}`;
@@ -1888,66 +1896,28 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-2 2xl:grid-cols-3">
-                  <div className="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex  sm:p-6 ">
-                    <div className="w-full">
-                      <h3 className="text-base font-normal text-gray-500 ">
-                        Productos donados
-                      </h3>
-                      <span className="text-2xl font-bold leading-none text-gray-900 sm:text-3xl ">
-                        17
-                      </span>
-                      <p className="flex items-center text-base font-normal text-gray-500 ">
-                        <span className="flex items-center mr-1.5 text-sm text-green-500 ">
-                          <svg
-                            className="w-4 h-4"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                          >
-                            <path
-                              clipRule="evenodd"
-                              fillRule="evenodd"
-                              d="M10 17a.75.75 0 01-.75-.75V5.612L5.29 9.77a.75.75 0 01-1.08-1.04l5.25-5.5a.75.75 0 011.08 0l5.25 5.5a.75.75 0 11-1.08 1.04l-3.96-4.158V16.25A.75.75 0 0110 17z"
-                            ></path>
-                          </svg>
-                          Usuario top
-                        </span>
-                        Desde el último mes
-                      </p>
-                    </div>
-                    <div className="w-full" id="new-products-chart"></div>
-                  </div>
-                  <div className="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex  sm:p-6 ">
-                    <div className="w-full">
-                      <h3 className="text-base font-normal text-gray-500 ">
-                        Donaciones
-                      </h3>
-                      <span className="text-2xl font-bold leading-none text-gray-900 sm:text-3xl ">
-                        17
-                      </span>
-                      <p className="flex items-center text-base font-normal text-gray-500 ">
-                        <span className="flex items-center mr-1.5 text-sm text-green-500 ">
-                          <svg
-                            className="w-4 h-4"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                          >
-                            <path
-                              clipRule="evenodd"
-                              fillRule="evenodd"
-                              d="M10 17a.75.75 0 01-.75-.75V5.612L5.29 9.77a.75.75 0 01-1.08-1.04l5.25-5.5a.75.75 0 011.08 0l5.25 5.5a.75.75 0 11-1.08 1.04l-3.96-4.158V16.25A.75.75 0 0110 17z"
-                            ></path>
-                          </svg>
-                          3,4%
-                        </span>
-                        Desde el último mes
-                      </p>
-                    </div>
-                    <div className="w-full" id="week-signups-chart"></div>
-                  </div>
+                  {campaigns &&
+                    campaigns?.map((campaign) => (
+                      <div className="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex  sm:p-6 ">
+                        <div className="w-full">
+                          <h3 className="text-base font-normal text-gray-500 ">
+                            Campaña: {campaign.name}
+                          </h3>
+                          <span className="text-xl font-bold leading-none text-gray-900 sm:text-2xl ">
+                            {campaign.organization.name}
+                          </span>
+                          <p className="flex items-center text-base font-normal text-gray-500 ">
+                            <span className="flex items-center mr-1.5 text-sm text-green-500 ">
+                              Usuario top
+                            </span>
+                          </p>
+                          <p className="flex items-center text-base font-normal text-gray-500 ">
+                            Desde el último mes
+                          </p>
+                        </div>
+                        <div className="w-full" id="new-products-chart"></div>
+                      </div>
+                    ))}
                 </div>
 
                 <DonorProducts />

@@ -4,11 +4,14 @@ import NavBar from "../../components/NavBar";
 
 import AddCampaignModal from "./components/AddCampaignModal";
 import Header from "./components/Header";
+import CampaignsTable from "./components/CampaignsTable";
+import { GET_CAMPAIGNS } from "../../../../graphql/queries";
+import { useQuery } from "@apollo/client";
 
 const Campaigns = () => {
   const [showModal, setShowModal] = useState(false);
 
-  // const { refetch } = useQuery(GET_PRODUCTS);
+  const { refetch } = useQuery(GET_CAMPAIGNS);
   return (
     <>
       {/* Aquí va el component NavBar */}
@@ -25,13 +28,13 @@ const Campaigns = () => {
             <div className="px-4 pt-6">
               <Header setShowModal={setShowModal} />
               {/* <CampaignsTable refetch={refetch} /> */}
-
+              <CampaignsTable refetch={refetch} />
               {showModal ? (
                 <AddCampaignModal
                   close={() => {
                     setShowModal(false);
                   }}
-                  // refetch={refetch}
+                  refetch={refetch}
                 />
               ) : null}
 

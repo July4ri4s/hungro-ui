@@ -1,26 +1,30 @@
 import React from "react";
-import { GET_CAMPAIGNS, GET_ME } from "../../../../../graphql/queries";
+import {
+  GET_BASKETS,
+  GET_CAMPAIGNS,
+  GET_ME,
+} from "../../../../../graphql/queries";
 import { useQuery } from "@apollo/client";
-
-const CampaignsTable = ({ refetch }) => {
+import { formatDateString } from "../../../../../utils/FormatDate";
+const BasketsTable = ({ refetch }) => {
   const { data: meData, loading: meLoading, error: meError } = useQuery(GET_ME);
-  console.log(meData.getMe);
-  const { data, loading, error } = useQuery(GET_CAMPAIGNS);
+
+  const { data, loading, error } = useQuery(GET_BASKETS);
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
   const organizationId = meData?.getMe?.organization?.id;
 
-  const myCampaigns = data?.getCampaigns?.filter(
-    (campaign) => campaign.organization.id === organizationId
+  const myBaskets = data?.getBaskets?.filter(
+    (basket) => basket.organization.id === organizationId
   );
 
   // const myDonations = donationsData?.getDonations.filter(
   //   (donation) => donation?.organization?.id === myId
   // );
 
-  console.log(myCampaigns);
+  console.log("mIS CANASTAS", myBaskets);
 
   return (
     <div className="flex flex-col">
@@ -47,13 +51,13 @@ const CampaignsTable = ({ refetch }) => {
                     scope="col"
                     className="p-4 text-xs font-medium text-left text-gray-500 uppercase "
                   >
-                    Campaña
+                    Beneficiario
                   </th>
                   <th
                     scope="col"
                     className="p-4 text-xs font-medium text-left text-gray-500 uppercase "
                   >
-                    Descripcion
+                    Fecha de entrega
                   </th>
                   <th
                     scope="col"
@@ -64,8 +68,8 @@ const CampaignsTable = ({ refetch }) => {
                 </tr>
               </thead>
 
-              {myCampaigns &&
-                myCampaigns.map((campaign) => (
+              {myBaskets &&
+                myBaskets.map((basket) => (
                   <tbody className="bg-white divide-y divide-gray-200  ">
                     <tr className="hover:bg-gray-100 ">
                       <td className="w-4 p-4">
@@ -85,14 +89,12 @@ const CampaignsTable = ({ refetch }) => {
                         </div>
                       </td>
                       <td className="p-4 text-sm font-normal text-gray-500 whitespace-nowrap ">
-                        {campaign?.name}
+                        {basket?.recipient}
                       </td>
                       <td className="p-4 text-base font-medium text-gray-900 whitespace-nowrap ">
-                        {campaign?.description}
+                        {formatDateString(basket?.deliveryDate)}
                       </td>
-                      <td className="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs ">
-                        {campaign?.organization?.name}
-                      </td>
+                      <td className="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs "></td>
 
                       <td className="p-4 space-x-2 whitespace-nowrap">
                         <button
@@ -154,4 +156,4 @@ const CampaignsTable = ({ refetch }) => {
   );
 };
 
-export default CampaignsTable;
+export default BasketsTable;

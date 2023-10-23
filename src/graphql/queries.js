@@ -72,15 +72,29 @@ export const GET_DONATIONS = gql`
     }
   }
 `;
- export const GET_CAMPAIGNS =gql`
-query GetCampaigns {
-  getCampaigns {
-    name
-    description
-    organization {
+export const GET_CAMPAIGNS = gql`
+  query GetCampaigns {
+    getCampaigns {
+      organization {
+        id
+        name
+      }
       name
+      description
     }
-    
   }
-}
- `;
+`;
+
+export const GET_BASKETS = gql`
+  query GetBaskets {
+    getBaskets {
+      organization {
+        id
+        name
+      }
+      id
+      deliveryDate
+      recipient
+    }
+  }
+`;

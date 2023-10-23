@@ -3,28 +3,24 @@ import { CREATE_CAMPAIGN } from "../../../../../graphql/mutations";
 import { useMutation } from "@apollo/client";
 import ProductsSelect from "../../baskets/components/GetMyProducts";
 
-
 const AddCampaignModal = ({ close }) => {
   const [name, setName] = useState("");
-  const[description, setDescription] =useState("")
+  const [description, setDescription] = useState("");
   const [productIds, setProductIds] = useState("");
 
-  const [createCampaign, { loading, error }] = useMutation(
-    CREATE_CAMPAIGN,
-    {
-      onCompleted: () => {
-        // refetch(); // Refetch la tabla de productos
-        close(); // Cierra el modal
-      },
-    }
-  );
+  const [createCampaign, { loading, error }] = useMutation(CREATE_CAMPAIGN, {
+    onCompleted: () => {
+      // refetch(); // Refetch la tabla de productos
+      close(); // Cierra el modal
+    },
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const input = {
       productIds,
       name,
-      description
+      description,
     };
 
     try {
@@ -92,7 +88,7 @@ const AddCampaignModal = ({ close }) => {
                       htmlFor="category"
                       className="block mb-2 text-sm font-medium text-gray-900"
                     >
-                      Descripción 
+                      Descripción
                     </label>
                     <input
                       type="text"
@@ -107,11 +103,10 @@ const AddCampaignModal = ({ close }) => {
                   </div>
                   <div className="col-span-6 sm:col-span-3">
                     <ProductsSelect
-                    name="products"
-                    onProductSelect={handleProductsChange}
-        />
+                      name="products"
+                      onProductSelect={handleProductsChange}
+                    />
                   </div>
-                  
                 </div>
                 <button
                   id="createCampaignButton"
@@ -129,8 +124,6 @@ const AddCampaignModal = ({ close }) => {
           </div>
         </div>
       </div>
-
-      
     </>
   );
 };
