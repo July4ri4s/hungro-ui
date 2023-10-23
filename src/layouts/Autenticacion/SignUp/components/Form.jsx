@@ -13,7 +13,7 @@ const Form = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState();
-  const [campus, setCampus] = useState([]);
+  const [campus, setCampus] = useState([""]);
 
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState(null);
@@ -55,16 +55,27 @@ const Form = () => {
     );
   };
 
+  const handleAddCampus = () => {
+    setCampus([...campus, ""]);
+  };
+
+  const handleCampusChange = (index, value) => {
+    const newCampus = [...campus];
+    newCampus[index] = value;
+    setCampus(newCampus);
+  };
+
   //Paso número 2, crear la función para el submit.
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const input = { name, email, password, address, campus };
+      let input = { name, email, password, address };
 
       if (formType === "donor") {
         await createDonor({ variables: { input } });
       } else {
+        input.campus = campus;
         await createOrganization({ variables: { input } });
       }
 
@@ -232,16 +243,25 @@ const Form = () => {
                 </label>
               </div>
               <div className="mt-2">
-                <input
-                  id="campus"
-                  value={campus}
-                  name="campus"
-                  type="text"
-                  placeholder="Ingrese una sede"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                  required
-                  onChange={(e) => setCampus(e.target.value)}
-                />
+                {campus.map((value, index) => (
+                  <div key={index} className="my-2">
+                    <input
+                      value={value}
+                      onChange={(e) =>
+                        handleCampusChange(index, e.target.value)
+                      }
+                      placeholder="Ingrese una sede"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    />
+                  </div>
+                ))}
+                <button
+                  type="button"
+                  onClick={handleAddCampus}
+                  className="border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 my-2"
+                >
+                  Agregar otra sede
+                </button>
               </div>
             </div>
           ) : (
