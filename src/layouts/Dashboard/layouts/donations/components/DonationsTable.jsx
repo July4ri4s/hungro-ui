@@ -1,14 +1,23 @@
 import React from "react";
-import { GET_DONATIONS } from "../../../../../graphql/queries";
+import { GET_DONATIONS, GET_ME } from "../../../../../graphql/queries";
 import { useQuery } from "@apollo/client";
 import { formatDateString } from "../../../../../utils/FormatDate";
 
 const DonationsTable = () => {
+  const { data: meData, loading: meLoading, error: meError } = useQuery(GET_ME);
+
   const { data, loading, error } = useQuery(GET_DONATIONS);
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
+  const organizationId = meData?.getMe?.organization?.id;
+
+  const myDonations = data?.getDonations?.filter(
+    (donation) => donation?.organization?.id === organizationId
+  );
+
+  console.log("Mis donaciones", myDonations);
   return (
     <div className="flex flex-col">
       <div className="overflow-x-auto">
@@ -63,8 +72,8 @@ const DonationsTable = () => {
                 </tr>
               </thead>
 
-              {data?.getDonations &&
-                data?.getDonations?.map((donation) => (
+              {myDonations &&
+                myDonations.map((donation) => (
                   <tbody className="bg-white divide-y divide-gray-200  ">
                     <tr className="hover:bg-gray-100 ">
                       <td className="w-4 p-4">

@@ -27,7 +27,7 @@ const Menu = () => {
           <a
             type="button"
             href="/registrarse"
-            className="bg-[#195527]	hover:bg-[#376543] rounded-lg text-sm mr-3 md:mr-0 font-medium px-4 py-2 text-center text-white hove"
+            className="bg-[#195527]	hover:bg-[#1b7a2e] rounded-lg text-sm mr-3 md:mr-0 font-medium px-4 py-2 text-center text-white hove"
           >
             Registrarse
           </a>

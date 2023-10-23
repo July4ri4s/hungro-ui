@@ -22,7 +22,7 @@ const Header = ({ setShowModal }) => {
                   >
                     <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
                   </svg>
-                  Home
+                  Inicio
                 </a>
               </li>
               <li>
@@ -161,7 +161,7 @@ const Header = ({ setShowModal }) => {
               </div>
             </div>
           </div>
-           <button
+          <button
             id="createProductButton"
             className="text-white bg-[#376543] hover:bg-[#376543]00 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5   focus:outline-none "
             type="button"
@@ -172,7 +172,7 @@ const Header = ({ setShowModal }) => {
             onClick={() => setShowModal(true)}
           >
             Add new product
-          </button> 
+          </button>
         </div>
       </div>
     </div>

@@ -92,7 +92,7 @@ const UsersTable = ({ setShowModal }) => {
                         </td>
 
                         <td className="p-4 space-x-2 whitespace-nowrap">
-                          <button
+                          {/*<button
                             type="button"
                             data-modal-toggle="edit-user-modal"
                             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-[#376543] hover:bg-primary-800 focus:ring-4 focus:ring-primary-300"
@@ -112,7 +112,7 @@ const UsersTable = ({ setShowModal }) => {
                               ></path>
                             </svg>
                             Editar usuario
-                          </button>
+                        </button>*/}
 
                           <button
                             type="button"

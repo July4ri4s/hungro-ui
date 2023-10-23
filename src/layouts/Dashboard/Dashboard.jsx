@@ -887,7 +887,6 @@ const Dashboard = () => {
                                 id="fitbit"
                                 type="checkbox"
                                 value=""
-                                checked
                                 className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500  focus:ring-2  "
                               />
 
@@ -920,7 +919,6 @@ const Dashboard = () => {
                                 id="asus"
                                 type="checkbox"
                                 value=""
-                                checked
                                 className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500  focus:ring-2  "
                               />
 
@@ -934,10 +932,7 @@ const Dashboard = () => {
                           </ul>
                         </div>
                       </div>
-                      <div
-                        date-rangepicker
-                        className="flex items-center space-x-4"
-                      >
+                      <div className="flex items-center space-x-4">
                         <div className="relative">
                           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                             <svg
@@ -1990,7 +1985,6 @@ const Dashboard = () => {
                                 id="fitbit"
                                 type="checkbox"
                                 value=""
-                                checked
                                 className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500  focus:ring-2  "
                               />
 
@@ -2023,7 +2017,6 @@ const Dashboard = () => {
                                 id="asus"
                                 type="checkbox"
                                 value=""
-                                checked
                                 className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500  focus:ring-2  "
                               />
 
@@ -2037,10 +2030,7 @@ const Dashboard = () => {
                           </ul>
                         </div>
                       </div>
-                      <div
-                        date-rangepicker
-                        className="flex items-center space-x-4"
-                      >
+                      <div className="flex items-center space-x-4">
                         <div className="relative">
                           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                             <svg

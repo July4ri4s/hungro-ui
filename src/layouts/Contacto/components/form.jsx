@@ -64,7 +64,7 @@ const Formulario = () => {
                       type="button"
                       data-te-ripple-init
                       data-te-ripple-color="light"
-                      className="inline-block w-full rounded bg-[#195527db] px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white  transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] lg:mb-0"
+                      className="inline-block w-full rounded bg-[#195527db] hover:bg-[#1b7a2e] px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white lg:mb-0"
                     >
                       Enviar
                     </button>

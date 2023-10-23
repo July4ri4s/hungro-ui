@@ -44,9 +44,8 @@ const Card = ({ imageUrl }) => {
           <div className=" text-2xl ">
             <p>Únete al cambio</p>
           </div>
-          <div className=" text-white flex justify-around items-center text-xl font-semibold bg-[#195527db] p-2 rounded-lg">
-            <a  href="/inicio-sesion" > 
-              Donar ahora</a>
+          <div className=" text-white flex justify-around items-center text-xl font-semibold bg-[#195527db] hover:bg-[#1b7a2e] p-2 rounded-lg">
+            <a href="/inicio-sesion">Donar ahora</a>
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

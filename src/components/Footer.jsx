@@ -3,39 +3,47 @@ const Footer = () => {
   return (
     <footer className=" bg-[#195527] m-2 .bg-white rounded-lg shadow md: ]">
       <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8 md: x-auto ">
-        <div className="sm:flex sm:items-center sm:justify-between">
-          <a
-            href="https://Hungro.com/"
-            className="flex items-center mb-4 sm:mb-0"
-          >
-            <span className=" text-white self-center text-2xl font-semibold whitespace-nowrap ">
-              Hungro
-            </span>
-          </a>
-          <a
-            href="https://Hungro.com/"
-            className="flex items-center mb-4 sm:mb-0"
-          >
-            <img src={logo} className=" h-20 mr-3" alt="Hungro Logo" />
-          </a>
-          <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0 ">
-            <li>
-              <a href="/" className="mr-4 hover:underline md:mr-6 ">
-                Inicio
-              </a>
-            </li>
-            <li>
-              <a href="/nosotros" className="mr-4 hover:underline md:mr-6">
-                Nosotros
-              </a>
-            </li>
+        <div className="flex items-center justify-between">
+          <div>
+            <a
+              href="https://Hungro.com/"
+              className="flex items-center mb-4 sm:mb-0"
+            >
+              <span className=" text-white self-center text-2xl font-semibold whitespace-nowrap ">
+                Hungro
+              </span>
+            </a>
+          </div>
 
-            <li>
-              <a href="/contacto" className="mr-4 hover:underline md:mr-6">
-                Contacto
-              </a>
-            </li>
-          </ul>
+          <div>
+            <a
+              href="https://Hungro.com/"
+              className="flex items-center mb-4 sm:mb-0"
+            >
+              <img src={logo} className="h-20" alt="Hungro Logo" />
+            </a>
+          </div>
+
+          <div>
+            <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0 md:flex-col md:space-y-2">
+              <li>
+                <a href="/" className="hover:underline ">
+                  Inicio
+                </a>
+              </li>
+              <li>
+                <a href="/nosotros" className=" hover:underline">
+                  Nosotros
+                </a>
+              </li>
+
+              <li>
+                <a href="/contacto" className="hover:underline">
+                  Contacto
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
         <hr className="my-6 border-white sm:mx-auto  lg:my-8" />
         <span className="block text-sm text-white sm:text-center ">

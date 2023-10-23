@@ -15,7 +15,7 @@ const SignOutButton = () => {
   return (
     <button
       id="signOutButton"
-      className="text-white bg-[#376543] hover:bg-[#376543]00 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-16 py-2.5 focus:outline-none"
+      className="text-white bg-[#195527]	hover:bg-[#1b7a2e] focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-16 py-2.5 focus:outline-none"
       type="button"
       onClick={() => signOut()}
     >
