@@ -43,6 +43,25 @@ export const CREATE_PRODUCT_MUTATION = gql`
   }
 `;
 
+export const UPDATE_PRODUCT_MUTATION = gql`
+  mutation Mutation($updateProductId: ID!, $input: ProductInput!) {
+    updateProduct(id: $updateProductId, input: $input) {
+      id
+      name
+      category
+      expirationDate
+      quantityNeeded
+      quantityDonated
+    }
+  }
+`;
+
+export const DELETE_PRODUCT_MUTATION = gql`
+  mutation DeleteProduct($deleteProductId: ID!) {
+    deleteProduct(id: $deleteProductId)
+  }
+`;
+
 export const CREATE_DONATION_MUTATION = gql`
   mutation CreateDonation($input: DonationInput!) {
     createDonation(input: $input) {
@@ -65,13 +84,12 @@ export const CREATE_BASKET = gql`
   }
 `;
 
-export const CREATE_CAMPAIGN =gql`
-
-mutation CreateCampaign($input: CampaignInput!) {
-  createCampaign(input: $input) {
-    description
-    name
-    id
+export const CREATE_CAMPAIGN = gql`
+  mutation CreateCampaign($input: CampaignInput!) {
+    createCampaign(input: $input) {
+      description
+      name
+      id
+    }
   }
-}
-`
+`;

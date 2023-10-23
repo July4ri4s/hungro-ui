@@ -8,7 +8,11 @@ import EditUserModal from "./components/EditUserModal";
 
 const Users = () => {
   const [showModal, setShowModal] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
   return (
     <>
       {/* Aquí va el component NavBar */}
@@ -23,8 +27,12 @@ const Users = () => {
         >
           <main>
             <div className="px-4 pt-6">
-              <Header />
-              <UsersTable setShowModal={setShowModal} />
+              <Header
+                searchTerm={searchTerm}
+                onSearchChange={handleSearchChange}
+              />
+
+              <UsersTable setShowModal={setShowModal} searchTerm={searchTerm} />
 
               {showModal ? (
                 <EditUserModal
