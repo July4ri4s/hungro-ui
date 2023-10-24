@@ -3,7 +3,7 @@ import { CREATE_BASKET } from "../../../../../graphql/mutations";
 import { useMutation } from "@apollo/client";
 import ProductsSelect from "./GetMyProducts";
 
-const AddBasketModal = ({ close }) => {
+const AddBasketModal = ({ close, refetch }) => {
   const [productIds, setProductIds] = useState("");
   const [deliveryDate, setDeliveryDate] = useState("");
   const [recipient, setRecipient] = useState("");
@@ -52,7 +52,7 @@ const AddBasketModal = ({ close }) => {
 
   const [createBasket, { loading, error }] = useMutation(CREATE_BASKET, {
     onCompleted: () => {
-      // refetch(); // Refetch la tabla de productos
+      refetch(); // Refetch la tabla de productos
       close(); // Cierra el modal
     },
   });
@@ -147,6 +147,7 @@ const AddBasketModal = ({ close }) => {
                     <ProductsSelect
                       name="products"
                       onProductSelect={handleProductsChange}
+                      selectedProducts={productIds}
                     />
                   </div>
                 </div>

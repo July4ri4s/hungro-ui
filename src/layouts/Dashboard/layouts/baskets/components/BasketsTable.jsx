@@ -8,6 +8,7 @@ import { DELETE_BASKET_MUTATION } from "../../../../../graphql/mutations";
 const BasketsTable = ({ refetch }) => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [selectedBasket, setSelectedBasket] = useState(null);
+
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [basketToDelete, setBasketToDelete] = useState(null);
   const { data: meData, loading: meLoading, error: meError } = useQuery(GET_ME);
@@ -121,12 +122,12 @@ const BasketsTable = ({ refetch }) => {
 
                       <td className="p-4 space-x-2 whitespace-nowrap">
                         <button
-                          onClick={() => handleUpdateClick(product)}
+                          onClick={() => handleUpdateClick(basket)}
                           type="button"
                           id="updateProductButton"
-                          data-drawer-target="drawer-update-product-default"
-                          data-drawer-show="drawer-update-product-default"
-                          aria-controls="drawer-update-product-default"
+                          data-drawer-target="drawer-update-basket-default"
+                          data-drawer-show="drawer-update-basket-default"
+                          aria-controls="drawer-update-basket-default"
                           data-drawer-placement="right"
                           className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-[#376543] focus:ring-4 focus:ring-primary-300   "
                         >
@@ -149,9 +150,9 @@ const BasketsTable = ({ refetch }) => {
                           onClick={() => handleDeleteClick(basket.id)}
                           type="button"
                           id="deleteProductButton"
-                          data-drawer-target="drawer-delete-product-default"
-                          data-drawer-show="drawer-delete-product-default"
-                          aria-controls="drawer-delete-product-default"
+                          data-drawer-target="drawer-delete-basket-default"
+                          data-drawer-show="drawer-delete-basket-default"
+                          aria-controls="drawer-delete-basket-default"
                           data-drawer-placement="right"
                           className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 "
                         >

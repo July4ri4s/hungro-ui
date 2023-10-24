@@ -17,7 +17,6 @@ const DonationsTable = () => {
     (donation) => donation?.organization?.id === organizationId
   );
 
-  console.log("Mis donaciones", myDonations);
   return (
     <div className="flex flex-col">
       <div className="overflow-x-auto">

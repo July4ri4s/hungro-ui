@@ -1,21 +1,20 @@
-import { useMutation } from "@apollo/client";
 import React, { useEffect, useState } from "react";
-import { UPDATE_BASKET_MUTATION } from "../../../../../graphql/mutations";
-import ProductsSelect from "./GetMyProducts";
+import { UPDATE_CAMPAIGN_MUTATION } from "../../../../../graphql/mutations";
+import { useMutation } from "@apollo/client";
+import ProductsSelect from "../../baskets/components/GetMyProducts";
 
-const EditBasketModal = ({ show, onClose, basket }) => {
+const EditCampaignModal = ({ show, onClose, campaign }) => {
   //Paso 1: declarar la mutación
-  const [updateBasket, { loading, error }] = useMutation(
-    UPDATE_BASKET_MUTATION
+  const [updateCampaign, { loading, error }] = useMutation(
+    UPDATE_CAMPAIGN_MUTATION
   );
 
-  const [productIds, setProductIds] = useState(basket?.productIds || []);
-
+  const [productIds, setProductIds] = useState(campaign?.productIds || []);
   //Paso 2: declarar los datos del formulatio
 
   const [formData, setFormData] = useState({
-    recipient: basket?.recipient,
-    deliveryDate: basket?.deliveryDate,
+    name: campaign?.name,
+    description: campaign?.description,
   });
 
   const handleChange = (e) => {
@@ -31,21 +30,21 @@ const EditBasketModal = ({ show, onClose, basket }) => {
       productIds,
     };
 
-    const { data } = await updateBasket({
-      variables: { updateBasketId: basket.id, input },
+    const { data } = await updateCampaign({
+      variables: { updateCampaignId: campaign.id, input },
     });
 
     onClose();
   };
 
   useEffect(() => {
-    if (basket) {
+    if (campaign) {
       setFormData({
-        recipient: basket.recipient,
-        deliveryDate: basket.deliveryDate,
+        name: campaign.name,
+        description: campaign.description,
       });
     }
-  }, [basket]);
+  }, [campaign]);
 
   const handleProductsChange = (selectedProductIds) => {
     setProductIds(selectedProductIds);
@@ -83,16 +82,16 @@ const EditBasketModal = ({ show, onClose, basket }) => {
                 <div className="grid grid-cols-6 gap-6">
                   <div className="col-span-6 sm:col-span-3">
                     <label
-                      htmlFor="recipient"
+                      htmlFor="name"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Beneficiario
+                      Nombre de la campaña
                     </label>
                     <input
                       type="text"
-                      name="recipient"
-                      id="recipient"
-                      value={formData.recipient}
+                      name="name"
+                      id="name"
+                      value={formData.name}
                       onChange={handleChange}
                       className="mt-1 p-2 w-full border rounded-md"
                     />
@@ -100,16 +99,16 @@ const EditBasketModal = ({ show, onClose, basket }) => {
 
                   <div className="col-span-6 sm:col-span-3">
                     <label
-                      htmlFor="deliveryDate"
+                      htmlFor="description"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Fecha de entrega
+                      Descripción
                     </label>
                     <input
-                      type="date"
-                      name="deliveryDate"
-                      id="deliveryDate"
-                      value={formData.deliveryDate}
+                      type="text"
+                      name="description"
+                      id="description"
+                      value={formData.description}
                       onChange={handleChange}
                       className="mt-1 p-2 w-full border rounded-md"
                     />
@@ -148,4 +147,4 @@ const EditBasketModal = ({ show, onClose, basket }) => {
   );
 };
 
-export default EditBasketModal;
+export default EditCampaignModal;

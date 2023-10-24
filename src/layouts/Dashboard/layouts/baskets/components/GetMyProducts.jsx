@@ -15,9 +15,14 @@ const GET_MY_PRODUCTS = gql`
   }
 `;
 
-const ProductsSelect = ({ onProductSelect }) => {
+const ProductsSelect = ({
+  onProductSelect,
+  selectedProducts: initialSelectedProducts = [],
+}) => {
   // Estado para guardar los productos seleccionados
-  const [selectedProducts, setSelectedProducts] = useState([]);
+  const [selectedProducts, setSelectedProducts] = useState(
+    initialSelectedProducts
+  );
 
   // Abrir el dropdown del select
   const [isOpen, setIsOpen] = useState(false);
@@ -52,17 +57,21 @@ const ProductsSelect = ({ onProductSelect }) => {
   };
 
   return (
-    <div>
-      <button onClick={() => setIsOpen(!isOpen)}>Seleccionar Productos</button>
+    <div className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-4 ">
+      <button type="button" onClick={() => setIsOpen(!isOpen)}>
+        Seleccionar Productos
+      </button>
       {isOpen && (
         <div className="dropdown-menu">
           {myProducts.map((product) => (
-            <div key={product.id}>
+            <div key={product.id} className="my-4">
               <input
                 type="checkbox"
                 id={`product-${product.id}`}
                 value={product.id}
                 onChange={handleCheckboxChange}
+                checked={selectedProducts.includes(product.id)}
+                className="apple-checkbox mx-2"
               />
               <label htmlFor={`product-${product.id}`}>{product.name}</label>
             </div>

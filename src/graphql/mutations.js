@@ -109,3 +109,19 @@ export const CREATE_CAMPAIGN = gql`
     }
   }
 `;
+
+export const UPDATE_CAMPAIGN_MUTATION = gql`
+  mutation UpdateCampaign($updateCampaignId: ID!, $input: CampaignInput!) {
+    updateCampaign(id: $updateCampaignId, input: $input) {
+      id
+      name
+      description
+    }
+  }
+`;
+
+export const DELETE_CAMPAIGN_MUTATION = gql`
+  mutation DeleteCampaign($deleteCampaignId: ID!) {
+    deleteCampaign(id: $deleteCampaignId)
+  }
+`;

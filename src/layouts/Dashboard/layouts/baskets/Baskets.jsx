@@ -40,12 +40,8 @@ const Baskets = () => {
                   refetch={refetch}
                 />
               ) : null}
-
-              {/* <Pagination /> */}
             </div>
           </main>
-
-          {/* Aquí iría el componente footer */}
         </div>
       </div>
     </>

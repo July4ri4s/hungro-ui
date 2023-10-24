@@ -32,7 +32,6 @@ const data = [
 
 const SliderCard = () => {
   const { data: pData, loading, error } = useQuery(GET_PRODUCTS);
-  console.log(pData);
   return (
     <section className="py-16  bg-white sm:pt-24 lg:pt-28">
       {/* Container */}
