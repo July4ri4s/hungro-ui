@@ -41,14 +41,6 @@ const Baskets = () => {
                 />
               ) : null}
 
-              {/* {showModal ? (
-              <EditUserModal
-                close={() => {
-                  setShowModal(false);
-                }}
-              />
-            ) : null} */}
-
               {/* <Pagination /> */}
             </div>
           </main>

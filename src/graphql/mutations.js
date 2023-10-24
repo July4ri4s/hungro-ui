@@ -84,6 +84,22 @@ export const CREATE_BASKET = gql`
   }
 `;
 
+export const UPDATE_BASKET_MUTATION = gql`
+  mutation UpdateBasket($updateBasketId: ID!, $input: BasketInput!) {
+    updateBasket(id: $updateBasketId, input: $input) {
+      id
+      recipient
+      deliveryDate
+    }
+  }
+`;
+
+export const DELETE_BASKET_MUTATION = gql`
+  mutation DeleteBasket($deleteBasketId: ID!) {
+    deleteBasket(id: $deleteBasketId)
+  }
+`;
+
 export const CREATE_CAMPAIGN = gql`
   mutation CreateCampaign($input: CampaignInput!) {
     createCampaign(input: $input) {

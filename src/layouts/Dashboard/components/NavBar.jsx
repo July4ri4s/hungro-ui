@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-
-
+import SideBar from "./SideBar";
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -16,6 +19,7 @@ const NavBar = () => {
             <div className="flex items-center justify-start">
               <button
                 id="toggleSidebarMobile"
+                onClick={openMenu}
                 aria-expanded="true"
                 aria-controls="sidebar"
                 className="p-2 text-gray-600 rounded cursor-pointer lg:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100  focus:ring-2 focus:ring-gray-100    "
@@ -47,6 +51,12 @@ const NavBar = () => {
                   ></path>
                 </svg>
               </button>
+              <SideBar
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                closeMenu={closeMenu}
+              />
+
               <a href="/" className="flex ml-2 md:mr-24">
                 {/* <img
                   src="/images/logo.svg"

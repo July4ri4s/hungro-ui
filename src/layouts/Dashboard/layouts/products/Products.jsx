@@ -26,7 +26,6 @@ const Products = () => {
           <main>
             <div className="px-4 pt-6">
               <Header setShowModal={setShowModal} />
-
               <ProductsTable refetch={refetch} />
 
               {showModal ? (
