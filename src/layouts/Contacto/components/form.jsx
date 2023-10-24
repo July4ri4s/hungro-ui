@@ -1,6 +1,66 @@
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import { useNavigate } from "react-router-dom";
+
 const Formulario = () => {
+  const form = useRef();
+  const [message, setMessage] = useState(null);
+
+  const showMessage = () => {
+    return (
+      <div
+        style={{
+          position: "fixed",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          zIndex: "9999",
+          backgroundColor: "#ffffff",
+          padding: "20px",
+          textAlign: "center",
+          boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+          borderRadius: "8px",
+          maxWidth: "90%",
+          width: "400px",
+        }}
+      >
+        <div className="container">
+          <div className="content" id="popup">
+            <p style={{ marginBottom: "1rem" }}>{message}</p>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const navigate = useNavigate();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_5lqmhxb",
+        "template_xhwovc9",
+        form.current,
+        "ynFFgAoNX3fRc6cBI"
+      )
+      .then(
+        (result) => {
+          setMessage("Se ha enviado el correo satisfactoriamente");
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   return (
     <div className="container my-24 mx-auto md:px-6">
+      {message && showMessage()}
       <section className="mb-32 text-center">
         <div className="py-12 md:px-12">
           <div className="container mx-auto xl:px-32">
@@ -10,7 +70,7 @@ const Formulario = () => {
                   <h2 className="mb-12 text-3xl font-bold text-[#195527db]">
                     Contáctanos
                   </h2>
-                  <form>
+                  <form ref={form} onSubmit={sendEmail}>
                     <div
                       className="relative mb-6 text-start"
                       data-te-input-wrapper-init
@@ -22,6 +82,7 @@ const Formulario = () => {
                         Nombre
                       </label>
                       <input
+                        name="to_name"
                         type="text"
                         className=" block min-h-[auto] w-full rounded border-2 border-[#195527db]  py-[0.32rem] px-3 "
                         id="exampleInput90"
@@ -39,6 +100,7 @@ const Formulario = () => {
                         Correo Electrónico
                       </label>
                       <input
+                        name="from_name"
                         type="email"
                         className=" block min-h-[auto]  w-full rounded border-2 py-[0.32rem] px-3 border-[#195527db] "
                         id="exampleInput91"
@@ -53,6 +115,7 @@ const Formulario = () => {
                         Mensaje
                       </label>
                       <textarea
+                        name="message"
                         className="peer block min-h-[auto] w-full rounded border-2  py-[0.32rem] px-3 l border-[#195527db] "
                         id="exampleFormControlTextarea1"
                         rows="3"
@@ -61,7 +124,8 @@ const Formulario = () => {
                     </div>
 
                     <button
-                      type="button"
+                      type="submit"
+                      value="Send"
                       data-te-ripple-init
                       data-te-ripple-color="light"
                       className="inline-block w-full rounded bg-[#195527db] hover:bg-[#1b7a2e] px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white lg:mb-0"
