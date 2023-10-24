@@ -3,18 +3,57 @@ import { CREATE_CAMPAIGN } from "../../../../../graphql/mutations";
 import { useMutation } from "@apollo/client";
 import ProductsSelect from "../../baskets/components/GetMyProducts";
 
-const AddCampaignModal = ({ close }) => {
+const AddCampaignModal = ({ close, refetch }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [productIds, setProductIds] = useState("");
+  const [message, setMessage] = useState(null);
 
   const [createCampaign, { loading, error }] = useMutation(CREATE_CAMPAIGN, {
     onCompleted: () => {
-      // refetch(); // Refetch la tabla de productos
+      refetch(); // Refetch la tabla de productos
       close(); // Cierra el modal
     },
   });
+  const showMessage = () => {
+    // let imageSource =
+    //   message !== "Se cambió la contraseña correctamente!" ? loginerror : login;
 
+    return (
+      <div
+        style={{
+          position: "fixed",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          zIndex: "9999",
+          backgroundColor: "#ffffff",
+          padding: "20px",
+          textAlign: "center",
+          boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+          borderRadius: "8px",
+          maxWidth: "90%",
+          width: "400px",
+        }}
+      >
+        <div className="container">
+          <div className="content" id="popup">
+            {/* <img
+              src={imageSource}
+              alt="Banda CEDES Don Bosco"
+              style={{
+                width: "60%",
+                display: "block",
+                margin: "0 auto",
+                marginBottom: "1rem",
+              }}
+            /> */}
+            <p style={{ marginBottom: "1rem" }}>{message}</p>
+          </div>
+        </div>
+      </div>
+    );
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     const input = {
@@ -24,6 +63,7 @@ const AddCampaignModal = ({ close }) => {
     };
 
     try {
+      setMessage("Se ha creado la campaña exitosamente");
       await createCampaign({ variables: { input } });
     } catch (error) {
       console.error("Error al crear la campaña:", error.message);
@@ -35,6 +75,7 @@ const AddCampaignModal = ({ close }) => {
 
   return (
     <>
+      {message && showMessage()}
       <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto  ">
         <div className="relative w-full h-full max-w-2xl px-4 md:h-auto ">
           {/* <!-- Modal content --> */}

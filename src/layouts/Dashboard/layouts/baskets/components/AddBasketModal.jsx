@@ -7,9 +7,14 @@ const AddBasketModal = ({ close, refetch }) => {
   const [productIds, setProductIds] = useState("");
   const [deliveryDate, setDeliveryDate] = useState("");
   const [recipient, setRecipient] = useState("");
-
   const [message, setMessage] = useState(null);
 
+  const [createBasket, { loading, error }] = useMutation(CREATE_BASKET, {
+    onCompleted: () => {
+      refetch(); // Refetch la tabla de productos
+      close(); // Cierra el modal
+    },
+  });
   const showMessage = () => {
     // let imageSource =
     //   message !== "Se cambió la contraseña correctamente!" ? loginerror : login;
@@ -49,14 +54,7 @@ const AddBasketModal = ({ close, refetch }) => {
       </div>
     );
   };
-
-  const [createBasket, { loading, error }] = useMutation(CREATE_BASKET, {
-    onCompleted: () => {
-      refetch(); // Refetch la tabla de productos
-      close(); // Cierra el modal
-    },
-  });
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const input = {
@@ -64,23 +62,22 @@ const AddBasketModal = ({ close, refetch }) => {
       deliveryDate,
       recipient,
     };
-
     try {
-      await createBasket({ variables: { input } });
       setMessage("Se ha creado la canasta exitosamente");
+      await createBasket({ variables: { input } });
     } catch (error) {
-      // setMessage("Error al crear la canasta");
-      console.error("Error al crear la canasta:", error.message);
+      console.error("Error al crear el producto:", error.message);
     }
-  };
+  }
   const handleProductsChange = (selectedProductIds) => {
     setProductIds(selectedProductIds);
+    
   };
 
   return (
     <>
+     {message && showMessage()}
       <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto  ">
-        {message && showMessage()}
         <div className="relative w-full h-full max-w-2xl px-4 md:h-auto ">
           {/* <!-- Modal content --> */}
           <div className="relative bg-white rounded-lg shadow-custom">

@@ -88,8 +88,8 @@ export const UPDATE_DONATION_MUTATION = gql`
 `;
 
 export const DELETE_DONATION_MUTATION = gql`
-  mutation DeleteDonation($deleteProductId: ID!) {
-    deleteProduct(id: $deleteProductId)
+  mutation Mutation($deleteDonationId: ID!) {
+    deleteDonation(id: $deleteDonationId)
   }
 `;
 

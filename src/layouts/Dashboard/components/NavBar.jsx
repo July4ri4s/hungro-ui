@@ -67,38 +67,6 @@ const NavBar = () => {
                   Hungro
                 </span>
               </a>
-              <form
-                action="#"
-                method="GET"
-                className="hidden lg:block lg:pl-3.5"
-              >
-                <label htmlFor="topbar-search" className="sr-only">
-                  Buscar
-                </label>
-                <div className="relative mt-1 lg:w-96">
-                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg
-                      className="w-5 h-5 text-gray-500 "
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </div>
-                  <input
-                    type="text"
-                    name="email"
-                    id="topbar-search"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5     "
-                    placeholder="Buscar"
-                  />
-                </div>
-              </form>
             </div>
             <div className="flex items-center">
               {/* <div className="hidden mr-3 -mb-1 sm:block">
@@ -142,14 +110,6 @@ const NavBar = () => {
               >
                 <span className="sr-only">View notifications</span>
                 {/* <!-- Bell icon --> */}
-                <svg
-                  className="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path>
-                </svg>
               </button>
               {/* <!-- Dropdown menu --> */}
               <div
@@ -376,14 +336,6 @@ const NavBar = () => {
               >
                 <span className="sr-only">View notifications</span>
                 {/* <!-- Icon --> */}
-                <svg
-                  className="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-                </svg>
               </button>
               {/* <!-- Dropdown menu --> */}
               <div
@@ -470,26 +422,7 @@ const NavBar = () => {
                       Profile
                     </div>
                   </a>
-                  <a
-                    href="#"
-                    className="block p-4 text-center rounded-lg hover:bg-gray-100 "
-                  >
-                    <svg
-                      className="mx-auto mb-1 text-gray-500 w-7 h-7 "
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                    <div className="text-sm font-medium text-gray-900 ">
-                      Settings
-                    </div>
-                  </a>
+
                   <a
                     href="#"
                     className="block p-4 text-center rounded-lg hover:bg-gray-100 "

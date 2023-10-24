@@ -43,16 +43,7 @@ const AddProducModal = ({ close, refetch }) => {
       >
         <div className="container">
           <div className="content" id="popup">
-            {/* <img
-              src={imageSource}
-              alt="Banda CEDES Don Bosco"
-              style={{
-                width: "60%",
-                display: "block",
-                margin: "0 auto",
-                marginBottom: "1rem",
-              }}
-            /> */}
+  
             <p style={{ marginBottom: "1rem" }}>{message}</p>
           </div>
         </div>
@@ -70,7 +61,7 @@ const AddProducModal = ({ close, refetch }) => {
     };
 
     try {
-      setMessage("Se ha creado la canasta exitosamente");
+      setMessage("Se ha creado el producto exitosamente");
       await createProduct({ variables: { input } });
     } catch (error) {
       console.error("Error al crear el producto:", error.message);
