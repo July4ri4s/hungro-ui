@@ -161,18 +161,13 @@ const Header = ({ setShowModal }) => {
               </div>
             </div>
           </div>
-          <button
-            id="createProductButton"
-            className="text-white bg-[#376543] hover:bg-[#376543]00 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5   focus:outline-none "
+          <a
             type="button"
-            data-drawer-target="drawer-create-product-default"
-            data-drawer-show="drawer-create-product-default"
-            aria-controls="drawer-create-product-default"
-            data-drawer-placement="right"
-            onClick={() => setShowModal(true)}
+            href="/dashboard"
+            className="bg-[#195527]	hover:bg-[#1b7a2e] rounded-lg text-sm mr-3 md:mr-0 font-medium px-4 py-2 text-center text-white hove"
           >
-            Add new product
-          </button>
+            Donar
+          </a>
         </div>
       </div>
     </div>

@@ -74,6 +74,25 @@ export const CREATE_DONATION_MUTATION = gql`
   }
 `;
 
+export const UPDATE_DONATION_MUTATION = gql`
+  mutation Mutation($updateDonationId: ID!, $input: DomnationInput!) {
+    updateDonation(id: $updateDonationId, input: $input) {
+      id
+      donationDate
+      deliveryMethod
+      address
+      organizationCampus
+      quantity
+    }
+  }
+`;
+
+export const DELETE_DONATION_MUTATION = gql`
+  mutation DeleteDonation($deleteProductId: ID!) {
+    deleteProduct(id: $deleteProductId)
+  }
+`;
+
 export const CREATE_BASKET = gql`
   mutation CreateBasket($input: BasketInput!) {
     createBasket(input: $input) {

@@ -125,6 +125,10 @@ const ProductsTable = ({ refetch }) => {
                         {product.quantityDonated}
                       </td>
 
+
+
+                      
+
                       <td className="p-4 space-x-2 whitespace-nowrap">
                         <button
                           onClick={() => handleUpdateClick(product)}
