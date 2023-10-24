@@ -9,7 +9,6 @@ import "./App.css";
 import Landing from "./layouts/landing";
 import Nosotros from "./layouts/nosotros";
 import Donacion from "./layouts/donacion";
-import Perfil from "./layouts/Perfil";
 import SignIn from "./layouts/Autenticacion/SignIn/SignIn";
 import Contacto from "./layouts/Contacto";
 import Carrito from "./layouts/carrito";
@@ -23,6 +22,7 @@ import { useQuery } from "@apollo/client";
 import { GET_ME } from "./graphql/queries";
 import Campaigns from "./layouts/Dashboard/layouts/campaigns/Campaigns";
 import Baskets from "./layouts/Dashboard/layouts/baskets/Baskets";
+import Profile from "./layouts/Dashboard/layouts/profile/profile";
 
 function App() {
   const { data, loading, error } = useQuery(GET_ME);
@@ -46,7 +46,6 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/donacion" element={<Donacion />} />
-        <Route path="/perfil" element={<Perfil />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/inicio-sesion" element={<SignIn />} />
         <Route path="/registrarse" element={<SignUp />} />
@@ -55,7 +54,7 @@ function App() {
         {userType === "Donor" ? (
           <>
             <Route path="/dashboard" element={<Dashboard />} />
-
+            <Route path="/perfil" element={<Profile/>}/>
             <Route path="/mis-donaciones" element={<DonorDonations />} />
           </>
         ) : (
@@ -66,6 +65,7 @@ function App() {
             <Route path="/donations" element={<Donations />} />
             <Route path="/campaigns" element={<Campaigns />} />
             <Route path="/baskets" element={<Baskets />} />
+            
           </>
         )}
       </Routes>

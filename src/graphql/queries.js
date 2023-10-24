@@ -14,6 +14,17 @@ export const GET_DONORS = gql`
   }
 `;
 
+export const GET_DONOR = gql`
+  query GetDonor($getDonorId: ID!) {
+  getDonor(id: $getDonorId) {
+    name
+    email
+    address
+  }
+}
+`;
+
+
 export const GET_ME = gql`
   query getMe {
     getMe {

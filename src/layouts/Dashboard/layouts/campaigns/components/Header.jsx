@@ -98,7 +98,7 @@ const Header = ({ setShowModal }) => {
           </div>
           <button
             id="createCampaignButton"
-            className="text-white bg-[#376543] hover:bg-[#376543]00 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5   focus:outline-none "
+            className="text-white bg-[#376543] hover:bg-[#1b7a2e] focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5   focus:outline-none "
             type="button"
             data-drawer-target="drawer-create-campaign-default"
             data-drawer-show="drawer-create-campaign-default"

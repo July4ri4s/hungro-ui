@@ -1024,12 +1024,7 @@ const Dashboard = () => {
                                   Método de entrega
                                 </th>
 
-                                <th
-                                  scope="col"
-                                  className="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase "
-                                >
-                                  Estado
-                                </th>
+                          
                               </tr>
                             </thead>
 
