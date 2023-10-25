@@ -54,7 +54,7 @@ function App() {
         {userType === "Donor" ? (
           <>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/perfil" element={<Profile/>}/>
+            <Route path="/perfil" element={<Profile />} />
             <Route path="/mis-donaciones" element={<DonorDonations />} />
           </>
         ) : (
@@ -65,7 +65,6 @@ function App() {
             <Route path="/donations" element={<Donations />} />
             <Route path="/campaigns" element={<Campaigns />} />
             <Route path="/baskets" element={<Baskets />} />
-            
           </>
         )}
       </Routes>
