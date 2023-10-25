@@ -7,10 +7,10 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import Landing from "./layouts/Landing/Landing";
-import Nosotros from "./layouts/nosotros";
-import Donacion from "./layouts/donacion";
+import Nosotros from "./layouts/Nosotros/Nosotros";
+import Donacion from "./layouts/Donacion/Donacion";
 import SignIn from "./layouts/Autenticacion/SignIn/SignIn";
-import Contacto from "./layouts/Contacto";
+import Contacto from "./layouts/Contacto/Contact";
 import Carrito from "./layouts/carrito";
 import Dashboard from "./layouts/Dashboard/Dashboard";
 import Products from "./layouts/Dashboard/layouts/products/Products";
