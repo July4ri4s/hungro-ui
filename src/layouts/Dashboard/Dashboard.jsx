@@ -5,8 +5,12 @@ import { useQuery } from "@apollo/client";
 import { GET_CAMPAIGNS, GET_DONATIONS, GET_ME } from "../../graphql/queries";
 import DonorProducts from "./layouts/users/components/DonorProducts";
 import { formatDateString } from "../../utils/FormatDate";
+import useAuth from "../../utils/useAuth";
+import { useNavigate } from "react-router-dom";
+import { isAuth } from "../../utils/auth";
 
 const Dashboard = () => {
+  isAuth();
   const { data, loading, error } = useQuery(GET_ME, {
     context: {
       headers: {
@@ -1884,6 +1888,7 @@ const Dashboard = () => {
                   </div>
                 </div>
 
+                {/* Campañas a las que puedes aportar */}
                 <div className="p-4 bg-white border border-gray-200 rounded-lg shadow-sm  sm:p-6 mt-5">
                   {/* <!-- Card header --> */}
                   <div className="items-center justify-between lg:flex-col">
@@ -1954,6 +1959,7 @@ const Dashboard = () => {
                     ))}
                 </div> */}
 
+                {/* Productos */}
                 <DonorProducts />
                 <div className="p-4 bg-white border border-gray-200 rounded-lg shadow-sm  sm:p-6 mt-5">
                   {/* <!-- Card header --> */}

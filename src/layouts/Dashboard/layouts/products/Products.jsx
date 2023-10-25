@@ -6,8 +6,10 @@ import ProductsTable from "./components/ProductsTable";
 import AddProducModal from "./components/AddProducModal";
 import { GET_PRODUCTS } from "../../../../graphql/queries";
 import { useQuery } from "@apollo/client";
+import { isAuth } from "../../../../utils/auth";
 
 const Products = () => {
+  isAuth();
   const [showModal, setShowModal] = useState(false);
   const { refetch } = useQuery(GET_PRODUCTS);
 

@@ -10,8 +10,10 @@ import Header from "./components/Header";
 import AddCampaignModal from "../campaigns/components/AddCampaignModal";
 import AddBasketModal from "./components/AddBasketModal";
 import BasketsTable from "./components/BasketsTable";
+import { isAuth } from "../../../../utils/auth";
 
 const Baskets = () => {
+  isAuth();
   const [showModal, setShowModal] = useState(false);
   const { refetch } = useQuery(GET_BASKETS);
 

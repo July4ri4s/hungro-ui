@@ -7,8 +7,10 @@ import Header from "./components/Header";
 import CampaignsTable from "./components/CampaignsTable";
 import { GET_CAMPAIGNS } from "../../../../graphql/queries";
 import { useQuery } from "@apollo/client";
+import { isAuth } from "../../../../utils/auth";
 
 const Campaigns = () => {
+  isAuth();
   const [showModal, setShowModal] = useState(false);
 
   const { refetch } = useQuery(GET_CAMPAIGNS);

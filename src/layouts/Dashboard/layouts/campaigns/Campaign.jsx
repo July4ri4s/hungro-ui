@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import NavBar from "../../components/NavBar";
 import SideBar from "../../components/SideBar";
-import Header from "./Header";
-import Pagination from "./pagination";
-import ProfileCard from "./profileCard";
-import UsersTable from "../users/components/UsersTable";
+import NavBar from "../../components/NavBar";
+import Headerc from "./components/Header";
+import AddCampaignModal from "./components/AddCampaignModal";
 import { isAuth } from "../../../../utils/auth";
 
-const Profile = () => {
+const Campaign = () => {
   isAuth();
-  //const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <>
       {/* Aquí va el component NavBar */}
@@ -18,18 +17,22 @@ const Profile = () => {
       <div className="flex pt-16 overflow-hidden bg-gray-50 ">
         {/* Aquí va el component SideBar */}
         <SideBar />
+
         <div
           id="main-content"
-          className="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64"
+          className="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 "
         >
           <main>
             <div className="px-4 pt-6">
-              <Header />
-              <div>
-                <ProfileCard />
-              </div>
+              <Headerc setShowModal={setShowModal} />
 
-              <Pagination />
+              {showModal ? (
+                <AddCampaignModal
+                  close={() => {
+                    setShowModal(false);
+                  }}
+                />
+              ) : null}
             </div>
           </main>
 
@@ -40,4 +43,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Campaign;

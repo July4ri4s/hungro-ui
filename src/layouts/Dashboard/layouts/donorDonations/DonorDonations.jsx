@@ -4,8 +4,10 @@ import NavBar from "../../components/NavBar";
 import Header from "./components/Header";
 import AddProducModal from "./components/AddProducModal";
 import DonationsTable from "./components/DonationsTable";
+import { isAuth } from "../../../../utils/auth";
 
 const DonorDonations = () => {
+  isAuth();
   const [showModal, setShowModal] = useState(false);
 
   return (

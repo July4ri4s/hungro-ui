@@ -19,7 +19,7 @@ const Card = ({ imageUrl }) => {
               maskSize: "cover",
             }}
           ></div>
-          <div className=" bg-[#195527db] w-[20rem] md:w-64  h-24 md:h-32 rounded-lg border overflow-hidden flex justify-around items-center">
+          <div className=" bg-[#195527] w-[20rem] md:w-64  h-24 md:h-32 rounded-lg border overflow-hidden flex justify-around items-center">
             <img src={carita} className="w-16 h-16" alt="" />
             <h1 className="text-white text-xl font-semibold tracking-tight">
               Creando sonrisas
@@ -44,7 +44,7 @@ const Card = ({ imageUrl }) => {
           <div className=" text-2xl ">
             <p>Únete al cambio</p>
           </div>
-          <div className=" text-white flex justify-around items-center text-xl font-semibold bg-[#195527db] hover:bg-[#1b7a2e] p-2 rounded-lg">
+          <div className=" text-white flex justify-around items-center text-xl font-semibold bg-[#195527] hover:bg-[#1b7a2e] p-2 rounded-lg">
             <a href="/inicio-sesion">Donar ahora</a>
             <div>
               <svg
@@ -87,7 +87,7 @@ const Card = ({ imageUrl }) => {
               transform: "scaleX(-1)",
             }}
           ></div>
-          <div className=" bg-[#195527db] w-[20rem] md:w-64 h-24 md:h-32 rounded-lg border overflow-hidden flex justify-around items-center">
+          <div className=" bg-[#195527] w-[20rem] md:w-64 h-24 md:h-32 rounded-lg border overflow-hidden flex justify-around items-center">
             <img src={corazon} className="w-16 h-16" alt="" />
             <h1 className="text-white text-xl font-semibold tracking-tight">
               Tú lugar de ayuda

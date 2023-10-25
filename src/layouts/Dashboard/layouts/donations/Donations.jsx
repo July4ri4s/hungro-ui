@@ -5,8 +5,10 @@ import Header from "./components/Header";
 import DonationsTable from "./components/DonationsTable";
 import { GET_DONATIONS } from "../../../../graphql/queries";
 import { useQuery } from "@apollo/client";
+import { isAuth } from "../../../../utils/auth";
 
 const Donations = () => {
+  isAuth();
   const { refetch } = useQuery(GET_DONATIONS);
 
   return (

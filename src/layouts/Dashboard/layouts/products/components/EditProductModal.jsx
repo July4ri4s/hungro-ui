@@ -22,10 +22,14 @@ const EditProductModal = ({ show, onClose, product }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const updatedFormData = {
+      ...formData,
+      quantityNeeded: parseInt(formData.quantityNeeded, 10),
+      quantityDonated: parseInt(formData.quantityDonated, 10),
+    };
     const { data } = await updateProduct({
-      variables: { updateProductId: product.id, input: formData },
+      variables: { updateProductId: product.id, input: updatedFormData },
     });
-
     onClose();
   };
 
