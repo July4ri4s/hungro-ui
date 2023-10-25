@@ -1,36 +1,141 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 //import EditUserModal from "";
-import { useQuery } from "@apollo/client";
-import { GET_DONORS } from "../../../../graphql/queries";
+import { useMutation, useQuery } from "@apollo/client";
+import { GET_ME } from "../../../../graphql/queries";
+import { UPDATE_DONOR_MUTATION } from "../../../../graphql/mutations";
 
 const ProfileCard = () => {
-  //Pista: debes traer el GET_ME, no el GET_DONORS
+  const [message, setMessage] = useState(null);
 
+  const { data, loading, error } = useQuery(GET_ME);
+  const [updateDonor] = useMutation(UPDATE_DONOR_MUTATION);
+  const [isEditing, setIsEditing] = useState({
+    name: false,
+    email: false,
+    address: false,
+  });
+
+  const myData = data?.getMe?.donor;
+
+  console.log(myData);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    address: "",
+  });
+
+  useEffect(() => {
+    if (myData) {
+      setFormData({
+        name: myData.name,
+        email: myData.email,
+        address: myData.address,
+      });
+    }
+  }, [myData]);
+
+  const showMessage = () => {
+    return (
+      <div
+        style={{
+          position: "fixed",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          zIndex: "9999",
+          backgroundColor: "#ffffff",
+          padding: "20px",
+          textAlign: "center",
+          boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+          borderRadius: "8px",
+          maxWidth: "90%",
+          width: "400px",
+        }}
+      >
+        <div className="container">
+          <div className="content" id="popup">
+            <p style={{ marginBottom: "1rem" }}>{message}</p>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleDoubleClick = (field) => {
+    console.log(`Double click detected on ${field}`);
+    setIsEditing((prevState) => ({
+      ...prevState,
+      [field]: true,
+    }));
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    const updatedData = {};
+    for (let field in isEditing) {
+      if (isEditing[field]) {
+        updatedData[field] = formData[field];
+      }
+    }
+    if (Object.keys(updatedData).length > 0) {
+      try {
+        await updateDonor({
+          variables: { updateDonorId: myData.id, input: updatedData },
+        });
+
+        setMessage(`Se ha actualizado correctamente`);
+
+        setMessage(`Se ha actualizado correctamente`);
+
+        setTimeout(() => {
+          setMessage(null);
+        }, 2000);
+      } catch (error) {
+        console.error("Error updating donor:", error);
+      }
+    }
+    setIsEditing({
+      name: false,
+      email: false,
+      address: false,
+    });
+  };
+
+  console.log(isEditing);
   return (
     <>
-      <div class="grid grid-cols-1 px-4 pt-6 xl:grid-cols-3 xl:gap-4 ">
-        <div class="col-span-full xl:col-auto">
-          <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2  sm:p-6 ">
-            <div class="items-center sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4">
+      <div className="grid grid-cols-1 px-4 pt-6 xl:grid-cols-3 xl:gap-4 ">
+        {message && showMessage()}
+        <div className="col-span-full xl:col-auto">
+          <div className="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2  sm:p-6 ">
+            <div className="items-center sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4">
               <img
-                class="mb-4 rounded-lg w-28 h-28 sm:mb-0 xl:mb-4 2xl:mb-0"
+                className="mb-4 rounded-lg w-28 h-28 sm:mb-0 xl:mb-4 2xl:mb-0"
                 src="/images/users/bonnie-green-2x.png"
                 alt="Jese picture"
               />
               <div>
-                <h3 class="mb-1 text-xl font-bold text-gray-900 ">
-                  Profile picture
+                <h3 className="mb-1 text-xl font-bold text-gray-900 ">
+                  {myData.name}
                 </h3>
-                <div class="mb-4 text-sm text-gray-500 ">
+                <div className="mb-4 text-sm text-gray-500 ">
                   JPG, GIF or PNG. Max size of 800K
                 </div>
-                <div class="flex items-center space-x-4">
+                <div className="flex items-center space-x-4">
                   <button
                     type="button"
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300   "
+                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300   "
                   >
                     <svg
-                      class="w-4 h-4 mr-2 -ml-1"
+                      className="w-4 h-4 mr-2 -ml-1"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +147,7 @@ const ProfileCard = () => {
                   </button>
                   <button
                     type="button"
-                    class="py-2 px-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200      "
+                    className="py-2 px-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200      "
                   >
                     Delete
                   </button>
@@ -50,19 +155,19 @@ const ProfileCard = () => {
               </div>
             </div>
           </div>
-          <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2  sm:p-6 ">
-            <h3 class="mb-4 text-xl font-semibold ">Language & Time</h3>
-            <div class="mb-4">
+          <div className="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2  sm:p-6 ">
+            <h3 className="mb-4 text-xl font-semibold ">Language & Time</h3>
+            <div className="mb-4">
               <label
-                for="settings-language"
-                class="block mb-2 text-sm font-medium text-gray-900 "
+                htmlFor="settings-language"
+                className="block mb-2 text-sm font-medium text-gray-900 "
               >
                 Select language
               </label>
               <select
                 id="settings-language"
                 name="countries"
-                class="bg-gray-50 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
+                className="bg-gray-50 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
               >
                 <option>English (US)</option>
                 <option>Italiano</option>
@@ -73,17 +178,17 @@ const ProfileCard = () => {
                 <option>Português (Brasil)</option>
               </select>
             </div>
-            <div class="mb-6">
+            <div className="mb-6">
               <label
-                for="settings-timezone"
-                class="block mb-2 text-sm font-medium text-gray-900 "
+                htmlFor="settings-timezone"
+                className="block mb-2 text-sm font-medium text-gray-900 "
               >
                 Time Zone
               </label>
               <select
                 id="settings-timezone"
                 name="countries"
-                class="bg-gray-50 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
+                className="bg-gray-50 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
               >
                 <option>GMT+0 Greenwich Mean Time (GMT)</option>
                 <option>GMT+1 Central European Time (CET)</option>
@@ -95,20 +200,20 @@ const ProfileCard = () => {
               </select>
             </div>
             <div>
-              <button class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center   ">
+              <button className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center   ">
                 Save all
               </button>
             </div>
           </div>
-          <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2  sm:p-6 ">
-            <div class="flow-root">
-              <h3 class="text-xl font-semibold ">Social accounts</h3>
-              <ul class="divide-y divide-gray-200 ">
-                <li class="py-4">
-                  <div class="flex items-center space-x-4">
-                    <div class="flex-shrink-0">
+          <div className="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2  sm:p-6 ">
+            <div className="flow-root">
+              <h3 className="text-xl font-semibold ">Social accounts</h3>
+              <ul className="divide-y divide-gray-200 ">
+                <li className="py-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="flex-shrink-0">
                       <svg
-                        class="w-5 h-5 "
+                        className="w-5 h-5 "
                         aria-hidden="true"
                         focusable="false"
                         data-prefix="fab"
@@ -123,32 +228,32 @@ const ProfileCard = () => {
                         ></path>
                       </svg>
                     </div>
-                    <div class="flex-1 min-w-0">
-                      <span class="block text-base font-semibold text-gray-900 truncate ">
+                    <div className="flex-1 min-w-0">
+                      <span className="block text-base font-semibold text-gray-900 truncate ">
                         Facebook account
                       </span>
                       <a
                         href="#"
-                        class="block text-sm font-normal truncate text-primary-700 hover:underline "
+                        className="block text-sm font-normal truncate text-primary-700 hover:underline "
                       >
                         www.facebook.com/themesberg
                       </a>
                     </div>
-                    <div class="inline-flex items-center">
+                    <div className="inline-flex items-center">
                       <a
                         href="#"
-                        class="px-3 py-2 mb-3 mr-3 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300     "
+                        className="px-3 py-2 mb-3 mr-3 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300     "
                       >
                         Disconnect
                       </a>
                     </div>
                   </div>
                 </li>
-                <li class="py-4">
-                  <div class="flex items-center space-x-4">
-                    <div class="flex-shrink-0">
+                <li className="py-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="flex-shrink-0">
                       <svg
-                        class="w-5 h-5 "
+                        className="w-5 h-5 "
                         aria-hidden="true"
                         focusable="false"
                         data-prefix="fab"
@@ -163,32 +268,32 @@ const ProfileCard = () => {
                         ></path>
                       </svg>
                     </div>
-                    <div class="flex-1 min-w-0">
-                      <span class="block text-base font-semibold text-gray-900 truncate ">
+                    <div className="flex-1 min-w-0">
+                      <span className="block text-base font-semibold text-gray-900 truncate ">
                         Twitter account
                       </span>
                       <a
                         href="#"
-                        class="block text-sm font-normal truncate text-primary-700 hover:underline "
+                        className="block text-sm font-normal truncate text-primary-700 hover:underline "
                       >
                         www.twitter.com/themesberg
                       </a>
                     </div>
-                    <div class="inline-flex items-center">
+                    <div className="inline-flex items-center">
                       <a
                         href="#"
-                        class="px-3 py-2 mb-3 mr-3 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300     "
+                        className="px-3 py-2 mb-3 mr-3 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300     "
                       >
                         Disconnect
                       </a>
                     </div>
                   </div>
                 </li>
-                <li class="py-4">
-                  <div class="flex items-center space-x-4">
-                    <div class="flex-shrink-0">
+                <li className="py-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="flex-shrink-0">
                       <svg
-                        class="w-5 h-5 "
+                        className="w-5 h-5 "
                         aria-hidden="true"
                         focusable="false"
                         data-prefix="fab"
@@ -203,29 +308,29 @@ const ProfileCard = () => {
                         ></path>
                       </svg>
                     </div>
-                    <div class="flex-1 min-w-0">
-                      <span class="block text-base font-semibold text-gray-900 truncate ">
+                    <div className="flex-1 min-w-0">
+                      <span className="block text-base font-semibold text-gray-900 truncate ">
                         Github account
                       </span>
-                      <span class="block text-sm font-normal text-gray-500 truncate ">
+                      <span className="block text-sm font-normal text-gray-500 truncate ">
                         Not connected
                       </span>
                     </div>
-                    <div class="inline-flex items-center">
+                    <div className="inline-flex items-center">
                       <a
                         href="#"
-                        class="px-3 py-2 mb-3 mr-3 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300   "
+                        className="px-3 py-2 mb-3 mr-3 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300   "
                       >
                         Connect
                       </a>
                     </div>
                   </div>
                 </li>
-                <li class="pt-4 pb-6">
-                  <div class="flex items-center space-x-4">
-                    <div class="flex-shrink-0">
+                <li className="pt-4 pb-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="flex-shrink-0">
                       <svg
-                        class="w-5 h-5 "
+                        className="w-5 h-5 "
                         aria-hidden="true"
                         focusable="false"
                         data-prefix="fab"
@@ -240,18 +345,18 @@ const ProfileCard = () => {
                         ></path>
                       </svg>
                     </div>
-                    <div class="flex-1 min-w-0">
-                      <span class="block text-base font-semibold text-gray-900 truncate ">
+                    <div className="flex-1 min-w-0">
+                      <span className="block text-base font-semibold text-gray-900 truncate ">
                         Dribbble account
                       </span>
-                      <span class="block text-sm font-normal text-gray-500 truncate ">
+                      <span className="block text-sm font-normal text-gray-500 truncate ">
                         Not connected
                       </span>
                     </div>
-                    <div class="inline-flex items-center">
+                    <div className="inline-flex items-center">
                       <a
                         href="#"
-                        class="px-3 py-2 mb-3 mr-3 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300   "
+                        className="px-3 py-2 mb-3 mr-3 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300   "
                       >
                         Connect
                       </a>
@@ -260,138 +365,138 @@ const ProfileCard = () => {
                 </li>
               </ul>
               <div>
-                <button class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center   ">
+                <button className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center   ">
                   Save all
                 </button>
               </div>
             </div>
           </div>
-          <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2  sm:p-6 ">
-            <div class="flow-root">
-              <h3 class="text-xl font-semibold ">Other accounts</h3>
-              <ul class="mb-6 divide-y divide-gray-200 ">
-                <li class="py-4">
-                  <div class="flex justify-between xl:block 2xl:flex align-center 2xl:space-x-4">
-                    <div class="flex space-x-4 xl:mb-4 2xl:mb-0">
+          <div className="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2  sm:p-6 ">
+            <div className="flow-root">
+              <h3 className="text-xl font-semibold ">Other accounts</h3>
+              <ul className="mb-6 divide-y divide-gray-200 ">
+                <li className="py-4">
+                  <div className="flex justify-between xl:block 2xl:flex align-center 2xl:space-x-4">
+                    <div className="flex space-x-4 xl:mb-4 2xl:mb-0">
                       <div>
                         <img
-                          class="w-6 h-6 rounded-full"
+                          className="w-6 h-6 rounded-full"
                           src="/images/users/bonnie-green.png"
                           alt="Bonnie image"
                         />
                       </div>
-                      <div class="flex-1 min-w-0">
-                        <p class="text-base font-semibold text-gray-900 leading-none truncate mb-0.5 ">
+                      <div className="flex-1 min-w-0">
+                        <p className="text-base font-semibold text-gray-900 leading-none truncate mb-0.5 ">
                           Bonnie Green
                         </p>
-                        <p class="mb-1 text-sm font-normal truncate text-primary-700 ">
+                        <p className="mb-1 text-sm font-normal truncate text-primary-700 ">
                           New York, USA
                         </p>
-                        <p class="text-xs font-medium text-gray-500 ">
+                        <p className="text-xs font-medium text-gray-500 ">
                           Last seen: 1 min ago
                         </p>
                       </div>
                     </div>
-                    <div class="inline-flex items-center w-auto xl:w-full 2xl:w-auto">
+                    <div className="inline-flex items-center w-auto xl:w-full 2xl:w-auto">
                       <a
                         href="#"
-                        class="w-full px-3 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300     "
+                        className="w-full px-3 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300     "
                       >
                         Disconnect
                       </a>
                     </div>
                   </div>
                 </li>
-                <li class="py-4">
-                  <div class="flex justify-between xl:block 2xl:flex align-center 2xl:space-x-4">
-                    <div class="flex space-x-4 xl:mb-4 2xl:mb-0">
+                <li className="py-4">
+                  <div className="flex justify-between xl:block 2xl:flex align-center 2xl:space-x-4">
+                    <div className="flex space-x-4 xl:mb-4 2xl:mb-0">
                       <div>
                         <img
-                          class="w-6 h-6 rounded-full"
+                          className="w-6 h-6 rounded-full"
                           src="/images/users/jese-leos.png"
                           alt="Jese image"
                         />
                       </div>
-                      <div class="flex-1 min-w-0">
-                        <p class="text-base font-semibold text-gray-900 leading-none truncate mb-0.5 ">
+                      <div className="flex-1 min-w-0">
+                        <p className="text-base font-semibold text-gray-900 leading-none truncate mb-0.5 ">
                           Jese Leos
                         </p>
-                        <p class="mb-1 text-sm font-normal truncate text-primary-700 ">
+                        <p className="mb-1 text-sm font-normal truncate text-primary-700 ">
                           California, USA
                         </p>
-                        <p class="text-xs font-medium text-gray-500 ">
+                        <p className="text-xs font-medium text-gray-500 ">
                           Last seen: 2 min ago
                         </p>
                       </div>
                     </div>
-                    <div class="inline-flex items-center w-auto xl:w-full 2xl:w-auto">
+                    <div className="inline-flex items-center w-auto xl:w-full 2xl:w-auto">
                       <a
                         href="#"
-                        class="w-full px-3 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300     "
+                        className="w-full px-3 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300     "
                       >
                         Disconnect
                       </a>
                     </div>
                   </div>
                 </li>
-                <li class="py-4">
-                  <div class="flex justify-between xl:block 2xl:flex align-center 2xl:space-x-4">
-                    <div class="flex space-x-4 xl:mb-4 2xl:mb-0">
+                <li className="py-4">
+                  <div className="flex justify-between xl:block 2xl:flex align-center 2xl:space-x-4">
+                    <div className="flex space-x-4 xl:mb-4 2xl:mb-0">
                       <div>
                         <img
-                          class="w-6 h-6 rounded-full"
+                          className="w-6 h-6 rounded-full"
                           src="/images/users/thomas-lean.png"
                           alt="Thomas image"
                         />
                       </div>
-                      <div class="flex-1 min-w-0">
-                        <p class="text-base font-semibold text-gray-900 leading-none truncate mb-0.5 ">
+                      <div className="flex-1 min-w-0">
+                        <p className="text-base font-semibold text-gray-900 leading-none truncate mb-0.5 ">
                           Thomas Lean
                         </p>
-                        <p class="mb-1 text-sm font-normal truncate text-primary-700 ">
+                        <p className="mb-1 text-sm font-normal truncate text-primary-700 ">
                           Texas, USA
                         </p>
-                        <p class="text-xs font-medium text-gray-500 ">
+                        <p className="text-xs font-medium text-gray-500 ">
                           Last seen: 1 hour ago
                         </p>
                       </div>
                     </div>
-                    <div class="inline-flex items-center w-auto xl:w-full 2xl:w-auto">
+                    <div className="inline-flex items-center w-auto xl:w-full 2xl:w-auto">
                       <a
                         href="#"
-                        class="w-full px-3 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300     "
+                        className="w-full px-3 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300     "
                       >
                         Disconnect
                       </a>
                     </div>
                   </div>
                 </li>
-                <li class="pt-4">
-                  <div class="flex justify-between xl:block 2xl:flex align-center 2xl:space-x-4">
-                    <div class="flex space-x-4 xl:mb-4 2xl:mb-0">
+                <li className="pt-4">
+                  <div className="flex justify-between xl:block 2xl:flex align-center 2xl:space-x-4">
+                    <div className="flex space-x-4 xl:mb-4 2xl:mb-0">
                       <div>
                         <img
-                          class="w-6 h-6 rounded-full"
+                          className="w-6 h-6 rounded-full"
                           src="/images/users/lana-byrd.png"
                           alt="Lana image"
                         />
                       </div>
-                      <div class="flex-1 min-w-0">
-                        <p class="text-base font-semibold text-gray-900 leading-none truncate mb-0.5 ">
+                      <div className="flex-1 min-w-0">
+                        <p className="text-base font-semibold text-gray-900 leading-none truncate mb-0.5 ">
                           Lana Byrd
                         </p>
-                        <p class="mb-1 text-sm font-normal truncate text-primary-700 ">
+                        <p className="mb-1 text-sm font-normal truncate text-primary-700 ">
                           Texas, USA
                         </p>
-                        <p class="text-xs font-medium text-gray-500 ">
+                        <p className="text-xs font-medium text-gray-500 ">
                           Last seen: 1 hour ago
                         </p>
                       </div>
                     </div>
-                    <div class="inline-flex items-center w-auto xl:w-full 2xl:w-auto">
+                    <div className="inline-flex items-center w-auto xl:w-full 2xl:w-auto">
                       <a
                         href="#"
-                        class="w-full px-3 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300     "
+                        className="w-full px-3 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300     "
                       >
                         Disconnect
                       </a>
@@ -400,102 +505,45 @@ const ProfileCard = () => {
                 </li>
               </ul>
               <div>
-                <button class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center   ">
+                <button className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center   ">
                   Save all
                 </button>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-span-2">
-          <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2  sm:p-6 ">
-            <h3 class="mb-4 text-xl font-semibold ">General information</h3>
-            <form action="#">
-              <div class="grid grid-cols-6 gap-6">
-                <div class="col-span-6 sm:col-span-3">
+        <div className="col-span-2">
+          <div className="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2  sm:p-6 ">
+            <h3 className="mb-4 text-xl font-semibold ">Información general</h3>
+            <div className="mb-4 text-sm text-gray-500 ">
+              Da doble click al campo que quieras editar para habilitar la
+              edición
+            </div>
+            <form action="#" onSubmit={handleFormSubmit}>
+              <div className="grid grid-cols-6 gap-6">
+                <div className="col-span-6 sm:col-span-3">
                   <label
-                    for="first-name"
-                    class="block mb-2 text-sm font-medium text-gray-900 "
+                    htmlFor="name"
+                    className="block mb-2 text-sm font-medium text-gray-900 "
                   >
-                    First Name
+                    Nombre
                   </label>
                   <input
                     type="text"
-                    name="first-name"
-                    id="first-name"
-                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
+                    name="name"
+                    id="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
                     placeholder="Bonnie"
-                    required
+                    readOnly={!isEditing.name}
+                    onDoubleClick={() => handleDoubleClick("name")}
                   />
                 </div>
-                <div class="col-span-6 sm:col-span-3">
+                <div className="col-span-6 sm:col-span-3">
                   <label
-                    for="last-name"
-                    class="block mb-2 text-sm font-medium text-gray-900 "
-                  >
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    name="last-name"
-                    id="last-name"
-                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
-                    placeholder="Green"
-                    required
-                  />
-                </div>
-                <div class="col-span-6 sm:col-span-3">
-                  <label
-                    for="country"
-                    class="block mb-2 text-sm font-medium text-gray-900 "
-                  >
-                    Country
-                  </label>
-                  <input
-                    type="text"
-                    name="country"
-                    id="country"
-                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
-                    placeholder="United States"
-                    required
-                  />
-                </div>
-                <div class="col-span-6 sm:col-span-3">
-                  <label
-                    for="city"
-                    class="block mb-2 text-sm font-medium text-gray-900 "
-                  >
-                    City
-                  </label>
-                  <input
-                    type="text"
-                    name="city"
-                    id="city"
-                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
-                    placeholder="e.g. San Francisco"
-                    required
-                  />
-                </div>
-                <div class="col-span-6 sm:col-span-3">
-                  <label
-                    for="address"
-                    class="block mb-2 text-sm font-medium text-gray-900 "
-                  >
-                    Address
-                  </label>
-                  <input
-                    type="text"
-                    name="address"
-                    id="address"
-                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
-                    placeholder="e.g. California"
-                    required
-                  />
-                </div>
-                <div class="col-span-6 sm:col-span-3">
-                  <label
-                    for="email"
-                    class="block mb-2 text-sm font-medium text-gray-900 "
+                    htmlFor="email"
+                    className="block mb-2 text-sm font-medium text-gray-900 "
                   >
                     Email
                   </label>
@@ -503,126 +551,76 @@ const ProfileCard = () => {
                     type="email"
                     name="email"
                     id="email"
-                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
-                    placeholder="example@company.com"
+                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="Bonnie"
                     required
+                    readOnly={!isEditing.email}
+                    onDoubleClick={() => handleDoubleClick("email")}
                   />
                 </div>
-                <div class="col-span-6 sm:col-span-3">
+
+                <div className="col-span-6 sm:col-span-3">
                   <label
-                    for="phone-number"
-                    class="block mb-2 text-sm font-medium text-gray-900 "
+                    htmlFor="address"
+                    className="block mb-2 text-sm font-medium text-gray-900 "
                   >
-                    Phone Number
-                  </label>
-                  <input
-                    type="number"
-                    name="phone-number"
-                    id="phone-number"
-                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
-                    placeholder="e.g. +(12)3456 789"
-                    required
-                  />
-                </div>
-                <div class="col-span-6 sm:col-span-3">
-                  <label
-                    for="birthday"
-                    class="block mb-2 text-sm font-medium text-gray-900 "
-                  >
-                    Birthday
-                  </label>
-                  <input
-                    type="number"
-                    name="birthday"
-                    id="birthday"
-                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
-                    placeholder="15/08/1990"
-                    required
-                  />
-                </div>
-                <div class="col-span-6 sm:col-span-3">
-                  <label
-                    for="organization"
-                    class="block mb-2 text-sm font-medium text-gray-900 "
-                  >
-                    Organization
+                    Dirección
                   </label>
                   <input
                     type="text"
-                    name="organization"
-                    id="organization"
-                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
-                    placeholder="Company Name"
-                    required
+                    name="address"
+                    id="address"
+                    value={formData.address}
+                    onChange={handleInputChange}
+                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
+                    placeholder="Bonnie"
+                    readOnly={!isEditing.address}
+                    onDoubleClick={() => handleDoubleClick("address")}
                   />
                 </div>
-                <div class="col-span-6 sm:col-span-3">
-                  <label
-                    for="role"
-                    class="block mb-2 text-sm font-medium text-gray-900 "
-                  >
-                    Role
-                  </label>
-                  <input
-                    type="text"
-                    name="role"
-                    id="role"
-                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
-                    placeholder="React Developer"
-                    required
-                  />
-                </div>
-                <div class="col-span-6 sm:col-span-3">
-                  <label
-                    for="department"
-                    class="block mb-2 text-sm font-medium text-gray-900 "
-                  >
-                    Department
-                  </label>
-                  <input
-                    type="text"
-                    name="department"
-                    id="department"
-                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
-                    placeholder="Development"
-                    required
-                  />
-                </div>
-                <div class="col-span-6 sm:col-span-3">
-                  <label
-                    for="zip-code"
-                    class="block mb-2 text-sm font-medium text-gray-900 "
-                  >
-                    Zip/postal code
-                  </label>
-                  <input
-                    type="number"
-                    name="zip-code"
-                    id="zip-code"
-                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
-                    placeholder="123456"
-                    required
-                  />
-                </div>
-                <div class="col-span-6 sm:col-full">
+
+                <div className="col-span-6 sm:col-full">
                   <button
-                    class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center   "
+                    onClick={handleFormSubmit}
                     type="submit"
+                    id="updateProductButton"
+                    data-drawer-target="drawer-update-basket-default"
+                    data-drawer-show="drawer-update-basket-default"
+                    aria-controls="drawer-update-basket-default"
+                    data-drawer-placement="right"
+                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-[#376543] hover:bg-[#1b7a2e] focus:ring-4 focus:ring-primary-300   "
                   >
-                    Save all
+                    <svg
+                      className="w-4 h-4 mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"></path>
+                      <path
+                        fillRule="evenodd"
+                        d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                        clipRule="evenodd"
+                      ></path>
+                    </svg>
+                    Actualizar
                   </button>
                 </div>
               </div>
             </form>
           </div>
-          <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2  sm:p-6 ">
-            <h3 class="mb-4 text-xl font-semibold ">Password information</h3>
+          <div className="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2  sm:p-6 ">
+            <h3 className="mb-4 text-xl font-semibold ">
+              Password information
+            </h3>
             <form action="#">
-              <div class="grid grid-cols-6 gap-6">
-                <div class="col-span-6 sm:col-span-3">
+              <div className="grid grid-cols-6 gap-6">
+                <div className="col-span-6 sm:col-span-3">
                   <label
-                    for="current-password"
-                    class="block mb-2 text-sm font-medium text-gray-900 "
+                    htmlFor="current-password"
+                    className="block mb-2 text-sm font-medium text-gray-900 "
                   >
                     Current password
                   </label>
@@ -630,15 +628,15 @@ const ProfileCard = () => {
                     type="text"
                     name="current-password"
                     id="current-password"
-                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
+                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
                     placeholder="••••••••"
                     required
                   />
                 </div>
-                <div class="col-span-6 sm:col-span-3">
+                <div className="col-span-6 sm:col-span-3">
                   <label
-                    for="password"
-                    class="block mb-2 text-sm font-medium text-gray-900 "
+                    htmlFor="password"
+                    className="block mb-2 text-sm font-medium text-gray-900 "
                   >
                     New password
                   </label>
@@ -647,7 +645,7 @@ const ProfileCard = () => {
                     data-popover-placement="bottom"
                     type="password"
                     id="password"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5      "
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5      "
                     placeholder="••••••••"
                     required
                   />
@@ -655,64 +653,64 @@ const ProfileCard = () => {
                     data-popover
                     id="popover-password"
                     role="tooltip"
-                    class="absolute z-10 invisible inline-block text-sm font-light text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72   "
+                    className="absolute z-10 invisible inline-block text-sm font-light text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72   "
                   >
-                    <div class="p-3 space-y-2">
-                      <h3 class="font-semibold text-gray-900 ">
+                    <div className="p-3 space-y-2">
+                      <h3 className="font-semibold text-gray-900 ">
                         Must have at least 6 characters
                       </h3>
-                      <div class="grid grid-cols-4 gap-2">
-                        <div class="h-1 bg-orange-300 "></div>
-                        <div class="h-1 bg-orange-300 "></div>
-                        <div class="h-1 bg-gray-200 "></div>
-                        <div class="h-1 bg-gray-200 "></div>
+                      <div className="grid grid-cols-4 gap-2">
+                        <div className="h-1 bg-orange-300 "></div>
+                        <div className="h-1 bg-orange-300 "></div>
+                        <div className="h-1 bg-gray-200 "></div>
+                        <div className="h-1 bg-gray-200 "></div>
                       </div>
                       <p>It’s better to have:</p>
                       <ul>
-                        <li class="flex items-center mb-1">
+                        <li className="flex items-center mb-1">
                           <svg
-                            class="w-4 h-4 mr-2 text-green-400 "
+                            className="w-4 h-4 mr-2 text-green-400 "
                             aria-hidden="true"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              fill-rule="evenodd"
+                              fillRule="evenodd"
                               d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                              clip-rule="evenodd"
+                              clipRule="evenodd"
                             ></path>
                           </svg>
                           Upper & lower case letters
                         </li>
-                        <li class="flex items-center mb-1">
+                        <li className="flex items-center mb-1">
                           <svg
-                            class="w-4 h-4 mr-2 text-gray-300 "
+                            className="w-4 h-4 mr-2 text-gray-300 "
                             aria-hidden="true"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              fill-rule="evenodd"
+                              fillRule="evenodd"
                               d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                              clip-rule="evenodd"
+                              clipRule="evenodd"
                             ></path>
                           </svg>
                           A symbol (#$&)
                         </li>
-                        <li class="flex items-center">
+                        <li className="flex items-center">
                           <svg
-                            class="w-4 h-4 mr-2 text-gray-300 "
+                            className="w-4 h-4 mr-2 text-gray-300 "
                             aria-hidden="true"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              fill-rule="evenodd"
+                              fillRule="evenodd"
                               d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                              clip-rule="evenodd"
+                              clipRule="evenodd"
                             ></path>
                           </svg>
                           A longer password (min. 12 chars.)
@@ -722,10 +720,10 @@ const ProfileCard = () => {
                     <div data-popper-arrow></div>
                   </div>
                 </div>
-                <div class="col-span-6 sm:col-span-3">
+                <div className="col-span-6 sm:col-span-3">
                   <label
-                    for="confirm-password"
-                    class="block mb-2 text-sm font-medium text-gray-900 "
+                    htmlFor="confirm-password"
+                    className="block mb-2 text-sm font-medium text-gray-900 "
                   >
                     Confirm password
                   </label>
@@ -733,14 +731,14 @@ const ProfileCard = () => {
                     type="text"
                     name="confirm-password"
                     id="confirm-password"
-                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
+                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
                     placeholder="••••••••"
                     required
                   />
                 </div>
-                <div class="col-span-6 sm:col-full">
+                <div className="col-span-6 sm:col-full">
                   <button
-                    class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center   "
+                    className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center   "
                     type="submit"
                   >
                     Save all
@@ -749,76 +747,76 @@ const ProfileCard = () => {
               </div>
             </form>
           </div>
-          <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2  sm:p-6 ">
-            <div class="flow-root">
-              <h3 class="text-xl font-semibold ">Sessions</h3>
-              <ul class="divide-y divide-gray-200 ">
-                <li class="py-4">
-                  <div class="flex items-center space-x-4">
-                    <div class="flex-shrink-0">
+          <div className="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2  sm:p-6 ">
+            <div className="flow-root">
+              <h3 className="text-xl font-semibold ">Sessions</h3>
+              <ul className="divide-y divide-gray-200 ">
+                <li className="py-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="flex-shrink-0">
                       <svg
-                        class="w-6 h-6 "
+                        className="w-6 h-6 "
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                         ></path>
                       </svg>
                     </div>
-                    <div class="flex-1 min-w-0">
-                      <p class="text-base font-semibold text-gray-900 truncate ">
+                    <div className="flex-1 min-w-0">
+                      <p className="text-base font-semibold text-gray-900 truncate ">
                         California 123.123.123.123
                       </p>
-                      <p class="text-sm font-normal text-gray-500 truncate ">
+                      <p className="text-sm font-normal text-gray-500 truncate ">
                         Chrome on macOS
                       </p>
                     </div>
-                    <div class="inline-flex items-center">
+                    <div className="inline-flex items-center">
                       <a
                         href="#"
-                        class="px-3 py-2 mb-3 mr-3 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300     "
+                        className="px-3 py-2 mb-3 mr-3 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300     "
                       >
                         Revoke
                       </a>
                     </div>
                   </div>
                 </li>
-                <li class="pt-4 pb-6">
-                  <div class="flex items-center space-x-4">
-                    <div class="flex-shrink-0">
+                <li className="pt-4 pb-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="flex-shrink-0">
                       <svg
-                        class="w-6 h-6 "
+                        className="w-6 h-6 "
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
                         ></path>
                       </svg>
                     </div>
-                    <div class="flex-1 min-w-0">
-                      <p class="text-base font-semibold text-gray-900 truncate ">
+                    <div className="flex-1 min-w-0">
+                      <p className="text-base font-semibold text-gray-900 truncate ">
                         Rome 24.456.355.98
                       </p>
-                      <p class="text-sm font-normal text-gray-500 truncate ">
+                      <p className="text-sm font-normal text-gray-500 truncate ">
                         Safari on iPhone
                       </p>
                     </div>
-                    <div class="inline-flex items-center">
+                    <div className="inline-flex items-center">
                       <a
                         href="#"
-                        class="px-3 py-2 mb-3 mr-3 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300     "
+                        className="px-3 py-2 mb-3 mr-3 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300     "
                       >
                         Revoke
                       </a>
@@ -827,7 +825,7 @@ const ProfileCard = () => {
                 </li>
               </ul>
               <div>
-                <button class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center   ">
+                <button className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center   ">
                   See more
                 </button>
               </div>

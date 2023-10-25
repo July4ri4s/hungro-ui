@@ -18,6 +18,17 @@ export const CREATE_DONOR_MUTATION = gql`
     }
   }
 `;
+export const UPDATE_DONOR_MUTATION = gql`
+  mutation Mutation($updateDonorId: ID!, $input: DonorInput) {
+    updateDonor(id: $updateDonorId, input: $input) {
+      id
+      name
+      email
+      password
+      address
+    }
+  }
+`;
 
 export const CREATE_ORGANIZATION_MUTATION = gql`
   mutation CreateOrganization($input: OrganizationInput!) {
