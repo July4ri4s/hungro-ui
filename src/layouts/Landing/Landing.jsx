@@ -17,8 +17,8 @@ const Landing = () => {
       <Menu />
       <Hero />
       <Card imageUrl={imageUrl} />
-      <Donacion/>
-      <Productos2/>
+      <Donacion />
+      <Productos2 />
       <Values />
       <SliderCard />
       <Footer />

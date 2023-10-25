@@ -6,7 +6,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import "./App.css";
-import Landing from "./layouts/landing";
+import Landing from "./layouts/Landing/Landing";
 import Nosotros from "./layouts/nosotros";
 import Donacion from "./layouts/donacion";
 import SignIn from "./layouts/Autenticacion/SignIn/SignIn";
