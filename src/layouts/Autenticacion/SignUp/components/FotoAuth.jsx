@@ -1,7 +1,7 @@
 import React from "react";
 // import donacion from "../../../../../../img/donacion.jpg";
 
-const Foto = () => {
+const FotoAuth = () => {
   return (
     <div className="relative hidden md:flex px-52 py-64  rounded-md  bg-slate-500 ml-9">
       <img
@@ -13,4 +13,4 @@ const Foto = () => {
   );
 };
 
-export default Foto;
+export default FotoAuth;
