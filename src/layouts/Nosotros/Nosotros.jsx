@@ -1,5 +1,5 @@
 import Footer from "../../components/Footer";
-import Menu from "../../components/menu";
+import Menu from "../../components/Menu";
 import AboutHero from "./components/AboutHero";
 
 const Nosotros = () => {

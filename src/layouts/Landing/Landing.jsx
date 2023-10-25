@@ -6,7 +6,7 @@ import Values from "./components/Values";
 import Productos from "./components/Productos";
 import Productos2 from "./components/Productos2";
 import Donacion from "./components/donations";
-import Menu from "../../components/menu";
+import Menu from "../../components/Menu";
 
 const Landing = () => {
   const imageUrl =
