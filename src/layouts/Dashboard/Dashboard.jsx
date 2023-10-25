@@ -1023,8 +1023,6 @@ const Dashboard = () => {
                                 >
                                   Método de entrega
                                 </th>
-
-                          
                               </tr>
                             </thead>
 
@@ -1885,7 +1883,53 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
-                <div className="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-2 2xl:grid-cols-3">
+
+                <div className="p-4 bg-white border border-gray-200 rounded-lg shadow-sm  sm:p-6 mt-5">
+                  {/* <!-- Card header --> */}
+                  <div className="items-center justify-between lg:flex-col">
+                    <div className="mb-4 lg:mb-0">
+                      <h3 className="mb-2 text-xl font-bold text-gray-900 ">
+                        Campañas a las que puedes apoyar
+                      </h3>
+                      <span className="text-base font-normal text-gray-500 ">
+                        Elegí una campaña y sé parte del cambio
+                      </span>
+                    </div>
+
+                    <div className="mt-10 flex flex-wrap -mx-1 lg:-mx-4 ">
+                      {campaigns &&
+                        campaigns?.map((campaign) => (
+                          <div className="relative flex m-4 flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border">
+                            <div className="rounded-xl relative">
+                              <div className="absolute w-full h-full bg-black/50 rounded-xl text-white">
+                                <p className="font-bold text-2xl px-2 pt-4">
+                                  {campaign.name}{" "}
+                                </p>
+                                <p className="px-2">{campaign.name}</p>
+
+                                <button
+                                  className="text-white bg-[#376543] hover:bg-[#1b7a2e] focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5    focus:outline-none border-none mx-[16rem] absolute bottom-4"
+                                  type="button"
+                                  data-drawer-target="drawer-create-product-default"
+                                  data-drawer-show="drawer-create-product-default"
+                                  aria-controls="drawer-create-product-default"
+                                  data-drawer-placement="right"
+                                >
+                                  Apoyar
+                                </button>
+                              </div>
+                              <img
+                                className="max-h-[160px]  md:max-h-[200px] w-full object-cover rounded-xl"
+                                src="https://images.pexels.com/photos/8078423/pexels-photo-8078423.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                                alt="/"
+                              />
+                            </div>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                </div>
+                {/* <div className="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-2 2xl:grid-cols-3">
                   {campaigns &&
                     campaigns?.map((campaign) => (
                       <div className="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex  sm:p-6 ">
@@ -1908,7 +1952,7 @@ const Dashboard = () => {
                         <div className="w-full" id="new-products-chart"></div>
                       </div>
                     ))}
-                </div>
+                </div> */}
 
                 <DonorProducts />
                 <div className="p-4 bg-white border border-gray-200 rounded-lg shadow-sm  sm:p-6 mt-5">

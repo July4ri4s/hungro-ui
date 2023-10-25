@@ -35,82 +35,113 @@ const DonorProducts = () => {
         <div className="mt-10 flex flex-wrap -mx-1 lg:-mx-4 ">
           {data?.getProducts &&
             data?.getProducts?.map((product) => (
-              <div className=" w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow  m-auto my-5">
-                <div className="px-5 pb-5">
-                  <a href="#">
-                    <h5 className="text-xl font-semibold tracking-tight text-gray-900 ">
-                      Categoría del producto: {product.category}
-                    </h5>
-                  </a>
-                  <div className="flex items-center mt-2.5 mb-5">
-                    <svg
-                      className="w-4 h-4 text-yellow-300 mr-1"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 22 20"
-                    >
-                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                    </svg>
-                    <svg
-                      className="w-4 h-4 text-yellow-300 mr-1"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 22 20"
-                    >
-                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                    </svg>
-                    <svg
-                      className="w-4 h-4 text-yellow-300 mr-1"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 22 20"
-                    >
-                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                    </svg>
-                    <svg
-                      className="w-4 h-4 text-yellow-300 mr-1"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 22 20"
-                    >
-                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                    </svg>
-                    <svg
-                      className="w-4 h-4 text-gray-200 "
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 22 20"
-                    >
-                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                    </svg>
-                    <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded ">
-                      5.0
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-3xl font-bold text-gray-900 ">
-                      {product.name}
-                    </span>
-                    <button
-                      id="createProductButton"
-                      className="text-white bg-[#376543] hover:bg-[#1b7a2e] focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5   focus:outline-none "
-                      type="button"
-                      data-drawer-target="drawer-create-product-default"
-                      data-drawer-show="drawer-create-product-default"
-                      aria-controls="drawer-create-product-default"
-                      data-drawer-placement="right"
-                      onClick={() => openModal(product)}
-                    >
-                      Donar producto
-                    </button>
-                  </div>
+              <div className="relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border">
+                <div className="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
+                  <img
+                    src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                    alt="img-blur-shadow"
+                    layout="fill"
+                  />
+                </div>
+                <div className="p-6">
+                  <h5 className="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                    {product.name}
+                  </h5>
+                  <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
+                    Categoría del producto: {product.category}
+                  </p>
+                </div>
+                <div className="p-6 pt-0 my-10">
+                  <button
+                    id="createProductButton"
+                    className="text-white bg-[#376543] hover:bg-[#1b7a2e] focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5   focus:outline-none "
+                    type="button"
+                    data-drawer-target="drawer-create-product-default"
+                    data-drawer-show="drawer-create-product-default"
+                    aria-controls="drawer-create-product-default"
+                    data-drawer-placement="right"
+                    onClick={() => openModal(product)}
+                  >
+                    Donar producto
+                  </button>
                 </div>
               </div>
+              // <div className=" w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow  m-auto my-5">
+              //   <div className="px-5 pb-5">
+              //     <a href="#">
+              //       <h5 className="text-xl font-semibold tracking-tight text-gray-900 ">
+              //         Categoría del producto: {product.category}
+              //       </h5>
+              //     </a>
+              //     <div className="flex items-center mt-2.5 mb-5">
+              //       <svg
+              //         className="w-4 h-4 text-yellow-300 mr-1"
+              //         aria-hidden="true"
+              //         xmlns="http://www.w3.org/2000/svg"
+              //         fill="currentColor"
+              //         viewBox="0 0 22 20"
+              //       >
+              //         <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+              //       </svg>
+              //       <svg
+              //         className="w-4 h-4 text-yellow-300 mr-1"
+              //         aria-hidden="true"
+              //         xmlns="http://www.w3.org/2000/svg"
+              //         fill="currentColor"
+              //         viewBox="0 0 22 20"
+              //       >
+              //         <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+              //       </svg>
+              //       <svg
+              //         className="w-4 h-4 text-yellow-300 mr-1"
+              //         aria-hidden="true"
+              //         xmlns="http://www.w3.org/2000/svg"
+              //         fill="currentColor"
+              //         viewBox="0 0 22 20"
+              //       >
+              //         <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+              //       </svg>
+              //       <svg
+              //         className="w-4 h-4 text-yellow-300 mr-1"
+              //         aria-hidden="true"
+              //         xmlns="http://www.w3.org/2000/svg"
+              //         fill="currentColor"
+              //         viewBox="0 0 22 20"
+              //       >
+              //         <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+              //       </svg>
+              //       <svg
+              //         className="w-4 h-4 text-gray-200 "
+              //         aria-hidden="true"
+              //         xmlns="http://www.w3.org/2000/svg"
+              //         fill="currentColor"
+              //         viewBox="0 0 22 20"
+              //       >
+              //         <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+              //       </svg>
+              //       <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded ">
+              //         5.0
+              //       </span>
+              //     </div>
+              //     <div className="flex items-center justify-between">
+              //       <span className="text-3xl font-bold text-gray-900 ">
+              //         {product.name}
+              //       </span>
+              //       <button
+              //         id="createProductButton"
+              //         className="text-white bg-[#376543] hover:bg-[#1b7a2e] focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5   focus:outline-none "
+              //         type="button"
+              //         data-drawer-target="drawer-create-product-default"
+              //         data-drawer-show="drawer-create-product-default"
+              //         aria-controls="drawer-create-product-default"
+              //         data-drawer-placement="right"
+              //         onClick={() => openModal(product)}
+              //       >
+              //         Donar producto
+              //       </button>
+              //     </div>
+              //   </div>
+              // </div>
             ))}
 
           {modalProduct && (
