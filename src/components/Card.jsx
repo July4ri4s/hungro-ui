@@ -5,7 +5,7 @@ const Card = ({ imageUrl }) => {
   const carita = "../../src/assets/caritaa.png";
   const corazon = "../../src/assets/corazon2.png";
   return (
-    <section className="w-screen flex justify-center items-center p-4 relative md:top-[-11rem]">
+    <section className="w-screen flex justify-center items-center p-4 relative md:top-[-11rem] z-10">
       <div className="w-full flex flex-col md:flex-row flex-wrap justify-center md:items-end items-center space-y-4 md:space-y-0 md:space-x-4">
         <div className="flex flex-col items-center space-y-4">
           <div
