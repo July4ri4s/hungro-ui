@@ -1,12 +1,12 @@
 import Card from "../../components/Card";
 import Footer from "../../components/Footer";
 import SliderCard from "../../components/SliderCard";
-import Menu from "../../components/menu";
 import Hero from "./components/Hero";
 import Values from "./components/Values";
 import Productos from "./components/Productos";
 import Productos2 from "./components/Productos2";
 import Donacion from "./components/donations";
+import Menu from "../../components/menu";
 
 const Landing = () => {
   const imageUrl =

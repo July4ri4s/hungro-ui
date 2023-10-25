@@ -1,5 +1,5 @@
-import Menu from "../../components/menu";
 import Footer from "../../components/Footer";
+import Menu from "../../components/menu";
 import Formulario from "./components/form";
 
 const Contacto = () => {
