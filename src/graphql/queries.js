@@ -16,14 +16,13 @@ export const GET_DONORS = gql`
 
 export const GET_DONOR = gql`
   query GetDonor($getDonorId: ID!) {
-  getDonor(id: $getDonorId) {
-    name
-    email
-    address
+    getDonor(id: $getDonorId) {
+      name
+      email
+      address
+    }
   }
-}
 `;
-
 
 export const GET_ME = gql`
   query getMe {
@@ -105,6 +104,9 @@ export const GET_BASKETS = gql`
     getBaskets {
       organization {
         id
+        name
+      }
+      products {
         name
       }
       id

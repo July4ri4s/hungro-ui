@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Header = ({ setShowModal }) => {
+const Header = ({ setShowModal, searchTerm, onSearchChange }) => {
   return (
     <div className="p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5  ">
       <div className="w-full mb-1">
@@ -87,13 +87,13 @@ const Header = ({ setShowModal }) => {
                   id="products-search"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
                   placeholder="Buscar"
+                  value={searchTerm}
+                  onChange={onSearchChange}
                 />
               </div>
             </form>
             <div className="flex items-center w-full sm:justify-end">
-              <div className="flex pl-2 space-x-1">
-
-              </div>
+              <div className="flex pl-2 space-x-1"></div>
             </div>
           </div>
           <button

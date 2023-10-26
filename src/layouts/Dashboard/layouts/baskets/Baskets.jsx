@@ -17,6 +17,11 @@ const Baskets = () => {
   const [showModal, setShowModal] = useState(false);
   const { refetch } = useQuery(GET_BASKETS);
 
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
   return (
     <>
       {/* Aquí va el component NavBar */}
@@ -31,8 +36,12 @@ const Baskets = () => {
         >
           <main>
             <div className="px-4 pt-6">
-              <Header setShowModal={setShowModal} />
-              <BasketsTable refetch={refetch} />
+              <Header
+                setShowModal={setShowModal}
+                searchTerm={searchTerm}
+                onSearchChange={handleSearchChange}
+              />
+              <BasketsTable refetch={refetch} searchTerm={searchTerm} />
 
               {showModal ? (
                 <AddBasketModal

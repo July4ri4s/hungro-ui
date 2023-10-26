@@ -41,7 +41,7 @@ const Header = ({ setShowModal, searchTerm, onSearchChange }) => {
                     href="#"
                     className="ml-1 text-gray-700 hover:text-primary-600 md:ml-2  "
                   >
-                    Donaciones
+                    Productos
                   </a>
                 </div>
               </li>
@@ -63,7 +63,7 @@ const Header = ({ setShowModal, searchTerm, onSearchChange }) => {
                     className="ml-1 text-gray-400 md:ml-2 "
                     aria-current="page"
                   >
-                    Products
+                    Productos
                   </span>
                 </div>
               </li>

@@ -14,6 +14,13 @@ const Campaigns = () => {
   const [showModal, setShowModal] = useState(false);
 
   const { refetch } = useQuery(GET_CAMPAIGNS);
+
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
   return (
     <>
       {/* Aquí va el component NavBar */}
@@ -28,9 +35,13 @@ const Campaigns = () => {
         >
           <main>
             <div className="px-4 pt-6">
-              <Header setShowModal={setShowModal} />
+              <Header
+                setShowModal={setShowModal}
+                searchTerm={searchTerm}
+                onSearchChange={handleSearchChange}
+              />
               {/* <CampaignsTable refetch={refetch} /> */}
-              <CampaignsTable refetch={refetch} />
+              <CampaignsTable refetch={refetch} searchTerm={searchTerm} />
               {showModal ? (
                 <AddCampaignModal
                   close={() => {

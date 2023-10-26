@@ -441,7 +441,7 @@ const NavBar = () => {
                       ></path>
                     </svg>
                     <div className="text-sm font-medium text-gray-900 ">
-                      Products
+                      Productos
                     </div>
                   </a>
                   <a
