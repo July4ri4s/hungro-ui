@@ -5,8 +5,11 @@ import Header from "./components/Header";
 import UsersTable from "./components/UsersTable";
 import Pagination from "./components/Pagination";
 import EditUserModal from "./components/EditUserModal";
+import { isAuth } from "../../../../utils/auth";
 
 const Users = () => {
+  isAuth();
+
   const [showModal, setShowModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 

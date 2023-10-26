@@ -41,7 +41,7 @@ const Header = ({ searchTerm, onSearchChange }) => {
                     href="#"
                     className="ml-1 text-gray-700 hover:text-primary-600 md:ml-2"
                   >
-                    Users
+                    Usuarios
                   </a>
                 </div>
               </li>
@@ -63,7 +63,7 @@ const Header = ({ searchTerm, onSearchChange }) => {
                     className="ml-1 text-gray-400 md:ml-2"
                     aria-current="page"
                   >
-                    List
+                    Lista
                   </span>
                 </div>
               </li>
@@ -91,9 +91,7 @@ const Header = ({ searchTerm, onSearchChange }) => {
                 />
               </div>
             </form>
-            <div className="flex pl-0 mt-3 space-x-1 sm:pl-2 sm:mt-0">
-
-            </div>
+            <div className="flex pl-0 mt-3 space-x-1 sm:pl-2 sm:mt-0"></div>
           </div>
           <div className="flex items-center ml-auto space-x-2 sm:space-x-3">
             <button
@@ -115,7 +113,6 @@ const Header = ({ searchTerm, onSearchChange }) => {
               </svg>
               Add user
             </button>
-
           </div>
         </div>
       </div>

@@ -10,7 +10,11 @@ import { isAuth } from "../../../../utils/auth";
 const Donations = () => {
   isAuth();
   const { refetch } = useQuery(GET_DONATIONS);
+  const [searchTerm, setSearchTerm] = useState("");
 
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
   return (
     <>
       {/* Aquí va el component NavBar */}
@@ -25,8 +29,11 @@ const Donations = () => {
         >
           <main>
             <div className="px-4 pt-6">
-              <Header />
-              <DonationsTable refetch={refetch} />
+              <Header
+                searchTerm={searchTerm}
+                onSearchChange={handleSearchChange}
+              />
+              <DonationsTable refetch={refetch} searchTerm={searchTerm} />
             </div>
           </main>
 

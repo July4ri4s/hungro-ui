@@ -4,7 +4,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { formatDateString } from "../../../../../utils/FormatDate";
 import { DELETE_DONATION_MUTATION } from "../../../../../graphql/mutations";
 
-const DonationsTable = ({refetch}) => {
+const DonationsTable = ({ refetch, searchTerm }) => {
   const { data: meData, loading: meLoading, error: meError } = useQuery(GET_ME);
 
   const { data, loading, error } = useQuery(GET_DONATIONS);
@@ -18,7 +18,9 @@ const DonationsTable = ({refetch}) => {
   const organizationId = meData?.getMe?.organization?.id;
 
   const myDonations = data?.getDonations?.filter(
-    (donation) => donation?.organization?.id === organizationId
+    (donation) =>
+      donation?.organization?.id === organizationId &&
+      donation?.product?.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
   const handleDeleteClick = (donationId) => {
     setShowDeleteModal(true);

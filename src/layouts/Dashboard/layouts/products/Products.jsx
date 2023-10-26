@@ -13,6 +13,11 @@ const Products = () => {
   const [showModal, setShowModal] = useState(false);
   const { refetch } = useQuery(GET_PRODUCTS);
 
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
   return (
     <>
       {/* Aquí va el component NavBar */}
@@ -27,8 +32,12 @@ const Products = () => {
         >
           <main>
             <div className="px-4 pt-6">
-              <Header setShowModal={setShowModal} />
-              <ProductsTable refetch={refetch} />
+              <Header
+                setShowModal={setShowModal}
+                searchTerm={searchTerm}
+                onSearchChange={handleSearchChange}
+              />
+              <ProductsTable refetch={refetch} searchTerm={searchTerm} />
 
               {showModal ? (
                 <AddProducModal
