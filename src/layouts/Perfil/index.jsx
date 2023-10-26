@@ -1,5 +1,4 @@
-import Menu from "../../components/menu";
-
+import Menu from "../../components/Menu.jsx";
 const Perfil = () => {
   return (
     <div>

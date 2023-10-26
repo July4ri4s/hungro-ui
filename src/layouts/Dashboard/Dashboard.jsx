@@ -74,14 +74,7 @@ const Dashboard = () => {
                         <span className="text-xl font-bold leading-none text-gray-900 sm:text-2xl ">
                           {user.name}
                         </span>
-                        {/* {data?.getDonors?.map((donor, index) => {
-                          <>
-                            <span className="text-xl font-bold leading-none text-gray-900 sm:text-2xl ">
-                              {name}
-                            </span>
-                            <h1 key={index}>{donor.name}</h1>;
-                          </>;
-                        })} */}
+
                         <h3 className="text-base font-light text-gray-500 ">
                           Esta semana
                         </h3>
