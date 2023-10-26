@@ -4,7 +4,7 @@ import SliderCard from "../../components/SliderCard";
 import Hero from "./components/Hero";
 import Values from "./components/Values";
 import Productos from "./components/Productos";
-import Productos2 from "./components/Productos2";
+
 import Donacion from "./components/donations";
 import Menu from "../../components/Menu";
 
@@ -18,7 +18,7 @@ const Landing = () => {
       <Hero />
       <Card imageUrl={imageUrl} />
       <Donacion />
-      <Productos2 />
+      <Productos />
       <Values />
       <SliderCard />
       <Footer />

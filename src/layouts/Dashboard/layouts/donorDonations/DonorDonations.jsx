@@ -10,6 +10,11 @@ const DonorDonations = () => {
   isAuth();
   const [showModal, setShowModal] = useState(false);
 
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
   return (
     <>
       {/* Aquí va el component NavBar */}
@@ -24,9 +29,13 @@ const DonorDonations = () => {
         >
           <main>
             <div className="px-4 pt-6">
-              <Header setShowModal={setShowModal} />
+              <Header
+                setShowModal={setShowModal}
+                searchTerm={searchTerm}
+                onSearchChange={handleSearchChange}
+              />
 
-              <DonationsTable />
+              <DonationsTable searchTerm={searchTerm} />
 
               {showModal ? (
                 <AddProducModal

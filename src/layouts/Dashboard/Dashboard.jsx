@@ -1928,16 +1928,7 @@ const Dashboard = () => {
                                 </p>
                                 <p className="px-2">{campaign.name}</p>
 
-                                <button
-                                  className="text-white bg-[#376543] hover:bg-[#1b7a2e] focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5    focus:outline-none border-none mx-[16rem] absolute bottom-4"
-                                  type="button"
-                                  data-drawer-target="drawer-create-product-default"
-                                  data-drawer-show="drawer-create-product-default"
-                                  aria-controls="drawer-create-product-default"
-                                  data-drawer-placement="right"
-                                >
-                                  Apoyar
-                                </button>
+
                               </div>
                               <img
                                 className="max-h-[160px]  md:max-h-[200px] w-full object-cover rounded-xl"
@@ -2170,12 +2161,6 @@ const Dashboard = () => {
                                   Cantidad
                                 </th>
 
-                                <th
-                                  scope="col"
-                                  className="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase "
-                                >
-                                  Estado
-                                </th>
                               </tr>
                             </thead>
 

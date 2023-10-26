@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Header = ({ setShowModal }) => {
+const Header = ({ setShowModal, searchTerm, onSearchChange }) => {
   const [userType, setUserType] = useState("dmkmk");
 
   return (
@@ -89,6 +89,8 @@ const Header = ({ setShowModal }) => {
                   id="products-search"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5    "
                   placeholder="Buscar"
+                  value={searchTerm}
+                  onChange={onSearchChange}
                 />
               </div>
             </form>

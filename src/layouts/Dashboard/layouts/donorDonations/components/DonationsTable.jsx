@@ -4,7 +4,7 @@ import { formatDateString } from "../../../../../utils/FormatDate";
 
 import { useQuery } from "@apollo/client";
 
-const DonationsTable = ({ refetch }) => {
+const DonationsTable = ({ refetch, searchTerm }) => {
   const { data: meData, loading: meLoading, error: meError } = useQuery(GET_ME);
   const { data, loading, error } = useQuery(GET_DONATIONS);
 
@@ -37,7 +37,9 @@ const DonationsTable = ({ refetch }) => {
   const donorId = meData?.getMe?.donor?.id;
 
   const myDonations = data?.getDonations?.filter(
-    (donation) => donation.donor.id === donorId
+    (donation) =>
+      donation.donor.id === donorId &&
+      donation.product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
