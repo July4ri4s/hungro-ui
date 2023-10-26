@@ -118,7 +118,9 @@ const BasketsTable = ({ refetch }) => {
                       <td className="p-4 text-base font-medium text-gray-900 whitespace-nowrap ">
                         {formatDateString(basket?.deliveryDate)}
                       </td>
-                      <td className="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs "></td>
+                      <td className="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs ">
+                      {basket?.organization.name}
+                      </td>
 
                       <td className="p-4 space-x-2 whitespace-nowrap">
                         <button

@@ -5,7 +5,7 @@ import Menu from "../../components/menu";
 import Hero from "./components/Hero";
 import Values from "./components/Values";
 import Productos from "./components/Productos";
-import Productos2 from "./components/Productos2";
+
 import Donacion from "./components/donations";
 
 const Landing = () => {
@@ -17,8 +17,8 @@ const Landing = () => {
       <Menu />
       <Hero />
       <Card imageUrl={imageUrl} />
-      <Donacion/>
-      <Productos2/>
+      <Donacion />
+      <Productos />
       <Values />
       <SliderCard />
       <Footer />

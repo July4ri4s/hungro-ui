@@ -25,7 +25,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0 md:flex-col md:space-y-2">
+            <ul className="flex flex-col items-center mb-6 text-sm font-medium text-white sm:mb-0 md:flex-col md:space-y-2">
               <li>
                 <a href="/" className="hover:underline ">
                   Inicio
